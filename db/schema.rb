@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_19_150832) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_19_152059) do
   create_table "companies", force: :cascade do |t|
     t.string "siren"
     t.string "name"
@@ -18,6 +18,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_19_150832) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_companies_on_user_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "reference"
+    t.string "brand"
+    t.string "model"
+    t.string "color"
+    t.float "price"
+    t.float "size"
+    t.integer "company_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_items_on_company_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,4 +52,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_19_150832) do
   end
 
   add_foreign_key "companies", "users"
+  add_foreign_key "items", "companies"
 end
