@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_19_152059) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_19_153317) do
+  create_table "carts", force: :cascade do |t|
+    t.date "validated_on"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_carts_on_user_id"
+  end
+
   create_table "companies", force: :cascade do |t|
     t.string "siren"
     t.string "name"
@@ -33,6 +41,26 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_19_152059) do
     t.index ["company_id"], name: "index_items_on_company_id"
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.integer "order_id", null: false
+    t.integer "item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_order_items_on_item_id"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.date "ordered_on"
+    t.string "status"
+    t.integer "cart_id", null: false
+    t.integer "company_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_orders_on_cart_id"
+    t.index ["company_id"], name: "index_orders_on_company_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -51,6 +79,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_19_152059) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "carts", "users"
   add_foreign_key "companies", "users"
   add_foreign_key "items", "companies"
+  add_foreign_key "order_items", "items"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "orders", "carts"
+  add_foreign_key "orders", "companies"
 end
