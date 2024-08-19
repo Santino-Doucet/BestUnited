@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reference: MyString
+  brand: MyString
+  model: MyString
+  color: MyString
+  price: 1.5
+  size: 1.5
+  company: one
+
+two:
+  reference: MyString
+  brand: MyString
+  model: MyString
+  color: MyString
+  price: 1.5
+  size: 1.5
+  company: two
