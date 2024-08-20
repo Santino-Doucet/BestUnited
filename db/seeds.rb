@@ -21,9 +21,7 @@ commercant = User.create!(
   password: 'password',
   age: 21,
   gender: 'male',
-  address: '22 rue des capucins',
-  longitude: 21,
-  latitude: 21,
+  address: '22 rue des capucins Lyon',
   phone_number: '0601020304',
   first_name: 'commercant',
   last_name: 'gifi'
@@ -36,8 +34,6 @@ user = User.create!(
   age: 21,
   gender: 'male',
   address: '22 rue des capucins',
-  longitude: 21,
-  latitude: 21,
   phone_number: '0601020305',
   first_name: 'user',
   last_name: 'lambda'
@@ -48,6 +44,7 @@ puts "Create company"
 company = Company.create!(
   siren: '09909009990090090',
   name: 'test company',
+  address: '4 rue des capucins Lyon',
   user: commercant
 )
 
