@@ -1,22 +1,31 @@
 class MyStocksController < ApplicationController
-  def index
-  end
 
   def show
+    @items = current_stock
   end
 
-  def new
+  def show_item
+    @item = Item.find(params[:id])
   end
 
-  def edit
+  def add_item
+    @item = Item.new
   end
 
-  def create
+  def create_item
+
   end
 
-  def update
+
+  def edit_item
+
   end
 
-  def destroy
+  def update_item
+
+  end
+
+  def destroy_item
+
   end
 end
