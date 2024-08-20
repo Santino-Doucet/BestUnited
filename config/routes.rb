@@ -1,6 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#index"
+  resources :items, only: [:index, :show]
+
+  resources :carts, only: [:index, :show, :edit, :update] do
+    resources :items, only: [:edit, :update]
+  end
+
+  get '/dashboard', to: 'users#show', as: 'dashboard'
+
+  resources :my_stocks, only: [:index, :show, :new, :create] do
+    resources :items, only: [:edit, :destroy]
+  end
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
