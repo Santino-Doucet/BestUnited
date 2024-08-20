@@ -13,7 +13,8 @@
  *= require_tree .
  *= require_self
  */
+@require url('components/index')
 
- @import "pages/index.css";
- @import "components/_footer.css";
- @import "style.css";
+@import "pages/index.css";
+@import "components/_footer.css";
+@import "style.css";

@@ -1,0 +1,143 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5ebe0;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.part-1 {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  background-color: #f5ebe0;
+  border-radius: 8px;
+}
+
+.part-1 h1 {
+  color: black;
+  font-size: 20px;
+}
+
+.part-1 h2 {
+  color: #CB680C;
+  font-size: 14px;
+  margin: 10px 0;
+  font-weight: lighter;
+}
+
+.part-1 p.total-revenue {
+  font-size: 36px;
+  color: #CB680C;
+  margin: 0;
+  padding-bottom: 4px;
+}
+
+.kpi {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 12px;
+}
+
+.kpi div {
+  display: flex;
+  background-color: #f4a460;
+  padding: 4px;
+  border-radius: 16px;
+  text-align: center;
+  flex-direction: column;
+  height:88px;
+  width: 160px;
+  margin-top: 10px;
+  border: 3px solid white;
+}
+
+.kpi h2 {
+  color: white;
+  font-size: 18px;
+}
+
+.kpi p {
+  font-size: 24px;
+  color: #333;
+  margin:0px
+}
+
+.chart {
+  background-color: #f5ebe0;
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.chart h1 {
+  color: black;
+  font-size: 12px;
+}
+
+.chart select {
+  margin-bottom: 20px;
+}
+
+.best-sellers {
+  background-color: #f5ebe0;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.best-sellers h1 {
+  color: black;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.card-best-sellers {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-best-sellers .card {
+  background-color: #ffe4c4;
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stock {
+  background-color: #f5ebe0;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.stock h1 {
+  font-size: 16px;
+  color: black;
+}
+
+
+.stock h2 {
+  color:#CB680C;
+  font-size: 16px;
+}
+
+
+.stock p {
+  color:#CB680C;
+  font-size: 36px;
+}
+
+#date-value {
+  background-color:rgb(254,244,223);
+  border-radius: 12px;
+  border:3px solid white;
+}

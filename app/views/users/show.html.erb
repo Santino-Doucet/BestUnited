@@ -1,3 +1,46 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<div data-controller="graph" id="chart"></div>
+<div class="dashboard">
+  <div class="part-1">
+      <h1>Tableau de bord</h1>
+      <h2>Total revenus</h2>
+      <p class="total-revenue">29,402€</p>
+  </div>
+
+  <div class="kpi">
+      <div class="average-basket">
+          <h2>Panier moyen</h2>
+          <p>99,95€</p>
+      </div>
+      <div class="total-orders">
+          <h2>Total commandes</h2>
+          <p>435</p>
+      </div>
+  </div>
+
+  <div class="chart">
+      <h1>Statistiques</h1>
+      <select name="date-value" id="date-value">
+          <option value="day">Jour</option>
+          <option value="week">Semaine</option>
+          <option value="month">Mois</option>
+          <option value="year">Année</option>
+      </select>
+      <div class="bar-chart">
+        <div data-controller="graph" id="chart"></div>
+      </div>
+  </div>
+
+  <div class="best-sellers">
+      <h1>Top 3 des meilleures ventes</h1>
+      <div class="card-best-sellers">
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+      </div>
+  </div>
+
+  <div class="stock">
+      <h1>Stock</h1>
+      <h2>Valeur totale de l'actif</h2>
+      <p>29,402€</p>
+  </div>
+</div>
