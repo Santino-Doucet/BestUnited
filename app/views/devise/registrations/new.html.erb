@@ -4,6 +4,38 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :age %><br />
+    <%= f.number_field :age, autofocus: true, autocomplete: "age", :step => "1" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gender %><br />
+    <%= f.radio_button :gender, 'Homme' %>
+    <%= f.label :gender_Homme, 'Homme' %><br>
+
+    <%= f.radio_button :gender, 'Femme' %>
+    <%= f.label :gender_Femme, 'Femme' %><br>
+
+    <%= f.radio_button :gender, 'Autre' %>
+    <%= f.label :gender_Autre, 'Autre' %><br>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
@@ -19,6 +51,11 @@
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+    <div class="field">
+    <%= f.label :phone_number %><br />
+    <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
   </div>
 
   <div class="actions">
