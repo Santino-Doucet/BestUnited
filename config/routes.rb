@@ -9,10 +9,9 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'users#show', as: 'dashboard'
 
-  resources :my_stocks, only: [:index, :show, :new, :create] do
-    resources :items, only: [:edit, :destroy]
-  end
+  get '/my_stock', to: 'my_stocks#show', as: 'my_stock'
 
+  resources :orders, only: [:edit, :update]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
