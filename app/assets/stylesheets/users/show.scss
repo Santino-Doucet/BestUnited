@@ -2,14 +2,15 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f5ebe0;
   color: #333;
-  margin: 0;
+  margin: 12px;
   padding: 0;
+  margin-top: 12px;
 }
 
 .dashboard {
   max-width: 100%;
-  margin: 0 auto;
-  padding: 10px;
+  margin: 8px;
+  padding: 8px;
 }
 
 .part-1 {
@@ -47,12 +48,12 @@ body {
 
 .kpi div {
   display: flex;
-  background-color: #f4a460;
+  background-color: #f2be8a;
   padding: 4px;
   border-radius: 16px;
   text-align: center;
   flex-direction: column;
-  height:88px;
+  height:60px;
   width: 160px;
   margin-top: 10px;
   border: 3px solid white;
@@ -61,20 +62,22 @@ body {
 .kpi h2 {
   color: white;
   font-size: 18px;
+  margin-bottom: 4px;
 }
 
 .kpi p {
-  font-size: 24px;
+  font-size: 20px;
   color: #333;
   margin:0px
 }
 
 .chart {
   background-color: #f5ebe0;
-  padding: 12px;
+  padding-bottom: 20px;
+  margin-top: 20px;
   border-radius: 8px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 8px;
 }
 
@@ -91,49 +94,60 @@ body {
   background-color: #f5ebe0;
   border-radius: 8px;
   text-align: center;
+  padding-bottom: 28px;
 }
 
 .best-sellers h1 {
   color: black;
   font-size: 16px;
   margin-bottom: 20px;
+  text-align: left;
 }
 
 .card-best-sellers {
   display: flex;
   justify-content: space-around;
+  gap: 32px;
+  width: 320px;
+  margin-bottom: 16px;
 }
 
 .card-best-sellers .card {
-  background-color: #ffe4c4;
+  background-color:white;
   width: 100px;
   height: 100px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  -webkit-box-shadow: 7px 8px 0px 5px #F6B875;
+  box-shadow: 7px 8px 0px 5px #F6B875;
 }
 
 .stock {
+  display: flex;
+  justify-content: flex-start, space-evenly;
+  flex-direction: column;
   background-color: #f5ebe0;
-  padding: 20px;
   border-radius: 8px;
-  text-align: center;
 }
 
 .stock h1 {
   font-size: 16px;
   color: black;
+  padding-bottom: 12px;
 }
-
 
 .stock h2 {
   color:#CB680C;
   font-size: 16px;
+  font-weight: lighter;
+  padding-bottom: 8px;
 }
-
 
 .stock p {
   color:#CB680C;
   font-size: 36px;
+  padding-bottom: 4px;
 }
 
 #date-value {
