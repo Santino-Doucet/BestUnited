@@ -1,7 +1,7 @@
 class CartsController < ApplicationController
 
   def show
-    
+
   end
 
   def edit
@@ -17,3 +17,4 @@ class CartsController < ApplicationController
   end
 
 end
+

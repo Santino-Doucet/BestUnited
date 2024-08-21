@@ -13,9 +13,13 @@ class MyStocksController < ApplicationController
   end
 
   def create_item
-
+    # @item = Item.new(item_params)
+    # if @item.save
+    #   redirect_to my_stocks_path, notice: "Item created successfully."
+    # else
+    #   render :add_item
+    # end
   end
-
 
   def edit_item
 

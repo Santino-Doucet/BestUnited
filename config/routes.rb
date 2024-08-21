@@ -3,9 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#index"
   resources :items, only: [:index, :show]
 
-  resources :carts, only: [:index, :show, :edit, :update] do
-    resources :items, only: [:edit, :update]
-  end
+  resources :carts, only: [:index, :show, :update]
 
   patch 'carts', to: 'carts#send_order_to_merchant'
 

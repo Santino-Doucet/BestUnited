@@ -13,8 +13,17 @@
  *= require_tree .
  *= require_self
  */
-@require url('components/index')
 
-@import "pages/index.css";
-@import "components/_footer.css";
-@import "style.css";
+// Graphical variables
+@import "config/_fonts";
+@import "config/_colors";
+@import "config/_bootstrap_variables";
+
+// external libraries
+
+
+
+// local variables
+@import url('components/_index');
+@import "pages/_index";
+@import "components/_footer";

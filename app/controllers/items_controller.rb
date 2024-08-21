@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:show, :edit, :update]
   def index
     @items = Item.all
     if params[:query].present?
@@ -6,22 +7,16 @@ class ItemsController < ApplicationController
     end
   end
 
-  def new
-
-  end
-
-  def create
-
-  end
-
-  def edit
-
-  end
-
-  def update
-
-  end
-
   def show
+  end
+
+  private
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  def item_params
+    params.require(:item).permit(:reference, :brand, :model, :color, :price, :size)
   end
 end
