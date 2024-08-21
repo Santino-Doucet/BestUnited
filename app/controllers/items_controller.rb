@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update]
+  before_action :set_item, only: [:show]
   def index
-    @items = Item.all
+    @items = Item.with_attached_photo.all
     if params[:query].present?
       @items = @items.search_by_brand_model_reference_and_color(params[:query])
     end
