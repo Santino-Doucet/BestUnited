@@ -1,10 +1,17 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f5ebe0;
-  color: #333;
-  margin: 12px;
-  padding: 0;
-  margin-top: 12px;
+  // font-family: Arial, sans-serif;
+  // background-color: #f5ebe0;
+  // color: #333;
+  // margin: 12px;
+  // padding: 0;
+  // margin-top: 12px;
+  background-image: url('/assets/backgrounds/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .dashboard {
@@ -17,7 +24,6 @@ body {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  background-color: #f5ebe0;
   border-radius: 8px;
 }
 
@@ -72,7 +78,6 @@ body {
 }
 
 .chart {
-  background-color: #f5ebe0;
   padding-bottom: 20px;
   margin-top: 20px;
   border-radius: 8px;
@@ -91,7 +96,6 @@ body {
 }
 
 .best-sellers {
-  background-color: #f5ebe0;
   border-radius: 8px;
   text-align: center;
   padding-bottom: 28px;
@@ -127,7 +131,6 @@ body {
   display: flex;
   justify-content: flex-start, space-evenly;
   flex-direction: column;
-  background-color: #f5ebe0;
   border-radius: 8px;
 }
 
@@ -147,7 +150,6 @@ body {
 .stock p {
   color:#CB680C;
   font-size: 36px;
-  padding-bottom: 4px;
 }
 
 #date-value {
