@@ -80,12 +80,19 @@ body {
 }
 
 .search-bar input {
-  width: 80%;
+  width: 45%; /* Adjust width to accommodate both inputs */
   padding: 8px 10px;
   border: none;
   border-right: 1px solid #CCC;
-  border-radius: 20px 0 0 20px;
   outline: none;
+}
+
+.search-bar .search-model {
+  border-radius: 20px 0 0 20px; /* Rounded corners for the first input */
+}
+
+.search-bar .search-location {
+  border-radius: 0; /* No rounded corners for the middle input */
 }
 
 .search-bar button {
@@ -97,7 +104,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0 20px 20px 0;
+  border-radius: 0 20px 20px 0; /* Rounded corners for the button */
 }
 
 .tagline {
