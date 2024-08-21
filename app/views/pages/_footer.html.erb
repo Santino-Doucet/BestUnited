@@ -1,11 +1,21 @@
 <div class="footer-container">
         <div class="footer-icons">
+          <% if !@user.nil? %>
+            <!-- User is connected, just show the icon -->
             <i class="fa-regular fa-user"></i>
-            <i class="fa-regular fa-bell"></i>
+          <% else %>
+            <!-- User is not connected, show the icon wrapped in a link -->
+            <%= link_to new_user_session_path do %>
+              <i class="fa-regular fa-user"></i>
+            <% end %>
+          <% end %>
+          <i class="fa-regular fa-bell"></i>
+          <%= link_to root_path do %>
             <div class="active-icon-wrapper">
                 <i class="fa-solid fa-house active"></i>
             </div>
-            <i class="fa-regular fa-heart"></i>
-            <i class="fa-solid fa-cart-shopping"></i>
+          <% end %>
+          <i class="fa-regular fa-heart"></i>
+          <i class="fa-solid fa-cart-shopping"></i>
         </div>
 </div>

@@ -1,0 +1,42 @@
+.footer {
+  padding: 8px 0;
+  background-color: #EFEFEF;
+  border-top: 1px solid #DDD;
+}
+
+.footer-container {
+  background-color: white;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  bottom: 0;
+  position: absolute;
+  z-index: 9;
+  width: 100vw;
+  height: 5vh;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+}
+
+.footer-icons i {
+  font-size: 24px;
+  color:#cb692f;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.active-icon-wrapper {
+  background-color: #CB680B;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer-icons i.active {
+  color: white;
+  font-size: 28px; /* Larger size for the active icon */
+}
