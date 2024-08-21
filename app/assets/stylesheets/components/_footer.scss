@@ -6,11 +6,11 @@
 
 .footer-container {
   background-color: white;
-  padding: 10px 0;
+  padding: 20px 0 34px 0;
   display: flex;
   justify-content: space-between;
   bottom: 0;
-  position: absolute;
+  position: fixed;
   z-index: 9;
   width: 100vw;
   height: 5vh;
