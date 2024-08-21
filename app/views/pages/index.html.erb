@@ -1,7 +1,15 @@
 <div class="container-page">
   <header class="header">
     <div class="top-bar">
-      <span class="pro-space"><p>Espace Pro</p></span>
+      <% if @user.companies.count > 0 %>
+      <!-- Lien vers le dashboard si je suis un commerçant avec une boutique ou plus -->
+        <%= link_to dashboard_path do %>
+          <span class="pro-space"><p>Espace Pro</p></span>
+        <% end %>
+      <% else %>
+      <!-- A faire : Lien vers un formulaire si je suis un client qui veut ajouter sa boutique -->
+        <span class="pro-space"><p>Espace Pro</p></span>
+      <% end %>
     </div>
     <div class="logo-container">
       <div class="logo">
@@ -9,9 +17,21 @@
       </div>
     </div>
     <div class="search-bar">
-      <input type="text" class="search-model" placeholder="Modèle (e.g., AirMax)">
-      <input type="text" class="search-location" placeholder="Ville ou code postal">
-      <button><i class="fa-solid fa-magnifying-glass"></i></button>
+      <%= form_with url: items_path, class: "d-flex", method: :get do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "search-model",
+              placeholder: "Modèle (e.g., AirMax)"
+          %>
+        <%= text_field_tag :city,
+            params[:city],
+            class: "search-location",
+            placeholder: "Ville ou code postal"
+        %>
+        <%= button_tag(type: "submit", name: "") do%>
+          <i class="fa-solid fa-magnifying-glass"></i>
+        <% end %>
+      <% end %>
     </div>
     <h2 class="tagline">Des <span>sneakers</span> locales, un impact global</h2>
     <img src="https://img.freepik.com/free-photo/handsome-men-beautiful-woman-outside-sun_23-2148803616.jpg?ga=GA1.1.1043838493.1723553977" alt="background-img" class="banner-img">
