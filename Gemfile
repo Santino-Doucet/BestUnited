@@ -14,6 +14,8 @@ gem "cloudinary"
 
 gem "pg", "~> 1.1"
 
+gem "sassc-rails"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.4"
 
