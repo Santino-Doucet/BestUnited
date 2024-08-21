@@ -1,5 +1,5 @@
-<div class="container-page">
-  <header class="header">
+<div class="container-index">
+   <header class="header-pages">
     <div class="top-bar">
       <span class="pro-space"><p>Espace Pro</p></span>
     </div>
@@ -8,11 +8,12 @@
         <%= image_tag "logo" %>
       </div>
     </div>
-    <div class="search-bar">
+    <%# <div class="search-bar">
       <input type="text" class="search-model" placeholder="Modèle (e.g., AirMax)">
       <input type="text" class="search-location" placeholder="Ville ou code postal">
       <button><i class="fa-solid fa-magnifying-glass"></i></button>
-    </div>
+    </div> %>
+    <%= render "search_bar" %>
     <h2 class="tagline">Des <span>sneakers</span> locales, un impact global</h2>
     <img src="https://img.freepik.com/free-photo/handsome-men-beautiful-woman-outside-sun_23-2148803616.jpg?ga=GA1.1.1043838493.1723553977" alt="background-img" class="banner-img">
   </header>
