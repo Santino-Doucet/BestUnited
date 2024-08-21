@@ -1,3 +1,66 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
-<h1>En tant que visiteur/client, je peux voir le détail d'un article</h1>
+<div class="container-item">
+  <main>
+    <div class="product-details-container">
+      <div class="product-header">
+        <button class="back-button"><i class="fa-solid fa-arrow-left"></i></button>
+        <div class="product-title">Airmax</div>
+      </div>
+
+      <div class="product-image-container">
+        <%= image_tag 'nike-air-max.png', alt: 'nike-air-max', class: 'product-image' %>
+      </div>
+
+      <div class="thumbnail-container">
+        <div class="thumbnail active">
+          <img src="https://via.placeholder.com/50" alt="Thumbnail 1">
+        </div>
+        <div class="thumbnail">
+          <img src="https://via.placeholder.com/50" alt="Thumbnail 2">
+        </div>
+        <div class="thumbnail">
+          <img src="https://via.placeholder.com/50" alt="Thumbnail 3">
+        </div>
+        <div class="thumbnail">
+          <img src="https://via.placeholder.com/50" alt="Thumbnail 4">
+        </div>
+      </div>
+
+      <div class="size-selector">
+        <button class="size-option">38</button>
+        <button class="size-option">39</button>
+        <button class="size-option">40</button>
+        <button class="size-option active">42</button>
+        <button class="size-option">43</button>
+      </div>
+
+      <div class="product-info">
+      <div class="product-name">Nike Air 270</div>
+      <div class="product-details">
+        <h3>Détail du produit</h3>
+        <div class="details-grid">
+            <div class="detail-label">Style</div>
+            <div class="detail-value">315115-038/DD89-001</div>
+
+            <div class="detail-label">Couleur</div>
+            <div class="detail-value">Bleu/Blanc</div>
+
+            <div class="detail-label">Prix</div>
+            <div class="detail-value">US$90</div>
+
+            <div class="detail-label">Date de sortie</div>
+            <div class="detail-value">16/01/21</div>
+        </div>
+        <div class="product-description">
+            <p>The Nike Air 1 Low Black W features stitched overlays on the upper side. It features air cushioning and Nike Air branding on the tongue and heel of the shoe. Nike Air Force 1 Low Black W I don't know what to write more bye.</p>
+        </div>
+        <a href="#" class="read-more">Read More</a>
+    </div>
+
+      <div class="button-container">
+        <button class="add-to-cart-button">Ajouter au panier</button>
+      </div>
+    </div>
+  </main>
+
+  <%= render 'pages/footer' %>
+</div>
