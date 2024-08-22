@@ -1,17 +1,9 @@
-* {
+.container-page-index {
   margin: 0;
   padding: 0;
 }
 
-body {
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  min-height: 100vh;
-  margin: 0;
-}
-
-.container-page {
+.container-page-index {
   overflow: hidden;
   position: relative;
   z-index: 2;
@@ -22,20 +14,20 @@ body {
   overflow-y: scroll;
 }
 
-.container::after{
+.container-page-index::after{
   content: '';
   height: 8vh;
   display: block;
 }
 
 @media (max-width: 390px) {
-  .container {
+  .container-page-index {
     width: 100%;
     height: auto;
   }
 }
 
-.header {
+.header-pages {
   position: relative;
   padding: 10px;
   text-align: center;
@@ -56,14 +48,17 @@ body {
   color: #000;
 }
 
+/* Center and enlarge the logo */
 .logo-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .logo img {
-  height: 120px;
+  height: 60px; /* Enlarge the logo */
   max-width: 100%;
 }
 
@@ -79,19 +74,58 @@ body {
 }
 
 .search-bar input {
-  width: 45%; /* Adjust width to accommodate both inputs */
+  width: 45% ; /* Adjust width to accommodate both inputs */
   padding: 8px 10px;
   border: none;
   border-right: 1px solid #CCC;
-  outline: none;
+  outline: none !important;
+}
+
+.search-bar input.search-model {
+  border-color: #CCC !important;
+  width: 100%;
+  border-radius: 0 !important;
+}
+
+.input.search-model input:focus {
+  outline: none !important;
+}
+
+.mapboxgl-ctrl-geocoder--input {
+  width: 160px !important;
+  height: 40px;
+}
+
+.search-bar .mapboxgl-ctrl-geocoder--button{
+  display: none !important; /* Hide the clear button */
+}
+
+.search-bar .mapboxgl-ctrl-geocoder--icon.mapboxgl-ctrl-geocoder--icon-search{
+  display: none !important; /* Hide the glass button */
+}
+
+.search-bar .mapboxgl-ctrl-geocoder--icon.mapboxgl-ctrl-geocoder--icon-loading {
+  display: none !important; /* Hide the loading button */
 }
 
 .search-bar .search-model {
   border-radius: 20px 0 0 20px; /* Rounded corners for the first input */
+  width: 160px;
+  height: 40px;
 }
 
 .search-bar .search-location {
   border-radius: 0; /* No rounded corners for the middle input */
+}
+
+.simple_form {
+  .search-query input:focus {
+  outline: none !important;
+  }
+}
+
+.suggestions-wrapper .suggestions{
+  list-style-type: none;
 }
 
 .search-bar button {
@@ -133,7 +167,7 @@ body {
   margin: 5px 40px 5px 40px;
 }
 
-.tab {
+.tab-page-index {
   background-color: transparent;
   border: none;
   padding: 10px;
@@ -150,7 +184,7 @@ body {
   padding: 8px 15px;
 }
 
-.card-section {
+.card-section-page-index {
   display: flex;
   justify-content: space-around;
   padding: 10px 0;
@@ -161,18 +195,18 @@ body {
   display: flex;
 }
 
-.card {
+.card-page-index {
   width: 45%;
   text-align: center;
 }
 
-.card img {
+.card-page-index img {
   width: 100%;
   border-radius: 10px;
   margin-bottom: 5px;
 }
 
-.card p {
+.card-page-index p {
   font-size: 14px;
   color: #000;
 }

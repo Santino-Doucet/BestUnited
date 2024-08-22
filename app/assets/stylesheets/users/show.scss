@@ -1,17 +1,10 @@
-body {
-  // font-family: Arial, sans-serif;
-  // background-color: #f5ebe0;
-  // color: #333;
-  // margin: 12px;
-  // padding: 0;
-  // margin-top: 12px;
+.my_dashboard {
   background-image: url('/assets/backgrounds/background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  min-height: 100vh;
 }
 
 .dashboard {

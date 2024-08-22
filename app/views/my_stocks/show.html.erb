@@ -1,3 +1,84 @@
-<h1>MyStocks#show</h1>
-<h1>En tant que commerçant, je peux accéder à mon stock détaillé</h1>
-<%= render 'items/list', items: @items %>
+<div class="my_stocks container">
+  <h2 class="title">Inventaire</h2>
+
+  <div class="search-container">
+    <input type="text" placeholder="Rechercher un modèle..." class="search-input">
+    <button class="filter-button" onclick="toggleFilterOverlay()">
+      <i class="fa-solid fa-bars"></i> Filtrer
+    </button>
+  </div>
+
+  <ul class="inventory-list">
+    <li class="inventory-item">
+      <div class="product-info">
+        <h2 class="product-name">Nom du produit 1</h2>
+        <img src="photo-produit-1.jpg" alt="Photo du produit 1" class="product-image">
+      </div>
+      <div class="product-controls">
+        <span class="total-text">Total : <span id="product-quantity-1">120</span></span>
+        <button class="quantity-button" onclick="decreaseQuantity(1)">-</button>
+        <button class="quantity-button" onclick="increaseQuantity(1)">+</button>
+      </div>
+    </div>
+    <!-- Répétez pour d'autres produits -->
+  </ul>
+
+  <div id="filter-overlay" class="filter-overlay">
+    <div class="filter-content">
+      <h2>Filtrer les résultats</h2>
+      <label for="brand">Marque</label>
+      <input type="text" id="brand" placeholder="Ex : Nike">
+
+      <label for="color">Couleur</label>
+      <input type="text" id="color" placeholder="Ex : Rouge">
+
+      <label for="size">Taille</label>
+      <input type="text" id="size" placeholder="Ex : M">
+
+      <label for="reference">Numéro de référence</label>
+      <input type="text" id="reference" placeholder="Ex : 123456">
+
+      <label for="price">Prix maximum</label>
+      <input type="number" id="price" placeholder="Ex : 100" min="0">
+
+      <button class="apply-button">Appliquer les filtres</button>
+      <button class="close-button" onclick="toggleFilterOverlay()">Fermer</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleFilterOverlay() {
+    const overlay = document.getElementById('filter-overlay');
+    overlay.style.display = (overlay.style.display === 'block') ? 'none' : 'block';
+  }
+
+  function decreaseQuantity(productId) {
+    const quantityElement = document.getElementById('product-quantity-' + productId);
+    let quantity = parseInt(quantityElement.textContent);
+    if (quantity > 0) {
+      quantity -= 1;
+      quantityElement.textContent = quantity;
+    }
+  }
+
+  function increaseQuantity(productId) {
+    const quantityElement = document.getElementById('product-quantity-' + productId);
+    let quantity = parseInt(quantityElement.textContent);
+    quantity += 1;
+    quantityElement.textContent = quantity;
+  }
+</script>
+
+<form action="votre-page.html" method="get">
+  <button type="submit" id="round-button"><i class="fa-solid fa-plus"></i></button>
+</form>
+
+<div class="footer-container">
+  <div class="footer-icons">
+    <i class="fa-solid fa-chart-line"></i>
+    <i class="fa-solid fa-barcode"></i>
+    <i class="fa-solid fa-file"></i>
+    <i class="fa-regular fa-comments"></i>
+  </div>
+</div>
