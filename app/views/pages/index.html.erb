@@ -17,18 +17,18 @@
       </div>
     </div>
     <div class="search-bar">
-      <%= form_with url: items_path, class: "d-flex", method: :get do %>
-        <%= text_field_tag :query,
-              params[:query],
+      <%= simple_form_for :search, url: items_path, method: :get, html: { class: "d-flex" } do |f| %>
+        <%= f.input :query,
+          input_html: {
               class: "search-model",
-              placeholder: "Modèle (e.g., AirMax)"
-          %>
-        <%= text_field_tag :city,
-            params[:city],
-            class: "search-location",
-            placeholder: "Ville ou code postal"
+              placeholder: "Quoi ?"
+          }, label: false %>
+        <%= f.input :address,
+          input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+          wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}},
+          label: false
         %>
-        <%= button_tag(type: "submit", name: "") do%>
+        <%= button_tag type: 'submit' do %>
           <i class="fa-solid fa-magnifying-glass"></i>
         <% end %>
       <% end %>
@@ -62,7 +62,7 @@
     </div>
     <div class="card-page-index">
       <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fGZhc2hpb24lMjBzbmVha2Vyc3xlbnwwfDB8MHx8fDA%3D" alt="La tendence de ce été">
-      <p>La tendence de ce été</p>
+      <p>La tendance de ce été</p>
     </div>
   </div>
 

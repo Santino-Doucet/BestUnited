@@ -130,8 +130,7 @@ GEM
     faraday-net_http (3.1.1)
       net-http
 
-    ffi (1.17.0-x86_64-darwin)
-
+    ffi (1.17.0)
 
     geocoder (1.8.3)
       base64 (>= 0.1.0)
@@ -140,7 +139,7 @@ GEM
       activesupport (>= 6.1)
     i18n (1.14.5)
       concurrent-ruby (~> 1.0)
-    importmap-rails (2.0.1)
+    importmap-rails (1.2.3)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
@@ -181,6 +180,7 @@ GEM
     nio4r (2.7.3)
 
     nokogiri (1.16.7-x86_64-linux)
+
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.5.7)
@@ -256,6 +256,9 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    simple_form (5.3.1)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -295,6 +298,8 @@ GEM
 
 PLATFORMS
 
+  x86_64-linux
+
 
 DEPENDENCIES
   bootsnap
@@ -306,20 +311,18 @@ DEPENDENCIES
   error_highlight (>= 0.4.0)
   faker
   geocoder
-  importmap-rails
+  importmap-rails (~> 1.2.3)
   jbuilder
   pg (~> 1.1)
   pg_search
   puma (>= 5.0)
   rails (~> 7.1.3, >= 7.1.3.4)
   sassc-rails
-
-
   puma (>= 5.0)
   rails (~> 7.1.3, >= 7.1.3.4)
 
-
   selenium-webdriver
+  simple_form
   sprockets-rails
   stimulus-rails
   turbo-rails
@@ -337,6 +340,4 @@ BUNDLED WITH
    2.5.14
 
    2.5.17
-
-   2.5.14
 
