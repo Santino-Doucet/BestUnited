@@ -1,1 +1,6 @@
 <h1>En tant que visiteur/client, je peux voir mon historique de commandes</h1>
+<% @orders.each do |o|  %>
+<%= link_to "#{o.cart.user.last_name} #{o.cart.user.first_name}", o %>
+
+<%= console %>
+<% end %>

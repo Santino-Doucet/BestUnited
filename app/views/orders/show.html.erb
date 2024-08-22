@@ -1,1 +1,7 @@
-<h1>Je peux acceder au detail d'un commande</h1>
+<h1>Je peux acceder au detail d'une commande</h1>
+<p>en appuyant sur ce bouton le commercant valide la commande qu'il recoit</p>
+  <%= form_with(model: @order, method: :patch) do |f| %>
+  <%= f.label "Je valide la commande reçue" %>
+  <%= f.submit %>
+<% end %>
+<%= console %>
