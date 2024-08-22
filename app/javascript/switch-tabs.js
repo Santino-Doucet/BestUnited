@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const tabs = document.querySelectorAll('.tab');
-  const sections = document.querySelectorAll('.card-section');
+  const tabs = document.querySelectorAll('.tab-page-index');
+  const sections = document.querySelectorAll('.card-section-page-index');
 
   tabs.forEach(tab => {
     tab.addEventListener('click', function() {
@@ -20,5 +20,5 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Trigger a click on the active tab to show the corresponding section
-  document.querySelector('.tab.active').click();
+  document.querySelector('.tab-page-index.active').click();
 });
