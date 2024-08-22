@@ -1,4 +1,10 @@
-.container-index {
+
+.container-page-index {
+  margin: 0;
+  padding: 0;
+}
+
+.container-page-index {
   overflow: hidden;
   position: relative;
   z-index: 2;
@@ -11,14 +17,14 @@
   padding: 0 !important;
 }
 
-.container::after{
+.container-page-index::after{
   content: '';
   height: 8vh;
   display: block;
 }
 
 @media (max-width: 390px) {
-  .container {
+  .container-page-index {
     width: 100%;
     height: auto;
   }
@@ -30,15 +36,14 @@
   text-align: center;
 }
 
-/* Positioning the top bar with "Espace Pro" */
 .top-bar {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between; /* Distribute items to opposite ends */
   align-items: center;
   position: absolute;
   top: 10px;
   left: 10px;
-  width: 100%;
+  width: calc(100% - 20px); /* Ensure the bar fits within the container */
 }
 
 .pro-space {
@@ -46,7 +51,17 @@
   color: #000;
 }
 
-/* Center and enlarge the logo */
+.logout-link {
+  font-size: 14px;
+  color: #CB680B;
+  text-decoration: none;
+  margin-right: 10px; /* Add some space to the right */
+}
+
+.logout-link:hover {
+  text-decoration: underline;
+}
+
 .logo-container {
   display: flex;
   justify-content: center;
@@ -56,8 +71,86 @@
 }
 
 .logo img {
-  height: 60px; /* Enlarge the logo */
+  height: 60px;
   max-width: 100%;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  background-color: #FFF;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.search-bar input {
+  width: 45% ; /* Adjust width to accommodate both inputs */
+  padding: 8px 10px;
+  border: none;
+  border-right: 1px solid #CCC;
+  outline: none !important;
+}
+
+.search-bar input.search-model {
+  border-color: #CCC !important;
+  width: 100%;
+  border-radius: 0 !important;
+}
+
+.input.search-model input:focus {
+  outline: none !important;
+}
+
+.mapboxgl-ctrl-geocoder--input {
+  width: 160px !important;
+  height: 40px;
+}
+
+.search-bar .mapboxgl-ctrl-geocoder--button{
+  display: none !important; /* Hide the clear button */
+}
+
+.search-bar .mapboxgl-ctrl-geocoder--icon.mapboxgl-ctrl-geocoder--icon-search{
+  display: none !important; /* Hide the glass button */
+}
+
+.search-bar .mapboxgl-ctrl-geocoder--icon.mapboxgl-ctrl-geocoder--icon-loading {
+  display: none !important; /* Hide the loading button */
+}
+
+.search-bar .search-model {
+  border-radius: 20px 0 0 20px; /* Rounded corners for the first input */
+  width: 160px;
+  height: 40px;
+}
+
+.search-bar .search-location {
+  border-radius: 0; /* No rounded corners for the middle input */
+}
+
+.simple_form {
+  .search-query input:focus {
+  outline: none !important;
+  }
+}
+
+.suggestions-wrapper .suggestions{
+  list-style-type: none;
+}
+
+.search-bar button {
+  background-color: #FFF;
+  border: none;
+  padding: 8px;
+  color: #CB680B;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 20px 20px 0; /* Rounded corners for the button */
 }
 
 .tagline {
@@ -87,7 +180,7 @@
   margin: 5px 40px 5px 40px;
 }
 
-.tab {
+.tab-page-index {
   background-color: transparent;
   border: none;
   padding: 10px;
@@ -97,36 +190,36 @@
   font-family: "Poppins", sans-serif;
 }
 
-.tab.active {
+.tab-page-index.active {
   background-color: #CB680B;
   color: white;
   border-radius: 10px;
   padding: 8px 15px;
 }
 
-.card-section {
+.card-section-page-index {
   display: flex;
   justify-content: space-around;
   padding: 10px 0;
   display: none;
 }
 
-.card-section.active {
+.card-section-page-index.active {
   display: flex;
 }
 
-.card {
+.card-page-index {
   width: 45%;
   text-align: center;
 }
 
-.card img {
+.card-page-index img {
   width: 100%;
   border-radius: 10px;
   margin-bottom: 5px;
 }
 
-.card p {
+.card-page-index p {
   font-size: 14px;
   color: #000;
 }

@@ -9,17 +9,22 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: 'users#show', as: 'dashboard'
 
+  post 'items/:id', to: 'my_stocks#duplicate_item', as: 'duplicate_item'
+
   get 'my_stock', to: 'my_stocks#show', as: 'my_stock'
 
   get 'my_stock/items/new', to: 'my_stocks#add_item', as: 'add_item_to_stock'
   post 'my_stock/items', to: 'my_stocks#create_item'
+
 
   get 'my_stock/items/:id', to: 'my_stocks#show_item', as: 'show_item_in_stock'
 
   get 'my_stock/items/:id/edit', to: 'my_stocks#edit_item', as: 'edit_item_in_stock'
   patch 'my_stock/items/:id', to:'my_stocks#update_item'
 
-  delete 'my_stock/items/:id', to: 'my_stocks#destroy_item'
+  delete 'items/:id', to: 'my_stocks#destroy_item'
+
+
 
   get 'orders', to: 'orders#index'
   get 'orders/:id', to: "orders#show"
