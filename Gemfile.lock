@@ -129,10 +129,7 @@ GEM
       multipart-post (~> 2)
     faraday-net_http (3.1.1)
       net-http
-
     ffi (1.17.0-x86_64-darwin)
-
-
     geocoder (1.8.3)
       base64 (>= 0.1.0)
       csv (>= 3.0.0)
@@ -179,8 +176,7 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     nio4r (2.7.3)
-
-    nokogiri (1.16.7-x86_64-linux)
+    nokogiri (1.16.7-x86_64-darwin)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.5.7)
@@ -294,7 +290,7 @@ GEM
     zeitwerk (2.6.17)
 
 PLATFORMS
-
+  x86_64-darwin-21
 
 DEPENDENCIES
   bootsnap
@@ -339,4 +335,3 @@ BUNDLED WITH
    2.5.17
 
    2.5.14
-
