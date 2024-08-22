@@ -1,19 +1,23 @@
 <div class="container-page-index">
   <header class="header-pages">
     <div class="top-bar">
-      <% if @user.companies.count > 0 %>
-      <!-- Lien vers le dashboard si je suis un commerçant avec une boutique ou plus -->
-        <%= link_to dashboard_path do %>
-          <span class="pro-space"><p>Espace Pro</p></span>
+      <% if !@user.nil? %>
+        <% if @user.companies.count > 0 %>
+        <!-- Lien vers le dashboard si je suis un commerçant avec une boutique ou plus -->
+          <%= link_to dashboard_path do %>
+            <span class="pro-space"><p>Espace Pro</p></span>
+          <% end %>
+        <% else %>
+      <!-- A faire : Lien vers un formulaire si je suis un client qui veut ajouter sa boutique -->
+        <span class="pro-space"><p>Espace Pro</p></span>
         <% end %>
       <% else %>
-      <!-- A faire : Lien vers un formulaire si je suis un client qui veut ajouter sa boutique -->
         <span class="pro-space"><p>Espace Pro</p></span>
       <% end %>
     </div>
     <div class="logo-container">
       <div class="logo">
-        <%= image_tag "images/logo" %>
+        <%= image_tag "logo.png" %>
       </div>
     </div>
     <div class="search-bar">
