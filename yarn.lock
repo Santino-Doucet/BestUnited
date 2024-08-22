@@ -2,14 +2,12 @@
 # yarn lockfile v1
 
 
-"@kurkle/color@^0.3.0":
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/@kurkle/color/-/color-0.3.2.tgz#5acd38242e8bde4f9986e7913c8fdf49d3aa199f"
-  integrity sha512-fuscdXJ9G1qb7W8VdHi+IwRqij3lBkosAm4ydQtEmbY58OzHXqQhvlxqEkoz0yssNVn38bcpRWgA9PP+OGoisw==
+"@splidejs/splide@^4.1.4":
+  "integrity" "sha512-5I30evTJcAJQXt6vJ26g2xEkG+l1nXcpEw4xpKh0/FWQ8ozmAeTbtniVtVmz2sH1Es3vgfC4SS8B2X4o5JMptA=="
+  "resolved" "https://registry.npmjs.org/@splidejs/splide/-/splide-4.1.4.tgz"
+  "version" "4.1.4"
 
-chart.js@^4.4.3:
-  version "4.4.3"
-  resolved "https://registry.yarnpkg.com/chart.js/-/chart.js-4.4.3.tgz#3b2e11e7010fefa99b07d0349236f5098e5226ad"
-  integrity sha512-qK1gkGSRYcJzqrrzdR6a+I0vQ4/R+SoODXyAjscQ/4mzuNzySaMCd+hyVxitSY1+L2fjPD1Gbn+ibNqRmwQeLw==
-  dependencies:
-    "@kurkle/color" "^0.3.0"
+"swiper@^11.1.10":
+  "integrity" "sha512-pAVM6vCb6bumj2B9aSh67l3wP1j5YR8dPQM1YhQKMpnBc33vs+RpyVz6NZYZl/ZopCBSYbbWK5nvESwbmU0QXQ=="
+  "resolved" "https://registry.npmjs.org/swiper/-/swiper-11.1.10.tgz"
+  "version" "11.1.10"
