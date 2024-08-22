@@ -3,14 +3,15 @@
     <div class="top-bar">
       <% if !@user.nil? %>
         <% if @user.companies.count > 0 %>
-        <!-- Lien vers le dashboard si je suis un commerçant avec une boutique ou plus -->
+          <!-- Lien vers le dashboard si je suis un commerçant avec une boutique ou plus -->
           <%= link_to dashboard_path do %>
             <span class="pro-space"><p>Espace Pro</p></span>
           <% end %>
         <% else %>
-      <!-- A faire : Lien vers un formulaire si je suis un client qui veut ajouter sa boutique -->
-        <span class="pro-space"><p>Espace Pro</p></span>
+          <!-- A faire : Lien vers un formulaire si je suis un client qui veut ajouter sa boutique -->
+          <span class="pro-space"><p>Espace Pro</p></span>
         <% end %>
+        <%= link_to 'Se déconnecter', destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'logout-link' %>
       <% else %>
         <span class="pro-space"><p>Espace Pro</p></span>
       <% end %>
