@@ -1,1 +1,70 @@
-<h1>En tant que visiteur/client, je peux voir mon historique de commandes</h1>
+<div class="orders-page-container">
+  <header class="orders-header">
+    <h1 class="orders-title">Toutes les commandes</h1>
+  </header>
+
+  <section class="orders-section">
+    <h2 class="orders-section-title">Nouvelle commande</h2>
+    <div class="order-card">
+      <div class="order-info">
+        <%= image_tag 'nike-air-max.png', alt: 'Nike Air Max', class: 'order-shoe-image' %>
+        <div class="order-details">
+          <div class="order-product-name">Airmax</div>
+          <div class="order-date">21 Août 2024</div>
+        </div>
+      </div>
+      <div class="order-actions">
+        <div class="order-buttons-wrapper">
+          <button class="order-accept-button">Accepter</button>
+          <button class="order-decline-button">Refuser</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="orders-section">
+    <h2 class="orders-section-title">Commandes en cours</h2>
+    <div class="order-card">
+      <div class="order-info">
+        <%= image_tag 'nike-air-max.png', alt: 'Nike Air Max', class: 'order-shoe-image' %>
+        <div class="order-details">
+          <div class="order-product-name">Airmax</div>
+          <div class="order-date">21 Août 2024</div>
+        </div>
+      </div>
+      <div class="order-actions">
+        <button class="order-view-details-button">Voir detail</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="orders-section">
+    <h2 class="orders-section-title">Commandes passées</h2>
+    <div class="order-card">
+      <div class="order-info">
+        <%= image_tag 'nike-air-max.png', alt: 'Nike Air Max', class: 'order-shoe-image' %>
+        <div class="order-details">
+          <div class="order-product-name">Airmax</div>
+          <div class="order-date">21 Août 2024</div>
+        </div>
+      </div>
+      <div class="order-actions">
+        <button class="order-view-details-button">Voir detail</button>
+      </div>
+    </div>
+
+    <div class="order-card">
+      <div class="order-info">
+        <%= image_tag 'nike-air-max.png', alt: 'Nike Air Max', class: 'order-shoe-image' %>
+        <div class="order-details">
+          <div class="order-product-name">Airmax</div>
+          <div class="order-date">21 Août 2024</div>
+        </div>
+      </div>
+      <div class="order-actions">
+        <button class="order-view-details-button">Voir detail</button>
+      </div>
+    </div>
+  </section>
+</div>
+<%= render 'pages/footer' %>
