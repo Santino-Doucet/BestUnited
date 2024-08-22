@@ -23,12 +23,12 @@
   display: block;
 }
 
-@media (max-width: 390px) {
-  .container-page-index {
-    width: 100%;
-    height: auto;
-  }
-}
+// @media (max-width: 390px) {
+//   .container-page-index {
+//     width: 100%;
+//     height: auto;
+//   }
+// }
 
 .header-pages {
   position: relative;
@@ -223,3 +223,35 @@
   font-size: 14px;
   color: #000;
 }
+
+.swiper {
+  width: 100%; /* Full width */
+  height: 300px; /* Default height */
+  max-width: 600px; /* Maximum width */
+  margin: 0 auto; /* Center align */
+}
+
+.swiper-slide img {
+  width: 100%; /* Responsive image width */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Cover the slide area */
+}
+
+@media (max-width: 390px) {
+  .swiper {
+    height: 200px; /* Adjust height for iPhone 13 and smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .swiper {
+    height: 250px; /* Adjust height for tablets and larger mobile screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .swiper {
+    height: 200px; /* Further adjust height for very small screens */
+  }
+}
+
