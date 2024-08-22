@@ -1,7 +1,11 @@
 .my_stocks.container {
   font-family: Arial, sans-serif;
-  margin: 12px;
   padding: 8px;
+  background-image: url('/assets/backgrounds/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 
 .title {
@@ -159,6 +163,7 @@
   background-color: #cb692f;
   color: white;
   margin-right: 10px;
+  border:1px solid black;
 }
 
 .close-button {
@@ -167,7 +172,7 @@
 }
 
 #fa-solid{
-font-size: 40px;
+font-size: 60px;
 }
 
 #round-button {
