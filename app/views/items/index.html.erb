@@ -1,2 +1,41 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<div class="search-results-page">
+  <div class="search-results">
+    <div class="header-items">
+      <button class="back-button-search-result"><i class="fa-solid fa-arrow-left"></i></button>
+      <%= render "pages/search_bar" %>
+      <div class="options">
+        <i class="fa-solid fa-qrcode"></i>
+        <i class="fa-solid fa-sliders"></i>
+      </div>
+    </div>
+
+    <div class="result-info">
+      <p class="results-count"><strong>46,959</strong> articles trouvés</p>
+      <p class="sort-option">Trié par: recommander</p>
+    </div>
+
+    <div class="products-grid">
+      <div class="product-card">
+        <i class="fa-regular fa-heart save-icon"></i>
+        <%= image_tag 'nike-air-max.png', alt: 'nike-air-max', class: 'product-image' %>
+        <p class="product-name">Nike Air Force 1 Low '07 White</p>
+        <div class="price-and-button">
+          <p class="product-price">€86</p>
+          <button class="ajouter">Ajouter</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <i class="fa-regular fa-heart save-icon"></i>
+        <%= image_tag 'nike-air-max.png', alt: 'nike-air-max', class: 'product-image' %>
+        <p class="product-name">Nike Air Force 1 Low '07 Black</p>
+        <div class="price-and-button">
+          <p class="product-price">€78</p>
+          <button class="ajouter">Ajouter</button>
+        </div>
+      </div>
+      <!-- Add more product-card elements as needed -->
+    </div>
+  </div>
+</div>
+<%= render 'pages/footer' %>
