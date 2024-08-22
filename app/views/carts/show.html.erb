@@ -1,3 +1,79 @@
-<h1>Carts#show</h1>
-<p>Find me in app/views/carts/show.html.erb</p>
-<h1>En tant que visiteur/client, je peux voir mon panier</h1>
+<div class="cart-page-container">
+  <header class="cart-header">
+    <button class="cart-back-button"><i class="fa-solid fa-arrow-left"></i></button>
+    <div class="cart-title-container">
+      <div class="cart-title">Mon panier</div>
+      <div class="cart-items-count">3 produits</div>
+    </div>
+  </header>
+
+  <div class="cart-items">
+    <div class="cart-item-card">
+      <div class="cart-item">
+        <%= image_tag 'nike-air-max.png', alt: 'nike-air-max', class: 'product-image-cart' %>
+        <div class="cart-item-details">
+          <div class="cart-item-title">Airmax</div>
+          <div class="cart-item-price">129,95€</div>
+          <div class="cart-item-quantity">
+            <button class="cart-quantity-button">-</button>
+            <span>1</span>
+            <button class="cart-quantity-button">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-item-card">
+      <div class="cart-item">
+        <%= image_tag 'nike-air-max.png', alt: 'nike-air-max', class: 'product-image-cart' %>
+        <div class="cart-item-details">
+          <div class="cart-item-title">Airmax</div>
+          <div class="cart-item-price">129,95€</div>
+          <div class="cart-item-quantity">
+            <button class="cart-quantity-button">-</button>
+            <span>1</span>
+            <button class="cart-quantity-button">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-item-card">
+      <div class="cart-item">
+        <%= image_tag 'nike-air-max.png', alt: 'nike-air-max', class: 'product-image-cart' %>
+        <div class="cart-item-details">
+          <div class="cart-item-title">Airmax</div>
+          <div class="cart-item-price">129,95€</div>
+          <div class="cart-item-quantity">
+            <button class="cart-quantity-button">-</button>
+            <span>1</span>
+            <button class="cart-quantity-button">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-item-card">
+      <div class="cart-item">
+        <%= image_tag 'nike-air-max.png', alt: 'nike-air-max', class: 'product-image-cart' %>
+        <div class="cart-item-details">
+          <div class="cart-item-title">Airmax</div>
+          <div class="cart-item-price">129,95€</div>
+          <div class="cart-item-quantity">
+            <button class="cart-quantity-button">-</button>
+            <span>1</span>
+            <button class="cart-quantity-button">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cart-total">
+    <span>Total</span>
+    <span>350,67€</span>
+  </div>
+
+  <button class="cart-checkout-button">Suivant</button>
+</div>
+<%= render 'pages/footer' %>
