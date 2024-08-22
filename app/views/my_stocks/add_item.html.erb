@@ -1,1 +1,26 @@
-<h1>En tant que commerçant, je peux ajouter un produit dans mon stock</h1>
+<div class="add_item container">
+  <h3>Scanner le code barre</h3>
+
+    <%= image_tag "backgrounds/scanning.png", id: "scan-image"%>
+
+        <div class="separator">ou</div>
+
+        <div class="manual-input">
+            <h3>Saisir manuellement</h3>
+        </div>
+
+        <div class="search-bar-container">
+            <input type="text" placeholder="Saisissez la référence ici">
+            <button>Valider</button>
+        </div>
+
+          <div class="footer-container">
+            <div class="footer-icons">
+              <i class="fa-solid fa-chart-line"></i>
+              <i class="fa-solid fa-barcode"></i>
+              <i class="fa-solid fa-file"></i>
+              <i class="fa-regular fa-comments"></i>
+            </div>
+          </div>
+
+</div>
