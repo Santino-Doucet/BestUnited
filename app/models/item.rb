@@ -11,4 +11,15 @@ class Item < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+  def same_in_stock
+    company.items.where(
+      reference:,
+      brand:,
+      model:,
+      color:,
+      price:,
+      size:
+    )
+  end
 end
