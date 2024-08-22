@@ -1,10 +1,17 @@
 .my_stocks.container {
   font-family: Arial, sans-serif;
-  margin: 12px;
   padding: 8px;
+  background-image: url('/assets/backgrounds/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 
-
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
 .search-container {
   display: flex;
   justify-content: space-between;
@@ -156,9 +163,42 @@
   background-color: #cb692f;
   color: white;
   margin-right: 10px;
+  border:1px solid black;
 }
 
 .close-button {
   background-color: black;
   color: white;
+}
+
+#fa-solid{
+font-size: 60px;
+}
+
+#round-button {
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 1px solid black;
+  box-shadow:8px 8px 16px rgba(0, 0, 0, 0.4);
+  background-color: #cb692f;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.round-button:hover {
+  background-color:#f6b875;
+}
+
+.round-button:focus {
+  outline: none;
 }

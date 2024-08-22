@@ -1,1 +1,15 @@
 <h1>I can see details of the product in my stock </h1>
+
+<%= @item.price %>
+<%= @item.same_in_stock.count %>
+
+<%= form_with model: @item, method: :post do |f| %>
+  <%= f.label "add" %>
+  <%= f.submit %>
+<% end %>
+
+<%= form_with model: @item, method: :delete do |f| %>
+  <%= f.label "delete" %>
+  <%= f.submit %>
+<% end %>
+
