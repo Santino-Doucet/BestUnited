@@ -24,13 +24,9 @@ Rails.application.routes.draw do
 
   delete 'items/:id', to: 'my_stocks#destroy_item'
 
-
-
+  patch 'orders/:id', to: 'orders#update'
   get 'orders', to: 'orders#index'
-  get 'orders/:id', to: "orders#show"
-
-  patch 'orders', to: 'orders#update'
-
+  get 'orders/:id', to: "orders#show", as:'order'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
