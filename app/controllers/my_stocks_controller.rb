@@ -28,7 +28,7 @@ class MyStocksController < ApplicationController
   def update_item
     @item = current_stock.find(params[:id])
     @item.update(item_params)
-    redirect_to show_item_path(@item)
+    redirect_to item_path(@item)
   end
 
   def destroy_item

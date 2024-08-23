@@ -5,18 +5,18 @@
 
   <section class="orders-section">
     <h2 class="orders-section-title">Nouvelles commandes</h2>
-  <% @orders.where(status: "pending").each do |o|  %>
+  <% @orders.where(status: "pending").each do |order|  %>
     <div class="order-card">
       <div class="order-info">
         <%= image_tag 'nike-air-max.png', alt: 'Nike Air Max', class: 'order-shoe-image' %>
         <div class="order-details">
-          <div class="order-product-name"><%= link_to "#{o.cart.user.last_name} #{o.cart.user.first_name}", o %></div>
-          <div class="order-date"><%= link_to "#{o.ordered_on}", o %></div>
+          <div class="order-product-name"><%= "#{order.cart.user.last_name} #{order.cart.user.first_name}" %></div>
+          <div class="order-date"><%= "#{order.ordered_on}" %></div>
         </div>
       </div>
       <div class="order-actions">
         <div class="order-buttons-wrapper">
-          <button class="order-accept-button">Accepter</button>
+        <%= button_to "Accepter", order_path(order), data: {turbo_method: :patch}, method: :patch, class: "order-accept-button" %>
           <button class="order-decline-button">Refuser</button>
         </div>
       </div>
@@ -72,3 +72,5 @@
   </section>
 </div>
 <%= render 'pages/footer' %>
+
+<%= console %>
