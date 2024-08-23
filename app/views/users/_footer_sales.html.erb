@@ -1,9 +1,17 @@
 <div class="footer-container-sales">
   <div class="footer-icons">
-    <i class="fa-solid fa-chart-line"></i>
-    <i class="fa-solid fa-file"></i>
-    <i class="fa-solid fa-barcode"></i>
+    <a href="<%= dashboard_path %>">
+      <i class="fa-solid fa-chart-line"></i>
+    </a>
+    <a href="<%= orders_path %>">
+      <i class="fa-solid fa-file"></i>
+    </a>
+    <a href="<%= my_stock_path %>">
+      <i class="fa-solid fa-barcode"></i>
+    </a>
     <i class="fa-regular fa-comments"></i>
+<%= link_to destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do  %>
     <i class="fa-solid fa-right-from-bracket"></i>
+<% end %>
   </div>
 </div>

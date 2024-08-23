@@ -5,13 +5,13 @@
 
   <section class="orders-section">
     <h2 class="orders-section-title">Nouvelles commandes</h2>
-  <% @orders.where(status: "pending").each do |o|  %>
+  <% @orders.where(status: "pending").each do |order|  %>
     <div class="order-card">
       <div class="order-info">
         <%= image_tag 'nike-air-max.png', alt: 'Nike Air Max', class: 'order-shoe-image' %>
         <div class="order-details">
-          <div class="order-product-name"><%= link_to "#{o.cart.user.last_name} #{o.cart.user.first_name}", o %></div>
-          <div class="order-date"><%= link_to "#{o.ordered_on}", o %></div>
+          <div class="order-product-name"><%= "#{order.cart.user.last_name} #{order.cart.user.first_name}" %></div>
+          <div class="order-date"><%= "#{order.ordered_on}" %></div>
         </div>
       </div>
       <div class="order-actions">
@@ -31,8 +31,8 @@
       <div class="order-info">
         <%= image_tag 'nike-air-max.png', alt: 'Nike Air Max', class: 'order-shoe-image' %>
         <div class="order-details">
-          <div class="order-product-name"><%= link_to "#{o.cart.user.last_name} #{o.cart.user.first_name}", o %></div>
-          <div class="order-date"><%= link_to "#{o.ordered_on}", o %></div>
+          <div class="order-product-name"><%="#{o.cart.user.last_name} #{o.cart.user.first_name}"%></div>
+          <div class="order-date"><%="#{o.ordered_on}"%></div>
         </div>
       </div>
       <div class="order-actions">
@@ -71,4 +71,17 @@
     </div>
   </section>
 </div>
-<%= render 'pages/footer' %>
+<div class="footer-container-sales">
+  <div class="footer-icons">
+    <a href="<%= dashboard_path %>">
+    <i class="fa-solid fa-chart-line"></i>
+    </a>
+    <a href="<%= orders_path %>">
+      <i class="fa-solid fa-file"></i>
+    </a>
+    <i class="fa-solid fa-barcode"></i>
+    <i class="fa-regular fa-comments"></i>
+    <i class="fa-solid fa-right-from-bracket"></i>
+  </div>
+</div>
+<%= render("users/footer_sales") %>

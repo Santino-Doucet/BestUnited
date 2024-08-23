@@ -72,14 +72,11 @@
 </script>
 
 <form action="votre-page.html" method="get">
+<a href="<%= add_item_to_stock_path %>">
   <button type="submit" id="round-button"><i class="fa-solid fa-plus"></i></button>
+</a>
 </form>
 
-<div class="footer-container">
-  <div class="footer-icons">
-    <i class="fa-solid fa-chart-line"></i>
-    <i class="fa-solid fa-barcode"></i>
-    <i class="fa-solid fa-file"></i>
-    <i class="fa-regular fa-comments"></i>
-  </div>
-</div>
+
+
+<%= render("users/footer_sales") %>
