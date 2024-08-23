@@ -16,7 +16,7 @@
       </div>
       <div class="order-actions">
         <div class="order-buttons-wrapper">
-          <button class="order-accept-button">Accepter</button>
+        <%= button_to "Accepter", order_path(order), data: {turbo_method: :patch}, method: :patch, class: "order-accept-button" %>
           <button class="order-decline-button">Refuser</button>
         </div>
       </div>
