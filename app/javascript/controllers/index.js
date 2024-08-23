@@ -7,3 +7,6 @@ application.register("swiper", SwiperController)
 
 import TabsController from "../controllers/tabs_controller"
 application.register("tabs", TabsController)
+
+import ReadMoreController from "./read_more_controller"
+application.register("read-more", ReadMoreController)
