@@ -1,23 +1,35 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+require 'uri'
+require 'net/http'
+require 'json'
+
+##########################################################
+
 puts "Destroying all user"
 User.destroy_all
-puts "Destroyin all items"
+puts "Destroying all items"
 Item.destroy_all
-puts "Destroying all Compgny"
+puts "Destroying all companies"
 Company.destroy_all
 
+##########################################################
 
-puts "Create commercant"
+url = URI("https://v1-sneakers.p.rapidapi.com/v1/sneakers?limit=30")
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+
+request = Net::HTTP::Get.new(url)
+request["x-rapidapi-key"] = ENV['X_RAPIDAPI_KEY']
+request["x-rapidapi-host"] = ENV['X_RAPIDAPI_HOST']
+
+response = http.request(request)
+shoes = JSON.parse(response.read_body)["results"]
+
+##########################################################
+
+puts "Create merchant Santino"
 commercant = User.create!(
-  email: 'commercant@test.fr',
+  email: 'commercant1@test.fr',
   password: 'password',
   age: 20,
   gender: 'Homme',
@@ -25,6 +37,18 @@ commercant = User.create!(
   phone_number: '0601020304',
   first_name: 'Santino',
   last_name: 'Doucet'
+);
+
+puts "Create merchant Ji-Fang"
+commercant2 = User.create!(
+  email: 'commercant2@test.fr',
+  password: 'password',
+  age: 27,
+  gender: 'Femme',
+  address: '2 Place Lucien Artaud, Bandol',
+  phone_number: '0601020310',
+  first_name: 'Ji-Fang',
+  last_name: 'Lo'
 );
 
 puts "Create test user"
@@ -40,31 +64,46 @@ user = User.create!(
 )
 
 
-puts "Create company"
+puts "Create company 1"
 company = Company.create!(
-  siren: '09909009990090090',
+  siren: '987654321',
   name: 'Best United Store',
   address: '4 rue des capucins Lyon',
   user: commercant
 )
 
+puts "Create company 2"
+company2 = Company.create!(
+  siren: '123456789',
+  name: 'JLO Shop',
+  address: '2 Place Lucien Artaud, Bandol',
+  user: commercant2
+)
+
+companies = [company, company2]
+
 puts "Create stock"
-25.times do
+shoes.each do |shoe|
   Item.create!(
-    reference: Faker::Alphanumeric.alpha(number: 10), #To add real reference with API
-    brand: "Nike",
-    model: "Air Force",
-    color: "Red",
-    price: Faker::Number.between(from: 47.0, to: 600.0),
-    company: company,
+    reference: shoe["styleId"],
+    brand: shoe["brand"],
+    model: shoe["name"],
+    color: shoe["colorway"],
+    price: shoe["retailPrice"],
+    company: companies.sample,
     size: Faker::Number.between(from: 32, to: 46)
   )
 end
 
 puts "================================="
-puts "Commercant =>"
+puts "Commercant 1 =>"
 puts "id: #{commercant.id}"
 puts "email: #{commercant.email}"
+puts "password: password"
+puts "================================="
+puts "Commercant 2 =>"
+puts "id: #{commercant2.id}"
+puts "email: #{commercant2.email}"
 puts "password: password"
 puts "================================="
 puts "Company =>"

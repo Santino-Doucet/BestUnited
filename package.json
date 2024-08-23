@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@splidejs/splide": "^4.1.4",
+    "swiper": "^11.1.10"
+  }
+}
