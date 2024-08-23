@@ -1,24 +1,27 @@
 <div class="footer-container-sales">
   <div class="footer-icons">
     <div class="footer-icon-item">
-      <i class="fa-solid fa-chart-line"></i>
-      <span>Tableau de bord</span>
+      <%= link_to dashboard_path do  %>
+        <i class="fa-solid fa-chart-line"></i>
+          <% end %>
     </div>
     <div class="footer-icon-item">
-      <i class="fa-solid fa-file"></i>
-      <span>Gestion des commandes</span>
+      <%= link_to orders_path do  %>
+        <i class="fa-solid fa-file"></i>
+      <% end %>
     </div>
     <div class="footer-icon-item">
-      <i class="fa-solid fa-barcode"></i>
-      <span>Scanner un article</span>
+      <%= link_to add_item_to_stock_path do  %>
+        <i class="fa-solid fa-barcode"></i>
+      <% end %>
+    </div>
+    <div class="footer-icon-item">
+      <%= link_to my_stock_path do  %>
+        <i class="fa-solid fa-cart-flatbed"></i>
+      <% end %>
     </div>
     <div class="footer-icon-item">
       <i class="fa-regular fa-comments"></i>
-      <span>Chat</span>
-    </div>
-    <div class="footer-icon-item">
-      <i class="fa-solid fa-shop"></i>
-      <span>Profil</span>
     </div>
   </div>
 </div>
