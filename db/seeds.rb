@@ -84,7 +84,7 @@ companies = [company, company2]
 
 puts "Create stock"
 shoes.each do |shoe|
-  Item.create!(
+  item = Item.create!(
     reference: shoe["styleId"],
     brand: shoe["brand"],
     model: shoe["name"],
@@ -93,6 +93,17 @@ shoes.each do |shoe|
     company: companies.sample,
     size: Faker::Number.between(from: 32, to: 46)
   )
+
+  next if shoe["media"]["imageUrl"].nil?
+
+  url = shoe["media"]["imageUrl"].gsub(" ","")
+  begin
+    file = URI.open(url)
+    item.photo.attach(io: file, filename: "shoe.png", content_type: "image/png")
+  rescue OpenURI::HTTPError => e
+    puts "Could not fetch image from URL: #{url}. Error: #{e.message}"
+    next
+  end
 end
 
 puts "================================="
