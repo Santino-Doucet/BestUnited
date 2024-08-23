@@ -217,6 +217,16 @@
 }
 
 .swiper {
+  width: 100%; /* Full width */
+  height: 300px; /* Default height */
+  max-width: 600px; /* Maximum width */
+  margin: 0 auto; /* Center align */
+}
+
+.swiper-slide img {
+  width: 100%; /* Responsive image width */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Cover the slide area */
   width: 100%;
   height: 300px;
   max-width: 600px;
@@ -237,12 +247,10 @@
 
 @media (max-width: 768px) {
   .swiper {
-    height: 250px;
-  }
+    height: 250px; 
 }
 
 @media (max-width: 576px) {
   .swiper {
     height: 200px;
   }
-}
