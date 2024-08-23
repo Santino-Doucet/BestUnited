@@ -19,7 +19,11 @@
         <div class="product-card">
           <%= link_to item do %>
             <i class="fa-regular fa-heart save-icon"></i>
-            <%= image_tag 'nike-air-max.png', alt: 'nike-air-max', class: 'product-image' %>
+            <% if !item.photo.key.nil? %>
+              <%= cl_image_tag item.photo.key, crop: :fill, alt: "shoe", class: "product-image" %>
+            <% else %>
+
+            <% end %>
             <p class="product-name"><%= item.brand %> <%= item.model %></p>
             <div class="price-and-button">
               <p class="product-price"><%= item.price %>€</p>
