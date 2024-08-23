@@ -6,16 +6,15 @@
 
 .footer-container-sales {
   background-color: white;
-  padding: 10px 0;
+  padding: 8px 0;
   display: flex;
   justify-content: space-between;
-  bottom: 0;
   position: fixed;
   bottom: 0;
   left: 0;
   z-index: 9;
   width: 100vw;
-  height: 5vh;
+  height: 10vh; /* Ajusté pour laisser plus d'espace pour le texte */
 }
 
 .footer-icons {
@@ -25,9 +24,14 @@
   align-items: center;
 }
 
+.footer-icon-item {
+  text-align: center;
+  flex: 1;
+}
+
 .footer-icons i {
-  font-size: 24px;
-  color:#cb692f;
+  font-size: 30px;
+  color: #cb692f;
   transition: color 0.3s, transform 0.3s;
 }
 
@@ -43,16 +47,9 @@
   font-size: 28px;
 }
 
-.footer-icons i.fa-barcode {
-  color: white;
-  font-size: 28px;
-  background-color: #D76531;
-  padding: 16px;
-  border-radius: 50%;
-  border: 1px solid black;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: -20px;
+.footer-icon-item span {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px; /* Ajustez la taille du texte ici */
+  color: #333; /* Assurez-vous que le texte a une couleur visible */
 }
