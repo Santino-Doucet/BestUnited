@@ -33,24 +33,6 @@
   margin-bottom: 10px;
 }
 
-.order-card {
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 15px;
-  padding: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 15px;
-}
-
-.order-info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex: 1;
-}
-
 .order-shoe-image {
   width: 50px;
   height: 50px;
@@ -60,12 +42,53 @@
   border: 2px solid rgb(175, 175, 175);
 }
 
-.order-details {
+.order-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.order-card-content {
+  display: flex;
+  align-items: center; /* Center align items vertically */
+  justify-content: space-between; /* Space between info and actions */
+  width: 100%;
+}
+
+.order-actions {
+  display: flex;
+  align-items: center; /* Center align button vertically */
+  gap: 10px; /* Space between button and other actions */
+}
+
+.order-info {
+  display: flex;
+  align-items: center; /* Center align items vertically */
+  gap: 10px; /* Space between image and details */
+  flex: 1; /* Allow info section to take up available space */
+}
+
+.order-hidden-details {
+  display: none; /* Initially hidden */
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  width: 100%; /* Span the full width of the card */
+  margin-top: 10px; /* Space above the hidden details */
+}
+
+.order-actions {
+  display: flex;
+  justify-content: flex-end; /* Align action buttons to the end */
+}
+
+.order-buttons-wrapper {
+  display: flex;
+  gap: 5px;
 }
 
 .order-product-name {
@@ -79,18 +102,6 @@
   margin-top: 2px;
 }
 
-.order-actions {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.order-buttons-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
 .order-accept-button,
 .order-decline-button {
   background-color: #68b264;
@@ -99,7 +110,7 @@
   border-radius: 8px;
   padding: 8px 10px;
   cursor: pointer;
-  font-size: 12px; 
+  font-size: 12px;
   width: 100%;
   box-sizing: border-box;
 }
