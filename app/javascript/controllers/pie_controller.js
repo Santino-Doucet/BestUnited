@@ -1,19 +1,19 @@
 import { Controller } from "@hotwired/stimulus"
 import ApexCharts from 'apexcharts'
 
-
 // Connects to data-controller="pie"
 export default class extends Controller {
   connect() {
     console.log("pieeee");
 
     var options = {
-      series: [44, 55, 13, 33], // Les valeurs initiales des segments
+      series: [44, 55, 13], // Les valeurs des segments (réduites à 3)
       chart: {
           width: 380,
           type: 'donut',
       },
-      colors: ['#f6b765', '#d76531', '#000000', '#fef5dd'], // Les couleurs personnalisées
+      colors: ['#f6b765', '#d76531', '#000000'], // Les couleurs personnalisées pour 3 segments
+      labels: ['En stock', 'Stock moyen', 'Stock faible'], // Les légendes pour chaque segment
       dataLabels: {
           enabled: false
       },
@@ -25,38 +25,46 @@ export default class extends Controller {
           breakpoint: 480,
           options: {
               chart: {
-                  width: 200
+                  width: 360
               },
               legend: {
-                  show: false
+                  show: true, // Assurez-vous que la légende est activée sur les petits écrans
+                  fontSize: '12px', // Taille de la police pour les petits écrans
+                  itemMargin: {
+                      horizontal: 10, // Espacement horizontal entre les éléments
+                      vertical: 5 // Espacement vertical entre les éléments
+                  },
+                  markers: {
+                      width: 12, // Largeur des marqueurs dans la légende
+                      height: 12, // Hauteur des marqueurs dans la légende
+                      strokeColor: '#fff', // Couleur de la bordure des marqueurs
+                      strokeWidth: 2 // Épaisseur de la bordure des marqueurs
+                  }
               }
           }
       }],
       legend: {
-          position: 'right',
+          show: true, // Assurez-vous que la légende est activée
+          position: 'right', // Position de la légende
           offsetY: 0,
           height: 230,
+          fontSize: '14px', // Taille de la police pour la légende
+          itemMargin: {
+              horizontal: 10, // Espacement horizontal entre les éléments
+              vertical: 5 // Espacement vertical entre les éléments
+          },
+          markers: {
+              width: 12, // Largeur des marqueurs dans la légende
+              height: 12, // Hauteur des marqueurs dans la légende
+              strokeColor: '#fff', // Couleur de la bordure des marqueurs
+              strokeWidth: 3 // Épaisseur de la bordure des marqueurs
+          }
       }
     };
+
     var chart = new ApexCharts(this.element, options);
     chart.render();
-    // document.querySelector("#randomize").addEventListener("click", function() {
-    //   chart.updateSeries(this.randomize());
-    // });
-
-    // document.querySelector("#add").addEventListener("click", function() {
-    //     chart.updateSeries(this.appendData());
-    // });
-
-    // document.querySelector("#remove").addEventListener("click", function() {
-    //     chart.updateSeries(this.removeData());
-    // });
-
-    // document.querySelector("#reset").addEventListener("click", function() {
-    //     chart.updateSeries(this.reset());
-    // });
-
-  };
+  }
 
   appendData() {
     var chart = new ApexCharts(document.querySelector("#chart"), options);

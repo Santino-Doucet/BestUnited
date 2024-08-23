@@ -1,17 +1,24 @@
 <div class="footer-container-sales">
   <div class="footer-icons">
-    <a href="<%= dashboard_path %>">
+    <div class="footer-icon-item">
       <i class="fa-solid fa-chart-line"></i>
-    </a>
-    <a href="<%= orders_path %>">
+      <span>Tableau de bord</span>
+    </div>
+    <div class="footer-icon-item">
       <i class="fa-solid fa-file"></i>
-    </a>
-    <a href="<%= my_stock_path %>">
+      <span>Gestion des commandes</span>
+    </div>
+    <div class="footer-icon-item">
       <i class="fa-solid fa-barcode"></i>
-    </a>
-    <i class="fa-regular fa-comments"></i>
-<%= link_to destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do  %>
-    <i class="fa-solid fa-right-from-bracket"></i>
-<% end %>
+      <span>Scanner un article</span>
+    </div>
+    <div class="footer-icon-item">
+      <i class="fa-regular fa-comments"></i>
+      <span>Chat</span>
+    </div>
+    <div class="footer-icon-item">
+      <i class="fa-solid fa-shop"></i>
+      <span>Profil</span>
+    </div>
   </div>
 </div>
