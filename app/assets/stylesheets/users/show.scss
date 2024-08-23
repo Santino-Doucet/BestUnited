@@ -1,10 +1,11 @@
 .my_dashboard {
-  background-image: url('/assets/backgrounds/background.png');
+  background-image: url('/assets/backgrounds/dash.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
   min-height: 100vh;
+  font-family: "Poppins", sans-serif;
 }
 
 .dashboard {
@@ -23,11 +24,12 @@
 .part-1 h1 {
   color: black;
   font-size: 20px;
+  font-weight: bold;
 }
 
 .part-1 h2 {
   color: #CB680C;
-  font-size: 14px;
+  font-size: 16px;
   margin: 10px 0;
   font-weight: lighter;
 }
@@ -42,7 +44,7 @@
 .kpi {
   display: flex;
   justify-content: space-evenly;
-  gap: 12px;
+  gap: 20px;
 }
 
 .kpi div {
@@ -52,22 +54,26 @@
   border-radius: 16px;
   text-align: center;
   flex-direction: column;
-  height:60px;
-  width: 160px;
+  justify-content: space-evenly;
+  height:80px;
+  width: 170px;
   margin-top: 10px;
   border: 3px solid white;
+
 }
 
 .kpi h2 {
   color: white;
   font-size: 18px;
+  font-weight: bold;
   margin-bottom: 4px;
 }
 
 .kpi p {
   font-size: 20px;
   color: #333;
-  margin:0px
+  margin: 0px;
+
 }
 
 .chart {
@@ -80,8 +86,10 @@
 }
 
 .chart h1 {
+  padding-top: 8px;
   color: black;
-  font-size: 12px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .chart select {
@@ -90,22 +98,24 @@
 
 .best-sellers {
   border-radius: 8px;
-  text-align: center;
+  text-align:center;
+  justify-content: space-evenly;
   padding-bottom: 28px;
 }
 
 .best-sellers h1 {
   color: black;
-  font-size: 16px;
+  font-size: 20px;
+  font-weight: bold;
   margin-bottom: 20px;
   text-align: left;
 }
 
 .card-best-sellers {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   gap: 32px;
-  width: 320px;
+  width: 340px;
   margin-bottom: 16px;
 }
 
@@ -128,7 +138,8 @@
 }
 
 .stock h1 {
-  font-size: 16px;
+  font-size: 20px;
+  font-weight: bold;
   color: black;
   padding-bottom: 12px;
 }
@@ -148,5 +159,8 @@
 #date-value {
   background-color:rgb(254,244,223);
   border-radius: 12px;
-  border:3px solid white;
-}
+  border: 3px solid white;
+  padding: 4px;
+  -webkit-box-shadow: 2px 2px 0px 1px #555353;
+  box-shadow: 1px 1px 0px 1px #585757;
+  }

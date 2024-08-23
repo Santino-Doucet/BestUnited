@@ -4,13 +4,15 @@
   border-top: 1px solid #DDD;
 }
 
-.footer-container {
+.footer-container-sales {
   background-color: white;
   padding: 10px 0;
   display: flex;
   justify-content: space-between;
   bottom: 0;
-  position: absolute;
+  position: fixed;
+  bottom: 0;
+  left: 0;
   z-index: 9;
   width: 100vw;
   height: 5vh;
@@ -38,5 +40,19 @@
 
 .footer-icons i.active {
   color: white;
-  font-size: 28px; /* Larger size for the active icon */
+  font-size: 28px;
+}
+
+.footer-icons i.fa-barcode {
+  color: white;
+  font-size: 28px;
+  background-color: #D76531;
+  padding: 16px;
+  border-radius: 50%;
+  border: 1px solid black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -20px;
 }

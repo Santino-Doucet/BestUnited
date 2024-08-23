@@ -3,7 +3,7 @@
     <div class="product-details-container">
       <div class="product-header">
         <button class="back-button"><i class="fa-solid fa-arrow-left"></i></button>
-        <div class="product-title"><h2>Airmax</h2></div>
+        <div class="product-title"><h2>Nike Air 270</h2></div>
       </div>
 
       <div class="product-image-container">
@@ -34,7 +34,6 @@
       </div>
 
       <div class="product-info">
-      <div class="product-name">Nike Air 270</div>
       <div class="product-details">
         <h3>Détail du produit</h3>
         <div class="details-grid">
@@ -50,17 +49,19 @@
             <div class="detail-label">Date de sortie</div>
             <div class="detail-value">16/01/21</div>
         </div>
-        <div class="product-description">
-            <p>The Nike Air 1 Low Black W features stitched overlays on the upper side. It features air cushioning and Nike Air branding on the tongue and heel of the shoe. Nike Air Force 1 Low Black W I don't know what to write more bye.</p>
-        </div>
-        <a href="#" class="read-more">En savoir plus</a>
+        <div data-controller="read-more">
+  <p class="product-description" data-read-more-target="description" style="display: none;">
+    Some descriptions about the product here...
+  </p>
+  <a href="#" class="read-more-link" data-action="click->read-more#toggleDescription" data-read-more-target="link">
+    En savoir plus
+  </a>
+</div>
     </div>
-
+    </div>
       <div class="button-container">
         <button class="add-to-cart-button">Ajouter au panier</button>
       </div>
-    </div>
   </main>
-
-  <%= render 'pages/footer' %>
 </div>
+<%= render 'pages/footer' %>
