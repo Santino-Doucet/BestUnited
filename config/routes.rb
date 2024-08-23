@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#index"
-  resources :items, only: [:index, :show]
+  resources :items, only: [:index, :show] do
+    resources :order_items, only: [:create]
+  end
 
-  resources :carts, only: [:index, :show, :update]
+  resources :carts, only: [:index, :show]
 
   patch 'carts', to: 'carts#send_order_to_merchant'
 
@@ -24,12 +26,9 @@ Rails.application.routes.draw do
 
   delete 'items/:id', to: 'my_stocks#destroy_item'
 
+  resources :orders, only: [:index, :show, :update]
 
-
-  get 'orders', to: 'orders#index'
-  get 'orders/:id', to: "orders#show"
-
-  patch 'orders', to: 'orders#update'
+  resources :order_items, only: [:destroy]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
