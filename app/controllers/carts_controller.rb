@@ -1,7 +1,7 @@
 class CartsController < ApplicationController
 
   def index
-    @carts = Cart.find(user: current_user)
+    @carts = Cart.where(user: current_user)
   end
 
   def show

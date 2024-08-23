@@ -13,3 +13,6 @@ application.register("read-more", ReadMoreController);
 
 import OrderDetailsController from "./order_details_controller";
 application.register("order-details", OrderDetailsController);
+
+import CartDetailsController from "./cart_details_controller";
+application.register("cart-details", CartDetailsController);

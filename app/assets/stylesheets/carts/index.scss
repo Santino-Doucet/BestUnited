@@ -1,0 +1,130 @@
+.carts-page-container {
+  background: url('assets/background_light.png') no-repeat center center;
+  width: 390px;
+  max-width: 100%;
+  height: 844px;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.carts-header {
+text-align: center;
+margin-bottom: 20px;
+}
+
+.carts-title {
+font-size: 24px;
+font-weight: bold;
+margin-top: 20px;
+}
+
+.carts-section {
+margin-bottom: 20px;
+}
+
+.carts-section-title {
+font-size: 18px;
+font-weight: bold;
+margin-bottom: 10px;
+}
+
+.carts-shoe-image {
+width: 50px;
+height: 50px;
+border-radius: 50%;
+background-color: #f0f0f0;
+padding: 5px;
+border: 2px solid rgb(175, 175, 175);
+}
+
+.carts-card {
+background-color: rgba(255, 255, 255, 0.9);
+border-radius: 15px;
+padding: 15px;
+display: flex;
+flex-direction: column;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+margin-bottom: 15px;
+position: relative;
+}
+
+.carts-card-content {
+display: flex;
+align-items: center; /* Center align items vertically */
+justify-content: space-between; /* Space between info and actions */
+width: 100%;
+}
+
+.carts-actions {
+display: flex;
+align-items: center; /* Center align button vertically */
+gap: 10px; /* Space between button and other actions */
+}
+
+.carts-info {
+display: flex;
+align-items: center; /* Center align items vertically */
+gap: 10px; /* Space between image and details */
+flex: 1; /* Allow info section to take up available space */
+}
+
+.carts-hidden-details {
+display: none; /* Initially hidden */
+padding: 10px;
+border-top: 1px solid #ddd;
+width: 100%; /* Span the full width of the card */
+margin-top: 10px; /* Space above the hidden details */
+}
+
+.carts-actions {
+display: flex;
+justify-content: flex-end; /* Align action buttons to the end */
+}
+
+.carts-buttons-wrapper {
+display: flex;
+gap: 5px;
+}
+
+.carts-product-name {
+font-size: 16px;
+font-weight: bold;
+}
+
+.carts-date {
+font-size: 14px;
+color: #555;
+margin-top: 2px;
+}
+
+.carts-accept-button,
+.carts-decline-button {
+background-color: #68b264;
+color: #fff;
+border: none;
+border-radius: 8px;
+padding: 8px 10px;
+cursor: pointer;
+font-size: 12px;
+width: 100%;
+box-sizing: border-box;
+}
+
+.carts-decline-button {
+background-color: #757575;
+}
+
+.carts-view-details-button {
+background-color: #68b264;
+color: #fff;
+border: none;
+border-radius: 10px;
+padding: 10px 15px;
+cursor: pointer;
+font-size: 14px;
+}
