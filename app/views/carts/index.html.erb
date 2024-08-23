@@ -1,56 +1,87 @@
-<div class="cart-container">
+<div class="carts-page-container">
+  <header class="carts-header">
+    <h1 class="carts-title">Toutes mes commandes</h1>
+  </header>
 
-  <h1>Toutes les commandes</h1>
-
-  <section id="new">
-    <h2>Nouvelle commande</h2>
-    <div class="new-card">
-      <div class="pouf">
-        <%= image_tag 'nike-air-max.png', alt:'airmax' %>
-        <div class="card-content">
-          <h3>Airmax</h3>
-          <p>21 Août 2024</p>
+  <section class="carts-section">
+    <h2 class="carts-section-title">En attente</h2>
+    <div class="carts-card" data-controller="cart-details" data-action="click->cart-details#toggleDetails">
+      <div class="carts-card-content">
+        <div class="carts-info">
+          <%= image_tag 'nike-air-max.png', alt: 'Nike Air Max', class: 'carts-shoe-image' %>
+          <div class="carts-details">
+            <div class="carts-product-name">Airmax</div>
+            <div class="carts-date">21 Août 2024</div>
+          </div>
+        </div>
+        <div class="carts-actions">
+          <button class="carts-view-details-button">Voir detail</button>
         </div>
       </div>
-      <div class="card-actions">
-        <button class="accept-btn">Accepter</button>
-        <button class="decline-btn">Refuser</button>
+      <div class="carts-hidden-details" data-cart-details-target="details" style="display: none;">
+        <p>Détails supplémentaires sur la commande...</p>
       </div>
     </div>
   </section>
 
-<section id="order-in-progress">
-    <h2>Commandes en cours</h2>
-    <div class="new-card">
-      <div class="pouf">
-        <%= image_tag 'nike-air-max.png', alt:'airmax' %>
-        <div class="card-content">
-          <h3>Airmax</h3>
-          <p>21 Août 2024</p>
+  <section class="carts-section">
+    <h2 class="carts-section-title">En cours</h2>
+    <div class="carts-card" data-controller="cart-details" data-action="click->cart-details#toggleDetails">
+      <div class="carts-card-content">
+        <div class="carts-info">
+          <%= image_tag 'nike-air-max.png', alt: 'Nike Air Max', class: 'carts-shoe-image' %>
+          <div class="carts-details">
+            <div class="carts-product-name">Airmax</div>
+            <div class="carts-date">21 Août 2024</div>
+          </div>
+        </div>
+        <div class="carts-actions">
+          <button class="carts-view-details-button">Voir detail</button>
         </div>
       </div>
-    </div>
-</section>
-
-  <section id="order-placed">
-    <h2>Commandes passées</h2>
-    <div class="new-card">
-      <div class="pouf">
-        <%= image_tag 'nike-air-max.png', alt:'airmax' %>
-        <div class="card-content">
-          <h3>Airmax</h3>
-          <p>21 Août 2024</p>
-        </div>
+      <div class="carts-hidden-details" data-cart-details-target="details" style="display: none;">
+        <p>Détails supplémentaires sur la commande...</p>
       </div>
     </div>
   </section>
 
-<div class="footer-container-sales">
-  <div class="footer-icons">
-    <i class="fa-solid fa-chart-line"></i>
-    <i class="fa-solid fa-file"></i>
-    <i class="fa-solid fa-barcode"></i>
-    <i class="fa-regular fa-comments"></i>
-    <i class="fa-solid fa-right-from-bracket"></i>
-  </div>
+  <section class="carts-section">
+    <h2 class="carts-section-title">Passées</h2>
+    <div class="carts-card" data-controller="cart-details" data-action="click->cart-details#toggleDetails">
+      <div class="carts-card-content">
+        <div class="carts-info">
+          <%= image_tag 'nike-air-max.png', alt: 'Nike Air Max', class: 'carts-shoe-image' %>
+          <div class="carts-details">
+            <div class="carts-product-name">Airmax</div>
+            <div class="carts-date">21 Août 2024</div>
+          </div>
+        </div>
+        <div class="carts-actions">
+          <button class="carts-view-details-button">Voir detail</button>
+        </div>
+      </div>
+      <div class="carts-hidden-details" data-cart-details-target="details" style="display: none;">
+        <p>Détails supplémentaires sur la commande...</p>
+      </div>
+    </div>
+
+    <div class="carts-card" data-controller="cart-details" data-action="click->cart-details#toggleDetails">
+      <div class="carts-card-content">
+        <div class="carts-info">
+          <%= image_tag 'nike-air-max.png', alt: 'Nike Air Max', class: 'carts-shoe-image' %>
+          <div class="carts-details">
+            <div class="carts-product-name">Airmax</div>
+            <div class="carts-date">21 Août 2024</div>
+          </div>
+        </div>
+        <div class="carts-actions">
+          <button class="carts-view-details-button">Voir detail</button>
+        </div>
+      </div>
+      <div class="carts-hidden-details" data-cart-details-target="details" style="display: none;">
+        <p>Détails supplémentaires sur la commande...</p>
+      </div>
+    </div>
+  </section>
 </div>
+<%= render 'pages/footer' %>
