@@ -17,9 +17,9 @@
 
 .header-items {
   display: flex;
-  align-items: center; /* Align items vertically centered */
+  align-items: center;
   padding: 10px 0;
-  gap: 10px; /* Space between items */
+  gap: 10px;
 }
 
 .product-title {
@@ -29,7 +29,7 @@
 .back-button-search-result {
   border: none;
   font-size: 24px;
-  color: #cb680b; /* Adjusted to match color scheme */
+  color: #cb680b;
   background-color: #e5c5aa;
   border-radius: 50%;
   width: 40px;
@@ -42,7 +42,7 @@
 }
 
 .search-input {
-  flex-grow: 1; /* Allow search input to take up remaining space */
+  flex-grow: 1;
   padding: 7px;
   font-size: 16px;
   border: 2px solid #ddd;
@@ -51,12 +51,12 @@
 
 .options {
   display: flex;
-  align-items: center; /* Align icons vertically centered */
+  align-items: center;
 }
 
 .options i {
   font-size: 20px;
-  margin-left: 10px; /* Space between icons */
+  margin-left: 10px;
   cursor: pointer;
 }
 
@@ -79,24 +79,23 @@
   color: #888;
 }
 
-/* Style for the products grid and product cards */
 .products-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr; /* Two columns layout */
   gap: 10px;
   padding: 10px 0;
 }
 
 .product-card {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: #f9f9f9;
   padding: 10px;
   border-radius: 8px;
-  text-align: left;  /* Align text to the left */
+  text-align: left;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;  /* Space between elements */
+  height: 100%; /* Take up full height within the grid */
 }
 
 .product-card a {
@@ -104,7 +103,6 @@
   color: black;
 }
 
-/* Heart icon style */
 .save-icon {
   position: absolute;
   top: 10px;
@@ -127,7 +125,8 @@
 .product-name {
   font-size: 14px;
   color: #333;
-  margin: 5px 0;  /* Add some margin for spacing */
+  margin: 5px 0;
+  flex-grow: 1; /* Allow the title to take up remaining space */
 }
 
 .price-and-button {
@@ -144,8 +143,8 @@
 
 .product-buy-save {
   display: flex;
-  justify-content: flex-start;  /* Align items to the left */
-  gap: 10px;  /* Add space between button and other elements */
+  justify-content: flex-start;
+  gap: 10px;
 }
 
 .ajouter {
