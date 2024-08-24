@@ -94,7 +94,7 @@ export default class extends Controller {
       grid: {
         show: true,
         borderColor: '#CB680C',
-        strokeDashArray: 2,
+        strokeDashArray: 4,
       },
 
       title: {
