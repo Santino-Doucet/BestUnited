@@ -1,16 +1,26 @@
 .my_stocks.container {
-  font-family: Arial, sans-serif;
+  font-family: "Poppins", sans-serif;
+  max-width: 100%;
   padding: 8px;
-  background-image: url('assets/bghomepage.png');
+  background-image: url('assets/bg-stock.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  min-height: 100vh;
+  z-index: 1;
+  padding-bottom: 7vh;
+}
+
+.content-wrapper {
+  margin: 0 12px;
 }
 
 .title {
-  font-size: 24px;
+  color: black;
+  font-size: 20px;
   font-weight: bold;
+  padding-top: 12px;
 }
 
 .title-stock {
@@ -46,20 +56,21 @@
 
 .filter-button {
   padding: 10px 15px;
-  background-color: #cb692f;
+  background-color:#d76531 ;
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
-  border: 1px solid black;
+  font-weight: 500;
+  border: 2px solid rgb(255, 255, 255);
   box-shadow: 4px 2px 2px rgb(99, 97, 97);
 }
 
 .inventory-list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 24px;
   padding-top: 16px;
   padding-left: 8px;
   padding-right: 8px;
@@ -112,8 +123,10 @@
 }
 
 .total-text {
-  margin-right: 1px;
-  font-size: 16px;
+  margin-right: 4px;
+  font-size: 12px;
+  display:block;
+  justify-content: space-evenly;
 }
 
 .quantity-button {
@@ -126,7 +139,7 @@
   font-size: 16px;
   margin: 0 5px;
   font-weight: bold;
-  border: 1px solid black;
+  border: 2px solid rgb(255, 255, 255);
   box-shadow: 2px 2px 2px rgb(99, 97, 97);
   width: 30px;
   height: 35px;
@@ -193,7 +206,7 @@
   background-color: #cb692f;
   color: white;
   margin-right: 10px;
-  border:1px solid black;
+  border:1px solid rgb(255, 255, 255);
 }
 
 .close-button {
@@ -207,12 +220,12 @@ font-size: 60px;
 
 #round-button {
   position: fixed;
-  bottom: 60px;
+  bottom: 80px;
   right: 20px;
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  border: 1px solid black;
+  border: 2px solid rgb(255, 255, 255);
   box-shadow:8px 8px 16px rgba(0, 0, 0, 0.4);
   background-color: #cb692f;
   color: white;
