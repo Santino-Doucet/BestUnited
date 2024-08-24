@@ -7,7 +7,7 @@ export default class extends Controller {
     console.log("chart");
 
     var options = {
-      colors: ["#f2be8a"],
+      colors: ["#F2BE8A"],
       series: [{
         name: 'Inflation',
         data: [2.3, 3.1, 4.0, 10.1, 4.0, 3.6, 3.2]
@@ -20,11 +20,18 @@ export default class extends Controller {
       plotOptions: {
         bar: {
           borderRadius: 16,
-          distributed: true, // Pour appliquer des couleurs différentes aux barres
+          distributed: true,
           dataLabels: {
-            position: 'top', // top, center, bottom
+            position: 'top',
           },
         }
+      },
+
+      // Ajouter une bordure blanche autour des barres
+      stroke: {
+        show: true,
+        width: 1, // Largeur de la bordure
+        colors: ['#ffffff'] // Couleur de la bordure (blanc)
       },
 
       dataLabels: {
@@ -41,7 +48,7 @@ export default class extends Controller {
 
       xaxis: {
         categories: ["L", "M", "M", "J", "V", "S", "D"],
-        position: 'top',
+        position: 'bottom',
         axisBorder: {
           show: false
         },
@@ -66,8 +73,8 @@ export default class extends Controller {
         labels: {
           style: {
             fontSize: '16px',
-            fontWeight: 'bold', // Pour que les labels soient en gras
-            fontFamily: 'Arial, sans-serif', // Pour une police plus étroite
+            fontWeight: 'bold',
+            fontFamily: 'Popins, sans-serif',
             colors: ['#cb692f','#cb692f','#cb692f','#cb692f','#cb692f','#cb692f','#cb692f']
           }
         }
@@ -92,20 +99,29 @@ export default class extends Controller {
         },
       },
 
-      // Ajout des lignes en pointillé sur le fond du graphique
       grid: {
         show: true,
         borderColor: '#CB680C',
-        strokeDashArray: 5, // Pour des lignes en pointillé
+        strokeDashArray: 5,
       },
 
       title: {
-        floating: true,
-        offsetY: 330,
+        floating: false,
+        offsetY: 0,
         align: 'center',
         style: {
           color: '#444'
         }
+      },
+
+      legend: {
+        show: true,
+        position: 'bottom',
+        horizontalAlign: 'center',
+        itemMargin: {
+          horizontal: 13,
+          vertical: 0
+        },
       }
     };
 
