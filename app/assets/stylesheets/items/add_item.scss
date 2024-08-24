@@ -2,17 +2,17 @@
   overflow: hidden;
   position: relative;
   z-index: 2;
-  background: url('assets/dashboard.png') no-repeat center center;
+  background: url('assets/scan.png') no-repeat center center;
   background-size: cover;
   width: 100vw !important;
   height: 100vh !important;
   overflow-y: scroll;
-  margin: 0 !important ;
+  margin: 0 !important;
   padding: 0 !important;
 
   h3 {
     padding-top: 40px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     margin: 20px;
     font-size: 20px;
     text-align: center;
@@ -23,6 +23,8 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    margin-left: 12px;
+    margin-right: 12px;
   }
 
   .separator::before,
@@ -42,27 +44,29 @@
 
   .search-bar-container {
     display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    box-shadow: 12px 12px 18px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
   }
 
   input[type="text"] {
     padding: 10px;
-    border-radius: 50px 0 0 50px;
+    border-radius: 8px;
     border: 1px solid #1f1f1f;
-    width: 300px;
-
+    width: calc(100% - 16px);
+    margin-bottom: 28px;
   }
 
   button {
-    padding: 10px 20px;
-    border-radius: 0 30px 30px 0;
-    border: 1px solid black;
-    box-shadow: 12px 12px 18px rgba(0, 0, 0, 0.1);
+    align-self: flex-end;
+    padding: 10px 16px;
+    border-radius: 12px;
+    border: 1px solid rgb(0, 0, 0);
     background-color: #cb692f;
+    font-weight: bold;
     color: white;
     cursor: pointer;
+    margin-right: 8px;
   }
 
   button:hover {
@@ -70,12 +74,11 @@
     border-color: black;
   }
 
-  #scan-image{
+  #scan-image {
     height: 300px;
     width: 300px;
     display: block;
     margin: 12px auto 20px;
     padding-bottom: 32px;
   }
-
 }
