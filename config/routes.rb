@@ -26,7 +26,14 @@ Rails.application.routes.draw do
 
   delete 'items/:id', to: 'my_stocks#destroy_item'
 
-  resources :orders, only: [:index, :show, :update]
+  resources :orders, only: [:index, :show]
+  resources :orders do
+    member do
+      patch :validate_order
+      patch :refuse_order
+    end
+  end
+
 
   resources :order_items, only: [:destroy]
 
