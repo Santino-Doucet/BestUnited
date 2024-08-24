@@ -1,18 +1,14 @@
 .my_dashboard {
+  font-family: "Poppins", sans-serif;
+  max-width: 100%;
+  padding: 20px;
   background-image: url('assets/dash.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  display: flex;
   min-height: 100vh;
-  font-family: "Poppins", sans-serif;
+  z-index: 1;
   padding-bottom: 7vh;
-}
-
-.dashboard {
-  max-width: 100%;
-  margin: 8px;
-  padding: 8px;
 }
 
 .part-1 {
@@ -26,6 +22,7 @@
   color: black;
   font-size: 20px;
   font-weight: bold;
+  margin-left: 12px;
 }
 
 .part-1 h2 {
@@ -34,7 +31,7 @@
   font-weight: 300;
   font-style: normal;
   font-size: 16px;
-  margin: 10px 0;
+  margin: 12px 12px;
 }
 
 .part-1 p.total-revenue {
@@ -42,17 +39,19 @@
   color: #CB680C;
   margin: 0;
   padding-bottom: 4px;
+  margin: 12px 12px;
 }
 
 .kpi {
   display: flex;
   justify-content: space-evenly;
   gap: 20px;
+  margin: 12px 12px;
 }
 
 .kpi div {
   display: flex;
-  background-color: #f2be8a;
+  background-color:rgba(246, 184, 117, 0.8);
   padding: 2px;
   border-radius: 16px;
   text-align: center;
@@ -66,7 +65,7 @@
 }
 
 .kpi h2 {
-  color: white;
+  color: #333;
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 4px;
@@ -94,6 +93,7 @@
   color: black;
   font-size: 20px;
   font-weight: bold;
+  margin: 12px 12px;
 }
 
 .chart h2{
@@ -102,7 +102,7 @@
   font-weight: 300;
   font-style: normal;
   font-size: 16px;
-  margin: 10px 0;
+  margin: 12px 12px;
 }
 
 .chart select {
@@ -112,24 +112,28 @@
 .best-sellers {
   border-radius: 8px;
   text-align:center;
-  justify-content: space-evenly;
-  padding-bottom: 28px;
+  padding-bottom: 20px;
 }
 
 .best-sellers h1 {
   color: black;
   font-size: 20px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   text-align: left;
+  margin: 12px 12px;
+  padding-bottom: 12px;
 }
 
 .card-best-sellers {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   gap: 32px;
   width: 340px;
-  margin-bottom: 16px;
+  padding: 0 12px;
+  box-sizing: border-box;
+  margin-bottom:20px;
+  width: 100%;
 }
 
 .card-best-sellers .card {
@@ -155,6 +159,7 @@
   font-weight: bold;
   color: black;
   padding-bottom: 12px;
+  margin: 12px 12px;
 }
 
 .stock h2 {
@@ -164,11 +169,13 @@
   font-style: normal;
   font-size: 16px;
   padding-bottom: 8px;
+  margin: 12px 12px;
 }
 
 .stock p {
   color:#CB680C;
   font-size: 36px;
+  margin: 12px 12px;
 }
 
 #date-value {

@@ -25,7 +25,7 @@ export default class extends Controller {
           breakpoint: 480,
           options: {
               chart: {
-                  width: 360
+                  width: 400
               },
               legend: {
                   show: true, // Assurez-vous que la légende est activée sur les petits écrans
@@ -35,8 +35,8 @@ export default class extends Controller {
                       vertical: 5 // Espacement vertical entre les éléments
                   },
                   markers: {
-                      width: 12, // Largeur des marqueurs dans la légende
-                      height: 12, // Hauteur des marqueurs dans la légende
+                      width: 24, // Largeur des marqueurs dans la légende
+                      height: 24, // Hauteur des marqueurs dans la légende
                       strokeColor: '#fff', // Couleur de la bordure des marqueurs
                       strokeWidth: 2 // Épaisseur de la bordure des marqueurs
                   }
@@ -44,20 +44,20 @@ export default class extends Controller {
           }
       }],
       legend: {
-          show: true, // Assurez-vous que la légende est activée
-          position: 'right', // Position de la légende
+          show: true,
+          position: 'right',
           offsetY: 0,
           height: 230,
-          fontSize: '14px', // Taille de la police pour la légende
+          fontSize: '28px', // Taille de la police pour la légende
           itemMargin: {
               horizontal: 10, // Espacement horizontal entre les éléments
-              vertical: 5 // Espacement vertical entre les éléments
+              vertical: 16 // Espacement vertical entre les éléments
           },
           markers: {
               width: 12, // Largeur des marqueurs dans la légende
               height: 12, // Hauteur des marqueurs dans la légende
               strokeColor: '#fff', // Couleur de la bordure des marqueurs
-              strokeWidth: 3 // Épaisseur de la bordure des marqueurs
+              strokeWidth: 2 // Épaisseur de la bordure des marqueurs
           }
       }
     };
