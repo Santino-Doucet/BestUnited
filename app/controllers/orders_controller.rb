@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
     @order = @user.companies.first.orders.find(params[:id])
   end
 
-  def update
+  def validate_order
     # le commercant peut accepter une commande émise par le client.
     # status est à nil par défault.
     # Quand le commercant accepte,status devient 'validée'
@@ -22,6 +22,16 @@ class OrdersController < ApplicationController
     @client_id = @order.cart.user.id
     cart = Cart.where(user_id: @client_id)
     cart.update(validated_on: Date.today)
+    redirect_to orders_path
+  end
+
+  def refuse_order
+    # le commercant peut refuser une commande émise par le client.
+    # status est à nil par défault.
+    # Quand le commercant accepte,status devient 'Refusée'
+    @user = current_user
+    @order = @user.companies.first.orders.find(params[:id])
+    @order.update(status: 'Refusée')
     redirect_to orders_path
   end
 end
