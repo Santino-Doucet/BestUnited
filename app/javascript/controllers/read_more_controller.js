@@ -1,4 +1,4 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
   static targets = ["description", "link"]
@@ -13,7 +13,7 @@ export default class extends Controller {
 
     if (this.descriptionTarget.style.display === 'none' || this.descriptionTarget.style.display === '') {
       this.descriptionTarget.style.display = 'block';
-      this.linkTarget.textContent = 'Réduit';
+      this.linkTarget.textContent = 'Réduire';
     } else {
       this.descriptionTarget.style.display = 'none';
       this.linkTarget.textContent = 'En savoir plus';

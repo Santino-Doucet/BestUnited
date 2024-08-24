@@ -3,55 +3,51 @@
     <div class="product-details-container">
       <div class="product-header">
         <button class="back-button"><i class="fa-solid fa-arrow-left"></i></button>
-        <div class="product-title"><h2>Nike Air 270</h2></div>
+        <div class="product-title"><h2><%= @item.brand %> <%= @item.model %></h2></div>
       </div>
 
       <div class="product-image-container">
-        <%= image_tag 'nike-air-max.png', alt: 'nike-air-max', class: 'product-image-item' %>
-      </div>
-
-      <div class="thumbnail-container">
-        <div class="thumbnail active">
-          <img src="https://via.placeholder.com/50" alt="Thumbnail 1">
-        </div>
-        <div class="thumbnail">
-          <img src="https://via.placeholder.com/50" alt="Thumbnail 2">
-        </div>
-        <div class="thumbnail">
-          <img src="https://via.placeholder.com/50" alt="Thumbnail 3">
-        </div>
-        <div class="thumbnail">
-          <img src="https://via.placeholder.com/50" alt="Thumbnail 4">
-        </div>
+        <% if !@item.photo.key.nil?%>
+          <%= cl_image_tag @item.photo.key, crop: :fill, transformation: [
+                  { effect: "make_transparent", color: "white", tolerance: 100 },
+                  { effect: "trim", color: "white", tolerance: 0 }
+                ], alt: "shoe", class: "product-image-item" %>
+        <% else %>
+          <img src="", class: 'product-image-item'>
+        <% end %>
       </div>
 
       <div class="size-selector">
         <button class="size-option">38</button>
         <button class="size-option">39</button>
         <button class="size-option">40</button>
+        <button class="size-option">41</button>
         <button class="size-option active">42</button>
         <button class="size-option">43</button>
       </div>
 
       <div class="product-info">
       <div class="product-details">
-        <h3>Détail du produit</h3>
+        <h3>Détails du produit</h3>
         <div class="details-grid">
-            <div class="detail-label">Style</div>
-            <div class="detail-value">315115-038/DD89-001</div>
-
+            <div class="detail-label">Référence</div>
+            <% if !@item.reference.nil? %>
+              <div class="detail-value"><%= @item.reference %></div>
+            <% else %>
+              <div class="detail-value">Non précisé</div>
+            <% end %>
             <div class="detail-label">Couleur</div>
-            <div class="detail-value">Bleu/Blanc</div>
+            <div class="detail-value"><%= @item.color %></div>
 
             <div class="detail-label">Prix</div>
-            <div class="detail-value">US$90</div>
+            <div class="detail-value"><%= @item.price.round(2) %>€</div>
 
             <div class="detail-label">Date de sortie</div>
             <div class="detail-value">16/01/21</div>
         </div>
         <div data-controller="read-more">
   <p class="product-description" data-read-more-target="description" style="display: none;">
-    Some descriptions about the product here...
+    <%= @item.brand %> <%= @item.model %> <%= @item.color %>
   </p>
   <a href="#" class="read-more-link" data-action="click->read-more#toggleDescription" data-read-more-target="link">
     En savoir plus
@@ -60,7 +56,7 @@
     </div>
     </div>
       <div class="button-container">
-        <button class="add-to-cart-button">Ajouter au panier</button>
+        <%= button_to "Ajouter au panier", item_order_items_path(@item), class:"add-to-cart-button" %>
       </div>
   </main>
 </div>
