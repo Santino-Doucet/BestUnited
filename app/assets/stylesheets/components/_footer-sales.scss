@@ -37,7 +37,7 @@
 .footer-icon-item svg {
   width: 30px; /* Ajustez la taille de l'icône ici */
   height: 30px;
-  color: #cb692f;
+  color: #545454;
   transition: color 0.3s, transform 0.3s;
 }
 
@@ -45,7 +45,7 @@
   display: block;
   margin-top: 5px;
   font-size: 11px;
-  color: #CB680B;
+  color: black;
 }
 
 .active-icon-wrapper {
@@ -57,5 +57,5 @@
 
 .footer-icon-item svg.active {
   color: white;
-  transform: scale(1.1); /* Augmente légèrement la taille de l'icône active */
+  transform: scale(2.1); /* Augmente légèrement la taille de l'icône active */
 }
