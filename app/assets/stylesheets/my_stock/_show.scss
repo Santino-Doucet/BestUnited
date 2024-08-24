@@ -5,13 +5,23 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
+  background-attachment: fixed;
 }
 
 .title {
   font-size: 24px;
   font-weight: bold;
 }
+
+.title-stock {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-top: 10px;
+}
+
 .search-container {
   display: flex;
   justify-content: space-between;
@@ -19,7 +29,10 @@
   padding-bottom: 16px;
   border-bottom: 1px solid #ddd;
   margin: auto;
+  padding-left: 8px;
+  padding-right: 8px;
 }
+
 
 .search-input {
   flex: 1;
@@ -48,6 +61,8 @@
   flex-direction: column;
   gap: 8px;
   padding-top: 16px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .inventory-item {
@@ -59,13 +74,26 @@
   box-shadow: 1px 1px 4px 1px #454444;
   border-radius: 8px;
   background-color: white;
+  position: relative;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .product-info {
   display: flex;
   align-items: center;
+  padding-left: 0px;
+  gap: 8px;
 }
 
+.product-name-stock {
+  font-size: 14px;
+  margin-right: 4px;
+  position: absolute;
+  left: 105px;
+  max-width: 154px;
+  font-weight: bold;
+}
 .product-name {
   font-size: 12px;
   margin-right: 4px;
@@ -84,7 +112,7 @@
 }
 
 .total-text {
-  margin-right: 8px;
+  margin-right: 1px;
   font-size: 16px;
 }
 
@@ -100,6 +128,8 @@
   font-weight: bold;
   border: 1px solid black;
   box-shadow: 2px 2px 2px rgb(99, 97, 97);
+  width: 30px;
+  height: 35px;
 }
 
 .quantity-button:hover {
@@ -201,4 +231,11 @@ font-size: 60px;
 
 .round-button:focus {
   outline: none;
+}
+
+img.stock-item {
+  width: 75px;
+  height: 45px;
+  position: absolute;
+  top: 13px;
 }
