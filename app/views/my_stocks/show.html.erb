@@ -1,34 +1,35 @@
 <div class="my_stocks container">
-  <h2 class="title-stock">Inventaire</h2>
-  <div class="search-container">
-    <input type="text" placeholder="Rechercher un modèle..." class="search-input" onkeyup="filterModels()">
-    <button class="filter-button" onclick="toggleFilterOverlay()">
-      <i class="fa-solid fa-bars"></i> Filtrer
-    </button>
-  </div>
-  <ul class="inventory-list">
-  <% @items.each do |item| %>
-    <li class="inventory-item">
-      <div class="product-info">
-          <div class="product-image">
-            <% if !item.photo.key.nil?%>
-              <%= cl_image_tag item.photo.key, crop: :fill, transformation: [
-                { effect: "make_transparent", color: "white", tolerance: 100 },
-                { effect: "trim", color: "white", tolerance: 0 }
-                  ], alt: "shoe", class: "stock-item" %>
-              <% end %>
-          </div>
-          <h2 class="product-name-stock"><%= item.brand %> <%= item.model %></h2>
-        </div>
-        <div class="product-controls">
-          <span class="total-text">| Quantité: <span id="product-quantity-1"><%= item.same_in_stock.count %></span> <br>
-          | Taille: <%= item.size %></span>
-          <%# <button class="quantity-button" onclick="decreaseQuantity(1)">-</button> %>
-          <%# <button class="quantity-button" onclick="increaseQuantity(1)">+</button> %>
+  <div class="content-wrapper">
+    <h2 class="title-stock">Inventaire</h2>
+      <div class="search-container">
+        <input type="text" placeholder="Rechercher un modèle..." class="search-input" onkeyup="filterModels()">
+        <button class="filter-button" onclick="toggleFilterOverlay()">
+          <i class="fa-solid fa-bars"></i> Filtrer
+        </button>
       </div>
-    </li>
-    <% end %>
-  </ul>
+      <ul class="inventory-list">
+      <% @items.each do |item| %>
+        <li class="inventory-item">
+          <div class="product-info">
+              <div class="product-image">
+                <% if !item.photo.key.nil?%>
+                  <%= cl_image_tag item.photo.key, crop: :fill, transformation: [
+                    { effect: "make_transparent", color: "white", tolerance: 100 },
+                    { effect: "trim", color: "white", tolerance: 0 }
+                      ], alt: "shoe", class: "stock-item" %>
+                  <% end %>
+              </div>
+              <h2 class="product-name-stock"><%= item.brand %> <%= item.model %></h2>
+            </div>
+            <div class="product-controls">
+              <span class="total-text">| Quantité: <span id="product-quantity-1"><%= item.same_in_stock.count %></span> <br>
+              | Taille: <%= item.size %></span>
+              <%# <button class="quantity-button" onclick="decreaseQuantity(1)">-</button> %>
+              <%# <button class="quantity-button" onclick="increaseQuantity(1)">+</button> %>
+          </div>
+        </li>
+        <% end %>
+      </ul>
     <!-- Répétez pour d'autres produits -->
 
   <%= link_to add_item_to_stock_path do   %>
@@ -60,6 +61,7 @@
   </div>
 
   <%= render("users/footer_sales") %>
+  </div>
 </div>
 
 <%# ========================================================================================= %>

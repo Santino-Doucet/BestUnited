@@ -70,14 +70,6 @@ export default class extends Controller {
         tooltip: {
           enabled: true,
         },
-        labels: {
-          style: {
-            fontSize: '16px',
-            fontWeight: 'bold',
-            fontFamily: 'Popins, sans-serif',
-            colors: ['#cb692f','#cb692f','#cb692f','#cb692f','#cb692f','#cb692f','#cb692f']
-          }
-        }
       },
 
       yaxis: {
@@ -114,15 +106,6 @@ export default class extends Controller {
         }
       },
 
-      legend: {
-        show: true,
-        position: 'bottom',
-        horizontalAlign: 'center',
-        itemMargin: {
-          horizontal: 13,
-          vertical: 0
-        },
-      }
     };
 
     var chart = new ApexCharts(this.element, options);
