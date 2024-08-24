@@ -1,21 +1,8 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
-}
-
-
-// body {
-//   // background-image: url('/assets/backgrounds/background_item.png');
-//   // background-size: cover;
-//   // background-position: center;
-//   // background-repeat: no-repeat;
-//   // display: flex;
-//   // justify-content: center;
-//   // align-items: center;
-//   // height: 100vh;
-//   background-color: #e5c5aa;
+// * {
+//   margin: 0;
+//   padding: 0;
+//   box-sizing: border-box;
+//   font-family: 'Arial', sans-serif;
 // }
 
 
@@ -23,7 +10,7 @@
   overflow: hidden;
   position: relative;
   z-index: 2;
-  background: url('/assets/backgrounds/background_item.png') no-repeat center center;
+  background: url('assets/background_item.png') no-repeat center center;
   background-size: cover;
   width: 100vw !important;
   height: 100vh !important;

@@ -10,33 +10,28 @@
     </div>
 
     <div class="result-info">
-      <p class="results-count"><strong>46,959</strong> articles trouvés</p>
+      <p class="results-count"><strong><%= @items.size %></strong> articles trouvés</p>
       <p class="sort-option">Trié par: recommander</p>
     </div>
 
     <div class="products-grid">
-      <div class="product-card">
-        <i class="fa-regular fa-heart save-icon"></i>
-        <%= image_tag 'nike-air-max.png', alt: 'nike-air-max', class: 'product-image' %>
-        <p class="product-name">Nike Air Force 1 Low '07 White</p>
-        <div class="price-and-button">
-          <p class="product-price">€86</p>
-          <button class="ajouter">Ajouter</button>
+      <% @items.each do |item| %>
+        <div class="product-card">
+          <%= link_to item do %>
+            <i class="fa-regular fa-heart save-icon"></i>
+            <% if !item.photo.key.nil?%>
+              <%= cl_image_tag item.photo.key, crop: :fill, alt: "shoe", class: "product-image" %>
+            <% else %>
+            <% end %>
+            <p class="product-name"><%= item.brand %> <%= item.model %></p>
+            <div class="price-and-button">
+              <p class="product-price"><%= item.price %>€</p>
+              <button class="ajouter">Ajouter</button>
+            </div>
+          <% end %>
         </div>
-      </div>
-
-      <div class="product-card">
-        <i class="fa-regular fa-heart save-icon"></i>
-        <%= image_tag 'nike-air-max.png', alt: 'nike-air-max', class: 'product-image' %>
-        <p class="product-name">Nike Air Force 1 Low '07 Black</p>
-        <div class="price-and-button">
-          <p class="product-price">€78</p>
-          <button class="ajouter">Ajouter</button>
-        </div>
-      </div>
-      <!-- Add more product-card elements as needed -->
+      <% end %>
     </div>
   </div>
 </div>
-<%= console %>
 <%= render 'pages/footer' %>

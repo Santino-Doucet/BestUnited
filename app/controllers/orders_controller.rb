@@ -19,6 +19,9 @@ class OrdersController < ApplicationController
     @user = current_user
     @order = @user.companies.first.orders.find(params[:id])
     @order.update(status: 'Validée')
+    @client_id = @order.cart.user.id
+    cart = Cart.where(user_id: @client_id)
+    cart.update(validated_on: Date.today)
     redirect_to orders_path
   end
 end

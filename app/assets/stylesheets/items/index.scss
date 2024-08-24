@@ -2,7 +2,7 @@
   overflow: hidden;
   position: relative;
   z-index: 2;
-  background: url('/assets/backgrounds/background_light.png') no-repeat center center;
+  background: url('assets/background_light.png') no-repeat center center;
   background-size: cover;
   width: 100vw !important;
   height: 100vh !important;
@@ -20,6 +20,10 @@
   align-items: center; /* Align items vertically centered */
   padding: 10px 0;
   gap: 10px; /* Space between items */
+}
+
+.product-title {
+  color: white;
 }
 
 .back-button-search-result {
@@ -93,6 +97,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;  /* Space between elements */
+}
+
+.product-card a {
+  text-decoration: none;
+  color: black;
 }
 
 /* Heart icon style */

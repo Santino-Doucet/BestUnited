@@ -1,89 +1,130 @@
-.cart-container{
-  padding: 40px 24px 24px 24px;
-  background-image: url('/assets/backgrounds/dash.png');
+.carts-page-container {
+  background: url('assets/background_light.png') no-repeat center center;
+  width: 390px;
+  max-width: 100%;
+  height: 844px;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh;
-  font-family: "Poppins", sans-serif;
-  h1,h2{
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-  }
-  h1{
-    font-size: 28px;
-    margin-bottom: 2rem;
-  }
-  h2{
-    font-size: 22px;
-    margin-bottom: 1rem;
-  }
-  section{
-    margin-bottom: 2rem;
-
-  }
 }
 
-.new-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 15px;
-  gap: 1rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #d26a21;
-    padding: 5px;
-  }
+.carts-header {
+text-align: center;
+margin-bottom: 20px;
 }
 
-.pouf{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-.card-content {
-  margin-left: 15px;
-  flex-grow: 1;
+.carts-title {
+font-size: 24px;
+font-weight: bold;
+margin-top: 20px;
 }
 
-.card-content h3 {
-  margin: 0;
-  font-size: 18px;
-  color: #333;
+.carts-section {
+margin-bottom: 20px;
 }
 
-.card-content p {
-  margin: 5px 0 0;
-  color: #666;
-  font-size: 14px;
+.carts-section-title {
+font-size: 18px;
+font-weight: bold;
+margin-bottom: 10px;
 }
 
-.card-actions {
-  display: flex;
-  width: 100%;
-  gap: 10px;
+.carts-shoe-image {
+width: 50px;
+height: 50px;
+border-radius: 50%;
+background-color: #f0f0f0;
+padding: 5px;
+border: 2px solid rgb(175, 175, 175);
 }
 
-.card-actions button {
-  padding: 8px 24px;
-  border:2px solid white;
-  border-radius: 20px;
-  color: white;
-  cursor: pointer;
-  width: 100%;
+.carts-card {
+background-color: rgba(255, 255, 255, 0.9);
+border-radius: 15px;
+padding: 15px;
+display: flex;
+flex-direction: column;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+margin-bottom: 15px;
+position: relative;
 }
 
-.accept-btn {
-  background-color: #6e8f35;
+.carts-card-content {
+display: flex;
+align-items: center; /* Center align items vertically */
+justify-content: space-between; /* Space between info and actions */
+width: 100%;
 }
 
-.decline-btn {
-  background-color: #474c50;
+.carts-actions {
+display: flex;
+align-items: center; /* Center align button vertically */
+gap: 10px; /* Space between button and other actions */
+}
+
+.carts-info {
+display: flex;
+align-items: center; /* Center align items vertically */
+gap: 10px; /* Space between image and details */
+flex: 1; /* Allow info section to take up available space */
+}
+
+.carts-hidden-details {
+display: none; /* Initially hidden */
+padding: 10px;
+border-top: 1px solid #ddd;
+width: 100%; /* Span the full width of the card */
+margin-top: 10px; /* Space above the hidden details */
+}
+
+.carts-actions {
+display: flex;
+justify-content: flex-end; /* Align action buttons to the end */
+}
+
+.carts-buttons-wrapper {
+display: flex;
+gap: 5px;
+}
+
+.carts-product-name {
+font-size: 16px;
+font-weight: bold;
+}
+
+.carts-date {
+font-size: 14px;
+color: #555;
+margin-top: 2px;
+}
+
+.carts-accept-button,
+.carts-decline-button {
+background-color: #68b264;
+color: #fff;
+border: none;
+border-radius: 8px;
+padding: 8px 10px;
+cursor: pointer;
+font-size: 12px;
+width: 100%;
+box-sizing: border-box;
+}
+
+.carts-decline-button {
+background-color: #757575;
+}
+
+.carts-view-details-button {
+background-color: #68b264;
+color: #fff;
+border: none;
+border-radius: 10px;
+padding: 10px 15px;
+cursor: pointer;
+font-size: 14px;
 }

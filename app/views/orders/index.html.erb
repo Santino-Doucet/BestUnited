@@ -4,68 +4,91 @@
   </header>
 
   <section class="orders-section">
-    <h2 class="orders-section-title">Nouvelle commande</h2>
-    <div class="order-card">
+    <h2 class="orders-section-title">Nouvelles commandes</h2>
+  <% @orders.where(status: "pending").each do |o|  %>
+    <div class="order-card" data-controller="order-details" data-action="click->order-details#toggleDetails">
+    <div class="order-card-content">
       <div class="order-info">
         <%= image_tag 'nike-air-max.png', alt: 'Nike Air Max', class: 'order-shoe-image' %>
         <div class="order-details">
-          <div class="order-product-name">Airmax</div>
-          <div class="order-date">21 Août 2024</div>
+          <div class="order-product-name"><%="#{o.cart.user.last_name} #{o.cart.user.first_name}"%></div>
+          <div class="order-date"><%= "#{o.ordered_on}"%></div>
         </div>
       </div>
       <div class="order-actions">
         <div class="order-buttons-wrapper">
-          <button class="order-accept-button">Accepter</button>
+        <%= button_to "Accepter", order_path(o), data: {turbo_method: :patch}, method: :patch, class: "order-accept-button" %>
           <button class="order-decline-button">Refuser</button>
         </div>
       </div>
+      </div>
+      <div class="order-hidden-details" data-order-details-target="details" style="display: none;">
+        <p>Détails supplémentaires sur la commande...</p>
+      </div>
     </div>
+  <% end %>
   </section>
 
   <section class="orders-section">
     <h2 class="orders-section-title">Commandes en cours</h2>
-    <div class="order-card">
+  <% @orders.where(status: "Validée").each do |o|  %>
+    <div class="order-card" data-controller="order-details" data-action="click->order-details#toggleDetails">
+    <div class="order-card-content">
       <div class="order-info">
         <%= image_tag 'nike-air-max.png', alt: 'Nike Air Max', class: 'order-shoe-image' %>
         <div class="order-details">
-          <div class="order-product-name">Airmax</div>
-          <div class="order-date">21 Août 2024</div>
+          <div class="order-product-name"><%="#{o.cart.user.last_name} #{o.cart.user.first_name}"%></div>
+          <div class="order-date"><%="#{o.ordered_on}"%></div>
         </div>
       </div>
       <div class="order-actions">
         <button class="order-view-details-button">Voir detail</button>
       </div>
+      </div>
+      <div class="order-hidden-details" data-order-details-target="details" style="display: none;">
+        <p>Détails supplémentaires sur la commande...</p>
+      </div>
     </div>
+  <% end %>
   </section>
 
   <section class="orders-section">
     <h2 class="orders-section-title">Commandes passées</h2>
-    <div class="order-card">
-      <div class="order-info">
-        <%= image_tag 'nike-air-max.png', alt: 'Nike Air Max', class: 'order-shoe-image' %>
-        <div class="order-details">
-          <div class="order-product-name">Airmax</div>
-          <div class="order-date">21 Août 2024</div>
+    <div class="order-card" data-controller="order-details" data-action="click->order-details#toggleDetails">
+      <div class="order-card-content">
+        <div class="order-info">
+          <%= image_tag 'nike-air-max.png', alt: 'Nike Air Max', class: 'order-shoe-image' %>
+          <div class="order-details">
+            <div class="order-product-name">Airmax</div>
+            <div class="order-date">21 Août 2024</div>
+          </div>
+        </div>
+        <div class="order-actions">
+          <button class="order-view-details-button">Voir detail</button>
         </div>
       </div>
-      <div class="order-actions">
-        <button class="order-view-details-button">Voir detail</button>
-      </div>
+        <div class="order-hidden-details" data-order-details-target="details" style="display: none;">
+          <p>Détails supplémentaires sur la commande...</p>
+        </div>
     </div>
 
-    <div class="order-card">
-      <div class="order-info">
-        <%= image_tag 'nike-air-max.png', alt: 'Nike Air Max', class: 'order-shoe-image' %>
-        <div class="order-details">
-          <div class="order-product-name">Airmax</div>
-          <div class="order-date">21 Août 2024</div>
+    <div class="order-card" data-controller="order-details" data-action="click->order-details#toggleDetails">
+      <div class="order-card-content">
+        <div class="order-info">
+          <%= image_tag 'nike-air-max.png', alt: 'Nike Air Max', class: 'order-shoe-image' %>
+          <div class="order-details">
+            <div class="order-product-name">Airmax</div>
+            <div class="order-date">21 Août 2024</div>
+          </div>
+        </div>
+        <div class="order-actions">
+          <button class="order-view-details-button">Voir detail</button>
         </div>
       </div>
-      <div class="order-actions">
-        <button class="order-view-details-button">Voir detail</button>
-      </div>
+        <div class="order-hidden-details" data-order-details-target="details" style="display: none;">
+          <p>Détails supplémentaires sur la commande...</p>
+        </div>
     </div>
   </section>
 </div>
-<%= render 'pages/footer' %>
-
+<%= render("users/footer_sales") %>
