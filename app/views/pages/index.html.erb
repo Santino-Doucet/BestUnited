@@ -3,15 +3,26 @@
     <div class="top-bar">
       <% if !@user.nil? %>
         <% if @user.companies.count > 0 %>
-          <%= link_to dashboard_path do %>
-            <span class="pro-space"><p>Espace Pro</p></span>
-          <% end %>
+          <div class="left-link">
+            <%= link_to dashboard_path, class: 'pro-space-link' do %>
+              <span class="pro-space"><p>Espace Pro</p></span>
+            <% end %>
+
+          </div>
         <% else %>
-          <span class="pro-space"><p>Espace Pro</p></span>
+          <div class="left-link">
+            <span class="pro-space"><p>Espace Pro</p></span>
+          </div>
         <% end %>
-        <%= link_to 'Se déconnecter', destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'logout-link' %>
+        <div class="right-link">
+          <%= link_to destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'logout-link' do %>
+            <i class="fa-solid fa-arrow-right-from-bracket logout-link" style="color: #cb680b;"></i>
+          <% end %>
+        </div>
       <% else %>
-        <span class="pro-space"><p>Espace Pro</p></span>
+        <div class="left-link">
+          <span class="pro-space"><p>Espace Pro</p></span>
+        </div>
       <% end %>
     </div>
     <div class="logo-container">
