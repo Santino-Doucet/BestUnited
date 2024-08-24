@@ -29,9 +29,11 @@
 
 .part-1 h2 {
   color: #CB680C;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
   font-size: 16px;
   margin: 10px 0;
-  font-weight: lighter;
 }
 
 .part-1 p.total-revenue {
@@ -50,13 +52,13 @@
 .kpi div {
   display: flex;
   background-color: #f2be8a;
-  padding: 4px;
+  padding: 2px;
   border-radius: 16px;
   text-align: center;
   flex-direction: column;
   justify-content: space-evenly;
   height:80px;
-  width: 170px;
+  width: 180px;
   margin-top: 10px;
   border: 3px solid white;
 
@@ -64,9 +66,10 @@
 
 .kpi h2 {
   color: white;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   margin-bottom: 4px;
+
 }
 
 .kpi p {
@@ -90,6 +93,15 @@
   color: black;
   font-size: 20px;
   font-weight: bold;
+}
+
+.chart h2{
+  color: #CB680C;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 16px;
+  margin: 10px 0;
 }
 
 .chart select {
@@ -146,8 +158,10 @@
 
 .stock h2 {
   color:#CB680C;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
   font-size: 16px;
-  font-weight: lighter;
   padding-bottom: 8px;
 }
 
