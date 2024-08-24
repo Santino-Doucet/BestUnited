@@ -7,10 +7,10 @@ export default class extends Controller {
     console.log("chart");
 
     var options = {
-      colors: ["#F2BE8A"],
+      colors: ["#ffffff", "#F2BE8A"],
       series: [{
         name: 'Inflation',
-        data: [2.3, 3.1, 4.0, 10.1, 4.0, 3.6, 3.2]
+        data: [250, 400, 600, 900, 850, 1060, 950]
       }],
       chart: {
         height: 350,
@@ -30,19 +30,19 @@ export default class extends Controller {
       // Ajouter une bordure blanche autour des barres
       stroke: {
         show: true,
-        width: 1, // Largeur de la bordure
-        colors: ['#ffffff'] // Couleur de la bordure (blanc)
+        width: 2, // Largeur de la bordure
+        colors: ["#F2BE8A","#ffffff"],
       },
 
       dataLabels: {
         enabled: true,
         formatter: function (val) {
-          return val + "%";
+          return val + "€";
         },
         offsetY: -20,
         style: {
-          fontSize: '14px',
-          colors: ["#fff"]
+          fontSize: '12px',
+          colors: ["#656363"]
         }
       },
 
@@ -82,7 +82,7 @@ export default class extends Controller {
         labels: {
           show: false,
           formatter: function (val) {
-            return val + "%";
+            return val + "€";
           },
           style: {
             fontSize: 5555,
@@ -94,7 +94,7 @@ export default class extends Controller {
       grid: {
         show: true,
         borderColor: '#CB680C',
-        strokeDashArray: 5,
+        strokeDashArray: 2,
       },
 
       title: {
