@@ -1,9 +1,10 @@
 .carts-page-container {
-  background: url('assets/background_light.png') no-repeat center center;
+  background: url('assets/carts.png') no-repeat center center;
   width: 390px;
   max-width: 100%;
   height: 844px;
   padding: 20px;
+  
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -15,22 +16,25 @@
 .carts-header {
 text-align: center;
 margin-bottom: 20px;
+display: flex;
 }
 
 .carts-title {
-font-size: 24px;
-font-weight: bold;
+font-size: 20px;
+font-weight: 600;
 margin-top: 20px;
+margin-left: 1px;
 }
 
 .carts-section {
-margin-bottom: 20px;
+margin-bottom: 24px;
 }
 
 .carts-section-title {
-font-size: 18px;
-font-weight: bold;
+font-size: 16px;
+font-weight: 400;
 margin-bottom: 10px;
+color: #CB680C;
 }
 
 .carts-shoe-image {
@@ -49,7 +53,7 @@ padding: 15px;
 display: flex;
 flex-direction: column;
 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-margin-bottom: 15px;
+margin-bottom: 24px;
 position: relative;
 }
 
@@ -104,9 +108,9 @@ margin-top: 2px;
 
 .carts-accept-button,
 .carts-decline-button {
-background-color: #68b264;
+background-color: #CB680C;
+border: 1px solid black;
 color: #fff;
-border: none;
 border-radius: 8px;
 padding: 8px 10px;
 cursor: pointer;
@@ -120,9 +124,9 @@ background-color: #757575;
 }
 
 .carts-view-details-button {
-background-color: #68b264;
+background-color: #CB680C;
+border: 1px solid black;
 color: #fff;
-border: none;
 border-radius: 10px;
 padding: 10px 15px;
 cursor: pointer;
