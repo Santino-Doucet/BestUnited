@@ -15,7 +15,7 @@
           <div class="carts-details">
             <div class="carts-product-name"></div>
             <div class="carts-date">
-              <p>Commande du <%= cart.validated_on.strftime("%d/%m/%Y") %> <br>
+              <p>Commande du <%= cart.validated_on %> <br>
               <%= cart.items.count %> items commandés</p>
             </div>
           </div>
@@ -139,4 +139,3 @@
 </section>
 </div>
 <%= render 'pages/footer' %>
-<%= console %>
