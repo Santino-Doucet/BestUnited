@@ -209,9 +209,16 @@
 .tab-page-index.active {
   background-color: #CB680B;
   color: white;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 8px 15px;
   font-family: "Poppins", sans-serif;
+}
+
+.card-section-page-index .card-page-index img {
+  height: 128px; /* Définissez la hauteur souhaitée */
+  object-fit: cover;
+  -webkit-box-shadow: 8px 8px 0px 0px #fef4df;
+box-shadow: 8px 8px 0px 0px #fef4df;/* Maintient le ratio d'aspect et couvre l'espace */
 }
 
 .card-section-page-index {
@@ -224,6 +231,7 @@
 .card-section-page-index.active {
   display: flex;
   padding-top: 28px;
+  margin: 8px;
 }
 
 .card-page-index {
@@ -233,15 +241,16 @@
 
 .card-page-index img {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 8px;
   margin-bottom: 5px;
 }
 
 .card-page-index p {
   font-size: 14px;
-  color: #000;
+  color: #545454;
   font-family: "Poppins", sans-serif;
-  font-weight: 400;
+  font-weight: 600;
+  padding-top: 4px;
 }
 
 .swiper {
