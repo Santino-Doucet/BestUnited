@@ -2,6 +2,15 @@ class CartsController < ApplicationController
 
   def index
     @carts = Cart.where(user: current_user)
+    @pending_carts = Cart.where(user_id: current_user.id).select { |cart| cart.orders.exists?(status: 'pending') }
+
+    @validated_carts = Cart.joins(:orders).where(user_id: current_user.id).group('carts.id').having(
+      'COUNT(orders.id) = COUNT(CASE WHEN orders.status = \'Validée\' THEN 1 END)'
+    )
+
+    @old_carts = Cart.joins(:orders).where(user_id: current_user.id).group('carts.id').having(
+      'COUNT(orders.id) = COUNT(CASE WHEN orders.status = \'Effectuée\' THEN 1 END)'
+    )
   end
 
   def show
@@ -21,7 +30,7 @@ class CartsController < ApplicationController
     @cart = Cart.find(params[:id])
     @cart.update(active: false)
     @cart.orders.each do |order|
-      order.update(ordered_on: Date.today, status: 'Pending')
+      order.update(ordered_on: Date.today, status: 'pending')
     end
     redirect_to root_path
   end

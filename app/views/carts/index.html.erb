@@ -3,15 +3,21 @@
     <h1 class="carts-title">Toutes mes commandes</h1>
   </header>
 
-  <section class="carts-section">
-    <h2 class="carts-section-title">En attente</h2>
+<section class="carts-section">
+  <h2 class="carts-section-title">En attente de confirmation</h2>
+  <% if @pending_carts.empty?  %>
+    <p class="no-carts-message">Pas de commandes en attente pour le moment...</p>
+  <% else %>
+  <% @pending_carts.each do |cart| %>
     <div class="carts-card" data-controller="cart-details" data-action="click->cart-details#toggleDetails">
       <div class="carts-card-content">
         <div class="carts-info">
-          <%= image_tag 'nike-air-max.png', alt: 'Nike Air Max', class: 'carts-shoe-image' %>
           <div class="carts-details">
-            <div class="carts-product-name">Airmax</div>
-            <div class="carts-date">21 Août 2024</div>
+            <div class="carts-product-name"></div>
+            <div class="carts-date">
+              <p>Commande du <%= cart.validated_on %> <br>
+              <%= cart.items.count %> items commandés</p>
+            </div>
           </div>
         </div>
         <div class="carts-actions">
@@ -19,20 +25,44 @@
         </div>
       </div>
       <div class="carts-hidden-details" data-cart-details-target="details" style="display: none;">
-        <p>Détails supplémentaires sur la commande...</p>
+        <% total_price = 0 %>
+        <% cart.orders.each do |o| %>
+          <div class="info-order">
+            <p><%= o.company.name %></p>
+            <% grouped_items = o.items.group_by { |item| [item.brand, item.model, item.size, item.price] } %>
+            <% grouped_items.each do |group, items| %>
+              <% total_price += items.first.price * items.size %>
+              <p>
+                Modèle: <%= group[0] %> <%= group[1] %><br>
+                Taille : <%= group[2] %><br>
+                Prix : <%= group[3] %>€<br>
+                Quantité : <%= items.size %>
+              </p>
+            <% end %>
+          </div>
+        <% end %>
+        <p>Total de la commande : <%= total_price %>€</p>
       </div>
     </div>
-  </section>
+  <% end %>
+  <% end %>
+</section>
 
-  <section class="carts-section">
-    <h2 class="carts-section-title">En cours</h2>
+<section class="carts-section">
+  <h2 class="carts-section-title">En cours</h2>
+  <% if @validated_carts.empty? %>
+    <p class="no-carts-message">Pas de commandes en attente pour le moment...</p>
+  <% else %>
+  <% @validated_carts.each do |cart| %>
     <div class="carts-card" data-controller="cart-details" data-action="click->cart-details#toggleDetails">
       <div class="carts-card-content">
         <div class="carts-info">
-          <%= image_tag 'nike-air-max.png', alt: 'Nike Air Max', class: 'carts-shoe-image' %>
           <div class="carts-details">
-            <div class="carts-product-name">Airmax</div>
-            <div class="carts-date">21 Août 2024</div>
+            <div class="carts-product-name"></div>
+            <div class="carts-date">
+              <p>Commande du <%= cart.validated_on %> <br>
+              <%= cart.items.count %> items commandés</p>
+            </div>
           </div>
         </div>
         <div class="carts-actions">
@@ -40,20 +70,44 @@
         </div>
       </div>
       <div class="carts-hidden-details" data-cart-details-target="details" style="display: none;">
-        <p>Détails supplémentaires sur la commande...</p>
+        <% total_price = 0 %>
+        <% cart.orders.each do |o| %>
+          <div class="info-order">
+            <p><%= o.company.name %></p>
+            <% grouped_items = o.items.group_by { |item| [item.brand, item.model, item.size, item.price] } %>
+            <% grouped_items.each do |group, items| %>
+              <% total_price += items.first.price * items.size %>
+              <p>
+                Modèle: <%= group[0] %> <%= group[1] %><br>
+                Taille : <%= group[2] %><br>
+                Prix : <%= group[3] %>€<br>
+                Quantité : <%= items.size %>
+              </p>
+            <% end %>
+          </div>
+        <% end %>
+        <p>Total de la commande : <%= total_price %>€</p>
       </div>
     </div>
-  </section>
+  <% end %>
+<% end %>
+</section>
 
-  <section class="carts-section">
-    <h2 class="carts-section-title">Passées</h2>
+<section class="carts-section">
+  <h2 class="carts-section-title">Commandes précédentes</h2>
+  <% if @old_carts.empty? %>
+    <p class="no-carts-message">Vous n'avez pas encore d'anciennes commandes...</p>
+  <% else %>
+  <% @old_carts.each do |cart| %>
     <div class="carts-card" data-controller="cart-details" data-action="click->cart-details#toggleDetails">
       <div class="carts-card-content">
         <div class="carts-info">
-          <%= image_tag 'nike-air-max.png', alt: 'Nike Air Max', class: 'carts-shoe-image' %>
           <div class="carts-details">
-            <div class="carts-product-name">Airmax</div>
-            <div class="carts-date">21 Août 2024</div>
+            <div class="carts-product-name"></div>
+            <div class="carts-date">
+              <p>Commande du <%= cart.validated_on %> <br>
+              <%= cart.items.count %> items commandés</p>
+            </div>
           </div>
         </div>
         <div class="carts-actions">
@@ -61,27 +115,27 @@
         </div>
       </div>
       <div class="carts-hidden-details" data-cart-details-target="details" style="display: none;">
-        <p>Détails supplémentaires sur la commande...</p>
-      </div>
-    </div>
-
-    <div class="carts-card" data-controller="cart-details" data-action="click->cart-details#toggleDetails">
-      <div class="carts-card-content">
-        <div class="carts-info">
-          <%= image_tag 'nike-air-max.png', alt: 'Nike Air Max', class: 'carts-shoe-image' %>
-          <div class="carts-details">
-            <div class="carts-product-name">Airmax</div>
-            <div class="carts-date">21 Août 2024</div>
+        <% total_price = 0 %>
+        <% cart.orders.each do |o| %>
+          <div class="info-order">
+            <p><%= o.company.name %></p>
+            <% grouped_items = o.items.group_by { |item| [item.brand, item.model, item.size, item.price] } %>
+            <% grouped_items.each do |group, items| %>
+              <% total_price += items.first.price * items.size %>
+              <p>
+                Modèle: <%= group[0] %> <%= group[1] %><br>
+                Taille : <%= group[2] %><br>
+                Prix : <%= group[3] %>€<br>
+                Quantité : <%= items.size %>
+              </p>
+            <% end %>
           </div>
-        </div>
-        <div class="carts-actions">
-          <button class="carts-view-details-button">Voir detail</button>
-        </div>
-      </div>
-      <div class="carts-hidden-details" data-cart-details-target="details" style="display: none;">
-        <p>Détails supplémentaires sur la commande...</p>
+        <% end %>
+        <p>Total de la commande : <%= total_price %>€</p>
       </div>
     </div>
-  </section>
+  <% end %>
+<% end %>
+</section>
 </div>
 <%= render 'pages/footer' %>
