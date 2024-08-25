@@ -29,7 +29,7 @@
 .part-1 h2 {
   color: #CB680C;
   font-family: "Poppins", sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
   font-size: 16px;
   margin: 12px 12px;
@@ -46,36 +46,37 @@
 .kpi {
   display: flex;
   justify-content: space-evenly;
-  gap: 16px;
+  gap: 30px;
   margin: 12px 12px;
 }
 
 .kpi div {
   display: flex;
-  background-color:rgba(246, 184, 117, 0.8);
+  background-color:#f2be8a;
   padding: 2px;
   border-radius: 16px;
   text-align: center;
   flex-direction: column;
   justify-content: space-evenly;
-  height:80px;
-  width: 180px;
+  height:70px;
+  width: 170px;
   margin-top: 10px;
-  border: 3px solid white;
+  box-shadow: 8px 8px 0px 0px #fef4df;
 
 }
 
 .kpi h2 {
-  color: #333;
+  color: #545454;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
   font-size: 14px;
-  font-weight: bold;
   margin-bottom: 4px;
 
 }
 
 .kpi p {
   font-size: 20px;
-  color: #333;
+  color: white;
   margin: 0px;
 
 }
@@ -100,10 +101,10 @@
 .chart h2{
   color: #CB680C;
   font-family: "Poppins", sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
   font-size: 16px;
-  margin: 12px 12px;
+  margin: 4px 12px;
 }
 
 .chart select {
@@ -159,14 +160,14 @@
   font-size: 20px;
   font-weight: 600;
   color: black;
-  padding-bottom: 12px;
+  padding-bottom: 8px;
   margin: 12px 12px;
 }
 
 .stock h2 {
   color:#CB680C;
   font-family: "Poppins", sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
   font-size: 16px;
   padding-bottom: 8px;
