@@ -1,6 +1,7 @@
 require 'uri'
 require 'net/http'
 require 'json'
+require 'date'
 
 ##########################################################
 
@@ -91,7 +92,8 @@ shoes.each do |shoe|
     color: shoe["colorway"],
     price: shoe["retailPrice"],
     company: companies.sample,
-    size: Faker::Number.between(from: 32, to: 46)
+    size: Faker::Number.between(from: 32, to: 46),
+    released_on: Date.new(shoe["year"].to_i)
   )
 
   next if shoe["media"]["imageUrl"].nil?
