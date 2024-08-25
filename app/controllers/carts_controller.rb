@@ -7,6 +7,14 @@ class CartsController < ApplicationController
   def show
     @cart = Cart.find(params[:id])
     @orders = @cart.orders
+    @nb_items_orders = 0
+    @total_price = 0
+    @orders.each do |order|
+      @nb_items_orders += order.items.size
+      order.items.each do |item|
+        @total_price += item.price
+      end
+    end
   end
 
   def send_order_to_merchant

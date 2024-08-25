@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :carts, only: [:index, :show]
 
-  patch 'carts', to: 'carts#send_order_to_merchant'
+  patch 'carts/:id', to: 'carts#send_order_to_merchant'
 
   get 'dashboard', to: 'users#show', as: 'dashboard'
 
