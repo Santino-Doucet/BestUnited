@@ -7,7 +7,7 @@ export default class extends Controller {
     console.log("chart");
 
     var options = {
-      colors: ["#ffffff", "#F2BE8A"],
+      colors: ["#fef4df", "#F2BE8A"],
       series: [{
         name: 'Inflation',
         data: [250, 400, 600, 900, 850, 1060, 950]
@@ -31,7 +31,7 @@ export default class extends Controller {
       stroke: {
         show: true,
         width: 2, // Largeur de la bordure
-        colors: ["#F2BE8A","#ffffff"],
+        colors: ["#ffffff"],
       },
 
       dataLabels: {

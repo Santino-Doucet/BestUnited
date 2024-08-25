@@ -12,7 +12,7 @@ export default class extends Controller {
           width: 380,
           type: 'donut',
       },
-      colors: ['#f6b765', '#d76531', '#000000'], // Les couleurs personnalisées pour 3 segments
+      colors: ['#f2be8a', '#d76531', '#000000'], // Les couleurs personnalisées pour 3 segments
       labels: ['En stock', 'Stock moyen', 'Stock faible'], // Les légendes pour chaque segment
       dataLabels: {
           enabled: false
