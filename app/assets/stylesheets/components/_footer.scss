@@ -4,39 +4,47 @@
   border-top: 1px solid #DDD;
 }
 
-.footer-container {
+.footer-container-client {
   background-color: white;
-  padding: 20px 0 34px 0;
+  padding: 5px 0;
   display: flex;
-  justify-content: space-between;
-  bottom: 0;
   position: fixed;
+  bottom: 0;
+  left: 0;
   z-index: 9;
   width: 100vw;
-  height: 5vh;
+  height: 7vh;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.footer-icons {
+.footer-icons-client {
   display: flex;
   justify-content: space-around;
   width: 100%;
   align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
-.footer-icons i {
-  font-size: 24px;
-  color: #888;
+.footer-icon-item-client {
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-icon-item-client svg {
+  width: 30px;
+  height: 30px;
+  color: #545454;
   transition: color 0.3s, transform 0.3s;
 }
 
-.active-icon-wrapper {
-  background-color: #CB680B;
-  padding: 10px;
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.footer-icons i.active {
-  color: white;
-  font-size: 28px; /* Larger size for the active icon */
+.footer-icon-item-client span {
+  display: block;
+  margin-top: 5px;
+  font-size: 11px;
+  color: black;
 }
