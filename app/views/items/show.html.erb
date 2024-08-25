@@ -43,7 +43,7 @@
             <div class="detail-value"><%= @item.price.round(2) %>€</div>
 
             <div class="detail-label">Date de sortie</div>
-            <div class="detail-value">16/01/21</div>
+            <div class="detail-value"><%= @item.released_on.year %></div>
         </div>
         <div data-controller="read-more">
   <p class="product-description" data-read-more-target="description" style="display: none;">
