@@ -146,7 +146,10 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
   -webkit-box-shadow: 7px 8px 0px 5px #F6B875;
-  box-shadow: 7px 8px 0px 5px #F6B875;
+  box-shadow: 8px 8px 0px 8px #F6B875;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .stock {
@@ -188,3 +191,15 @@
   -webkit-box-shadow: 2px 2px 0px 1px #555353;
   box-shadow: 1px 1px 0px 1px #585757;
   }
+
+.apexcharts-legend.apexcharts-align-center.apx-legend-position-bottom {
+  display: none;
+}
+
+#scan-image{
+  width: 100%;
+  height: 60px; /* Hauteur fixe pour l'image */
+  object-fit: cover; /* Rogner l'image pour remplir la hauteur */
+  display: block;
+  margin: auto;
+}
