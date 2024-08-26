@@ -16,3 +16,6 @@ application.register("order-details", OrderDetailsController);
 
 import CartDetailsController from "./cart_details_controller";
 application.register("cart-details", CartDetailsController);
+
+import SizeSelectorController from "./size_selector_controller"
+application.register("size-selector", SizeSelectorController)
