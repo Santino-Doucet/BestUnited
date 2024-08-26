@@ -1,7 +1,9 @@
 <div class="search-results-page">
   <div class="search-results">
     <div class="header-items">
-      <%= render 'shared/arrow_back' %>
+      <%= link_to 'javascript:history.back()', class: 'cart-back-button' do %>
+        <i class="fa-solid fa-arrow-left back-button"></i>
+      <% end %>
       <%= render "pages/search_bar" %>
       <div class="options">
         <i class="fa-solid fa-qrcode"></i>
@@ -20,8 +22,7 @@
           <%= link_to item do %>
             <i class="fa-regular fa-heart save-icon"></i>
             <% if !item.photo.key.nil?%>
-              <%= cl_image_tag item.photo.key, crop: :fill, alt: "shoe", class: "product-image" %>
-            <% else %>
+              <%= cl_image_tag item.photo.key, crop: :fill, alt: "shoe", class: "product-image-items" %>
             <% end %>
             <p class="product-name"><%= item.brand %> <%= item.model %></p>
           <% end %>

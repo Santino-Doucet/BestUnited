@@ -18,16 +18,12 @@
 .header-items {
   display: flex;
   align-items: center;
+  justify-content: space-between; /* Distribute items evenly */
   padding: 10px 0;
   gap: 10px;
 }
 
-.product-title {
-  color: white;
-}
-
-.back-button-search-result {
-  border: none;
+.back-button {
   font-size: 24px;
   color: #cb680b;
   background-color: #e5c5aa;
@@ -35,14 +31,14 @@
   width: 40px;
   height: 40px;
   text-align: center;
-  line-height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .search-input {
-  flex-grow: 1;
+  flex-grow: 1; /* Allow the search bar to take up remaining space */
+  max-width: 100%; /* Make sure it doesn't exceed the container */
   padding: 7px;
   font-size: 16px;
   border: 2px solid #ddd;
@@ -52,11 +48,11 @@
 .options {
   display: flex;
   align-items: center;
+  gap: 10px; /* Space between the QR code and slider */
 }
 
 .options i {
   font-size: 20px;
-  margin-left: 10px;
   cursor: pointer;
 }
 
@@ -65,25 +61,18 @@
   justify-content: space-between;
   padding: 10px 0;
   border-bottom: 1px solid #ddd;
-  p {
-    font-size: small;
-  }
 }
 
-.results-count {
+.results-count, .sort-option {
   font-size: 16px;
-}
-
-.sort-option {
-  font-size: 16px;
-  color: #888;
 }
 
 .products-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Two columns layout */
+  grid-template-columns: 1fr 1fr;
   gap: 10px;
   padding: 10px 0;
+  padding-bottom: 100px;
 }
 
 .product-card {
@@ -95,7 +84,8 @@
   border-radius: 8px;
   text-align: left;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  height: 100%; /* Take up full height within the grid */
+  height: 100%;
+  position: relative; /* Ensure the heart icon stays in the corner */
 }
 
 .product-card a {
@@ -112,11 +102,7 @@
   cursor: pointer;
 }
 
-.save-icon:hover {
-  color: #ff0000;
-}
-
-.product-card img {
+.product-image-items {
   width: 100%;
   border-radius: 8px;
   margin-bottom: 10px;
@@ -126,7 +112,7 @@
   font-size: 14px;
   color: #333;
   margin: 5px 0;
-  flex-grow: 1; /* Allow the title to take up remaining space */
+  flex-grow: 1;
 }
 
 .price-and-button {
@@ -141,12 +127,6 @@
   margin: 5px 0;
 }
 
-.product-buy-save {
-  display: flex;
-  justify-content: flex-start;
-  gap: 10px;
-}
-
 .ajouter {
   background-color: #cb680b;
   color: #fff;
@@ -155,8 +135,4 @@
   border-radius: 5px;
   font-size: 12px;
   cursor: pointer;
-}
-
-.ajouter:hover {
-  background-color: #e6dddd;
 }
