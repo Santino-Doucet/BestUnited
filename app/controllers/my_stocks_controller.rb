@@ -1,7 +1,7 @@
 class MyStocksController < ApplicationController
 
   def show
-    @items = current_stock
+    @items = current_user.companies.first.items.in_stock
   end
 
   def show_item

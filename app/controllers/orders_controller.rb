@@ -34,4 +34,11 @@ class OrdersController < ApplicationController
     @order.update(status: 'Refusée')
     redirect_to orders_path
   end
+
+  def deliver_order
+    @user = current_user
+    @order = @user.companies.first.orders.find(params[:id])
+    @order.update(status: 'Effectuée')
+    redirect_to orders_path
+  end
 end

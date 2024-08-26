@@ -30,7 +30,7 @@ class CartsController < ApplicationController
     @cart = Cart.find(params[:id])
     @cart.update(active: false)
     @cart.orders.each do |order|
-      order.update(ordered_on: Date.today, status: 'pending')
+      order.update(ordered_on: Date.today, status: 'En attente')
     end
     redirect_to root_path
   end

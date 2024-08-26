@@ -5,10 +5,10 @@
 
   <section class="orders-section">
     <h2 class="orders-section-title">Nouvelles commandes</h2>
-    <%if @orders.where(status: "pending").empty?  %>
+    <%if @orders.where(status: "En attente").empty?  %>
     <p class="no-orders-message">Pas de nouvelles commandes pour le moment...</p>
     <%else  %>
-  <% @orders.where(status: "pending").each do |o|  %>
+  <% @orders.where(status: "En attente").each do |o|  %>
     <div class="order-card" data-controller="order-details" data-action="click->order-details#toggleDetails">
       <div class="order-card-content">
         <div class="order-info">
@@ -65,6 +65,7 @@
             <div class="order-details">
               <div class="order-product-name"><%="#{o.cart.user.last_name} #{o.cart.user.first_name}"%></div>
               <div class="order-date"><%="#{o.ordered_on}"%></div>
+              <%= button_to "Delivrer", deliver_order_order_path(o), data: {turbo_method: :patch}, method: :patch, class: "btn btn-primary" %>
             </div>
           </div>
           <div class="order-actions">
@@ -140,4 +141,3 @@
 </div>
 
 <%= render("users/footer_sales") %>
-

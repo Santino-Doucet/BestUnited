@@ -8,6 +8,9 @@ class Item < ApplicationRecord
   has_many :order_items
   has_many :orders, through: :order_items
 
+  scope :not_in_stock, -> { joins(:orders).where(orders: { status: ["Validée", "Refusée", "Effectuée"] }) }
+  scope :in_stock, -> { where.not(id: not_in_stock) }
+
   include PgSearch::Model
   pg_search_scope :search_by_brand_model_reference_and_color,
     against: [ :brand, :model, :reference, :color ],
