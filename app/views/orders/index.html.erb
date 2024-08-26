@@ -51,12 +51,16 @@
   </section>
 
   <section class="orders-section">
-    <h2 class="orders-section-title">Commandes en cours</h2>
+    <h2 class="orders-section-title">Commandes prêtes pour le retrait</h2>
     <% if @orders.where(status: "Validée").empty? %>
       <p class="no-orders-message">Pas de commandes en cours pour le moment...</p>
     <% else %>
       <% @orders.where(status: "Validée").each do |o|  %>
         <div class="order-card" data-controller="order-details" data-action="click->order-details#toggleDetails">
+          <p>Expire dans 3 jours <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+          </p>
         <div class="order-card-content">
           <div class="order-info">
             <div class="avatar-circle">
@@ -140,4 +144,3 @@
 </div>
 
 <%= render("users/footer_sales") %>
-
