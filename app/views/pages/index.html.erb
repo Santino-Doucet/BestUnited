@@ -30,7 +30,7 @@
         <%= image_tag "logo.png" %>
       </div>
     </div>
-    <div class="search-bar">
+    <div class="search-bar mt-100">
       <%= simple_form_for :search, url: items_path, method: :get, html: { class: "d-flex" }, data: { controller: "reset-search", action: "submit->reset-search#clearSearch" } do |f| %>
         <%= f.input :query,
           input_html: {
