@@ -55,13 +55,22 @@ class MyStocksController < ApplicationController
   private
 
   def remove_duplicates(items)
-    unique_items = []
+
+    unique_items = {}
+
     items.each do |item|
-      unless unique_items.any? { |unique_item| is_duplicate?(unique_item, item) }
-        unique_items << item
+      key = [item.reference, item.brand, item.model, item.color, item.price, item.size]
+
+      if unique_items[key]
+        unique_items[key][:count] += 1
+      else
+        unique_items[key] = { item: item, count: 1 }
       end
     end
-    unique_items
+
+    sorted_unique_items = unique_items.values.sort_by { |entry| -entry[:count] }
+
+    sorted_unique_items.map { |entry| entry[:item] }
   end
 
   def is_duplicate?(item1, item2)
