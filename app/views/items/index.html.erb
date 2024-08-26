@@ -25,11 +25,11 @@
               <%= cl_image_tag item.photo.key, crop: :fill, alt: "shoe", class: "product-image-items" %>
             <% end %>
             <p class="product-name"><%= item.brand %> <%= item.model %></p>
-            <div class="price-and-button">
-              <p class="product-price"><%= item.price %>€</p>
-              <%= button_to "Ajouter", item_order_items_path(item), class:"ajouter" %>
-            </div>
           <% end %>
+          <div class="price-and-button">
+            <p class="product-price"><%= item.price %>€</p>
+            <%= button_to "Ajouter", item_order_items_path(item), class:"ajouter" %>
+          </div>
         </div>
       <% end %>
     </div>

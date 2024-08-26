@@ -68,7 +68,7 @@ export default class extends Controller {
           }
         },
         tooltip: {
-          enabled: true,
+          enabled: false,
         },
       },
 
@@ -98,6 +98,7 @@ export default class extends Controller {
       },
 
       title: {
+        show: false,
         floating: false,
         offsetY: 0,
         align: 'center',
