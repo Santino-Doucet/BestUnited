@@ -5,7 +5,7 @@
 
   <section class="orders-section">
     <h2 class="orders-section-title">Nouvelles commandes</h2>
-    <%if @orders.where(status: "pending").empty?  %>
+    <% if @orders.where(status: "pending").empty?  %>
     <p class="no-orders-message">Pas de nouvelles commandes pour le moment...</p>
     <%else  %>
   <% @orders.where(status: "pending").each do |o|  %>
@@ -47,7 +47,7 @@
         </div>
       </div>
     <% end %>
-    <%end%>
+    <% end %>
   </section>
 
   <section class="orders-section">
@@ -55,30 +55,29 @@
     <% if @orders.where(status: "Validée").empty? %>
       <p class="no-orders-message">Pas de commandes en cours pour le moment...</p>
     <% else %>
-      <% @orders.where(status: "Validée").each do |o|  %>
-        <div class="order-card" data-controller="order-details" data-action="click->order-details#toggleDetails">
-          <p>Expire dans 3 jours</p>
-
+    <% @orders.where(status: "Validée").each do |o|  %>
+    <div class="order-card" data-controller="order-details" data-action="click->order-details#toggleDetails">
+          <div class="pouff">
+            <p>Expire dans 3 jours</p>
+            <%= button_to "Commande récupérée ?", deliver_order_order_path(o), data: {turbo_method: :patch}, method: :patch, class: "btn-orders" %>
+          </div>
           <div class="order-card-content">
-          <div class="order-info">
-            <div class="avatar-circle">
-              <span class="initials"><%= o.cart.user.initials %></span>
-            </div>
-            <div class="order-details">
-              <div class="order-product-name"><%="#{o.cart.user.last_name} #{o.cart.user.first_name}"%></div>
-              <div class="order-date"><%="#{o.ordered_on}"%></div>
-            </div>
-          </div>
-          <div class="order-actions">
-            <button class="order-view-details-button">Voir detail</button>
-          </div>
+            <div class="order-info">
+              <div class="avatar-circle">
+                <span class="initials"><%= o.cart.user.initials %></span>
+              </div>
+              <div class="order-details">
+                <div class="order-product-name"><%= "#{o.cart.user.last_name} #{o.cart.user.first_name}" %></div>
+                  <div class="order-date"><%= "#{o.ordered_on}" %></div>
+                </div>
+              </div>
+              <div class="all-buttons">
+              <button id="btn-detail" class="order-view-details-button">Voir détails</button>
         </div>
-        <div class="order-processed" style="display: flex; justify-content: space-between; align-items: center; height: 67px;">
-          <p>Commande récupérée</p>
+        <div class="order-processed" style="display: flex; justify-content: spac; align-items: center; height: 67px;">
           <div class="btn-order-processed">
-          <%= button_to "Oui", deliver_order_order_path(o), data: {turbo_method: :patch}, method: :patch, class: "btn" %>
           </div>
-        </div>
+        </div></div>
         <div class="order-hidden-details" data-order-details-target="details" style="display: none;">
             <% grouped_items = o.items.group_by { |item| [item.model, item.size, item.price] } %>
               <% grouped_items.each do |group, items| %>
@@ -121,6 +120,8 @@
             </div>
             <div class="order-actions">
               <button class="order-view-details-button">Voir detail</button>
+            </div>
+              </div>
             </div>
           </div>
             <div class="order-hidden-details" data-order-details-target="details" style="display: none;">
