@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show]
 
   def index
-    @items = Item.with_attached_photo.all
+    @items = Item.with_attached_photo.in_stock
     if params[:search][:address].present? && params[:search][:query].present?
       temp_items = @items.search_by_brand_model_reference_and_color(params[:search][:query]).with_attached_photo
       comp_items = []
@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
     elsif params[:search][:address].present?
       @items = []
       Company.near(params[:search][:address], 10).each do |company|
-        company.items.each do |item|
+        company.items.in_stock.each do |item|
           @items << item
         end
       end

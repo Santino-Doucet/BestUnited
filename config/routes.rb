@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     member do
       patch :validate_order
       patch :refuse_order
+      patch :deliver_order
     end
   end
 
