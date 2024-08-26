@@ -24,7 +24,7 @@
         <% if !item.photo.key.nil? %>
           <%= cl_image_tag item.photo.key, crop: :fill, alt: "shoe", class: "product-image-items" %>
         <% else %>
-          <div class="product-image-placeholder"></div>
+          <div class="product-image-placeholder-items-index"></div>
         <% end %>
         <p class="product-name"><%= item.brand %> <%= item.model %></p>
       <% end %>
