@@ -89,28 +89,31 @@
   border-radius: 10px;
   border: 1px solid rgb(144, 142, 142);
   overflow: hidden;
-  width: 100%;
+  // width: 100%;
   margin-top: 100px;
-  width: calc(100% - 24px); /* Réduit la largeur pour compenser les marges */
-  box-sizing: border-box;
-  height: 40px;
+  // width: calc(100% - 24px); /* Réduit la largeur pour compenser les marges */
+  // box-sizing: border-box;
+  // height: 40px;
 }
 
 .search-bar input {
-  width: auto; /* Ajuste la largeur automatiquement */
+  width: 45% ;
+  padding: 8px 10px;
+  // width: auto; /* Ajuste la largeur automatiquement */
   padding: 6px 10px; /* Réduit le padding intérieur pour rendre le champ plus fin */
   border: none;
   border-right: 1px solid #CCC;
   outline: none !important;
-  box-sizing: border-box; /* Assure que le padding est inclus dans la largeur totale */
-  height: 100%; /* Assure que le champ de recherche occupe toute la hauteur de la barre */
-  font-size: 14px; /* Ajuste la taille de la police si nécessaire */
-  margin-left: 8px;
+  // box-sizing: border-box; /* Assure que le padding est inclus dans la largeur totale */
+  // height: 100%; /* Assure que le champ de recherche occupe toute la hauteur de la barre */
+  // font-size: 14px; /* Ajuste la taille de la police si nécessaire */
+  // margin-left: 8px;
 }
 
 .search-bar input.search-model {
   border-color: #CCC !important;
   border-radius: 0 !important;
+  width: 100%;
 }
 
 .input.search-model input:focus {
