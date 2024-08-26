@@ -1,5 +1,5 @@
 .orders-page-container {
-    background: url('assets/order.png') no-repeat center center;
+    background: url('assets/orders.png') no-repeat center center;
     width: 390px;
     max-width: 100%;
     height: 844px;
@@ -21,6 +21,7 @@
   font-size: 24px;
   font-weight: bold;
   margin-top: 20px;
+  display: flex;
 }
 
 .orders-section {
@@ -28,9 +29,10 @@
 }
 
 .orders-section-title {
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 500;
   margin-bottom: 10px;
+  color: #CB680C;
 }
 
 .order-shoe-image {
@@ -121,13 +123,14 @@
 }
 
 .order-view-details-button {
-  background-color: #68b264;
+  background-color: #CB692F;
   color: #fff;
-  border: none;
+  border:1px solid black;
   border-radius: 10px;
   padding: 10px 15px;
   cursor: pointer;
   font-size: 14px;
+  font-weight: 500px;
 }
 .info-order {
   display: flex;
@@ -154,4 +157,9 @@
   font-size: 20px;
   font-weight: bold;
   color: #cb692f;
+}
+
+
+.size-6 {
+  height: 20px;
 }
