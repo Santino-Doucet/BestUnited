@@ -1,5 +1,20 @@
 <div class="search-bar">
-  <input type="text" class="search-model" placeholder="Modèle (e.g., AirMax)">
-  <input type="text" class="search-location" placeholder="Ville ou code postal">
-  <button><i class="fa-solid fa-magnifying-glass"></i></button>
+      <%= simple_form_for :search, url: items_path, method: :get, html: { class: "d-flex" }, data: { controller: "reset-search", action: "submit->reset-search#clearSearch" } do |f| %>
+        <%= f.input :query,
+          input_html: {
+              class: "search-model",
+              placeholder: "Quoi ?",
+              data: {
+                reset_search_target: "search"
+              }
+          }, label: false %>
+        <%= f.input :address,
+          input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+          wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}},
+          label: false
+        %>
+        <%= button_tag type: 'submit' do %>
+          <i class="fa-solid fa-magnifying-glass"></i>
+        <% end %>
+      <% end %>
 </div>
