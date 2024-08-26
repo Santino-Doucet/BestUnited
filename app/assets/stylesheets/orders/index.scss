@@ -47,11 +47,11 @@
 .order-card {
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 15px;
-  padding: 15px;
+  padding: 8px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 15px;
+  margin-bottom: 1px;
   position: relative;
 }
 
@@ -159,7 +159,22 @@
   color: #cb692f;
 }
 
-
-.size-6 {
+.size-6{
   height: 20px;
+}
+
+.order-processed{
+  padding-top: 24px;
+}
+
+
+.btn-order-processed{
+  border: 1px solid black;
+  border-radius: 10px;
+  color:white;
+  margin-bottom: 12px;
+}
+
+.btn{
+  color: white;
 }

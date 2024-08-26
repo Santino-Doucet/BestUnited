@@ -5,10 +5,10 @@
 
   <section class="orders-section">
     <h2 class="orders-section-title">Nouvelles commandes</h2>
-    <%if @orders.where(status: "En attente").empty?  %>
+    <%if @orders.where(status: "pending").empty?  %>
     <p class="no-orders-message">Pas de nouvelles commandes pour le moment...</p>
     <%else  %>
-  <% @orders.where(status: "En attente").each do |o|  %>
+  <% @orders.where(status: "pending").each do |o|  %>
     <div class="order-card" data-controller="order-details" data-action="click->order-details#toggleDetails">
       <div class="order-card-content">
         <div class="order-info">
@@ -57,11 +57,9 @@
     <% else %>
       <% @orders.where(status: "Validée").each do |o|  %>
         <div class="order-card" data-controller="order-details" data-action="click->order-details#toggleDetails">
-          <p>Expire dans 3 jours <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-          </svg>
-          </p>
-        <div class="order-card-content">
+          <p>Expire dans 3 jours</p>
+
+          <div class="order-card-content">
           <div class="order-info">
             <div class="avatar-circle">
               <span class="initials"><%= o.cart.user.initials %></span>
@@ -69,14 +67,19 @@
             <div class="order-details">
               <div class="order-product-name"><%="#{o.cart.user.last_name} #{o.cart.user.first_name}"%></div>
               <div class="order-date"><%="#{o.ordered_on}"%></div>
-              <%= button_to "Delivrer", deliver_order_order_path(o), data: {turbo_method: :patch}, method: :patch, class: "btn btn-primary" %>
             </div>
           </div>
           <div class="order-actions">
             <button class="order-view-details-button">Voir detail</button>
           </div>
+        </div>
+        <div class="order-processed" style="display: flex; justify-content: space-between; align-items: center; height: 67px;">
+          <p>Commande récupérée</p>
+          <div class="btn-order-processed">
+          <%= button_to "Oui", deliver_order_order_path(o), data: {turbo_method: :patch}, method: :patch, class: "btn" %>
           </div>
-          <div class="order-hidden-details" data-order-details-target="details" style="display: none;">
+        </div>
+        <div class="order-hidden-details" data-order-details-target="details" style="display: none;">
             <% grouped_items = o.items.group_by { |item| [item.model, item.size, item.price] } %>
               <% grouped_items.each do |group, items| %>
                 <div class="info-order">
@@ -95,7 +98,7 @@
             </div>
           </div>
         </div>
-      <% end %>
+        <% end %>
     <% end %>
   </section>
 
@@ -104,42 +107,42 @@
     <% if @orders.where(status: "Effectuée").empty? %>
       <p class="no-orders-message">Pas de commandes précédentes pour le moment...</p>
     <% else %>
-    <% @orders.where(status: "Effectuée").each do |o| %>
-      <div class="order-card" data-controller="order-details" data-action="click->order-details#toggleDetails">
-        <div class="order-card-content">
-          <div class="order-info">
-            <div class="avatar-circle">
-              <span class="initials"><%= o.cart.user.initials %></span>
+      <% @orders.where(status: "Effectuée").each do |o| %>
+        <div class="order-card" data-controller="order-details" data-action="click->order-details#toggleDetails">
+          <div class="order-card-content">
+            <div class="order-info">
+              <div class="avatar-circle">
+                <span class="initials"><%= o.cart.user.initials %></span>
+              </div>
+              <div class="order-details">
+                <div class="order-product-name"><%="#{o.cart.user.last_name} #{o.cart.user.first_name}"%></div>
+                <div class="order-date"><%="#{o.ordered_on}"%></div>
+              </div>
             </div>
-            <div class="order-details">
-              <div class="order-product-name"><%="#{o.cart.user.last_name} #{o.cart.user.first_name}"%></div>
-              <div class="order-date"><%="#{o.ordered_on}"%></div>
+            <div class="order-actions">
+              <button class="order-view-details-button">Voir detail</button>
             </div>
           </div>
-          <div class="order-actions">
-            <button class="order-view-details-button">Voir detail</button>
-          </div>
+            <div class="order-hidden-details" data-order-details-target="details" style="display: none;">
+              <% grouped_items = o.items.group_by { |item| [item.model, item.size, item.price] } %>
+                <% grouped_items.each do |group, items| %>
+                  <div class="info-order">
+                    <p>
+                      Modèle : <%= items.first.brand %> <%= items.first.model %><br>
+                      Taille : <%= items.first.size %><br>
+                      Quantité : <%= items.size %><br>
+                      Prix unitaire : <%= items.first.price %>€
+                    </p>
+                  </div>
+                <% end %>
+              <div class="total">
+                <p style="margin-bottom: -10px;">
+                  Total: <%= o.total_price %>€
+                </p>
+              </div>
+            </div>
         </div>
-          <div class="order-hidden-details" data-order-details-target="details" style="display: none;">
-            <% grouped_items = o.items.group_by { |item| [item.model, item.size, item.price] } %>
-              <% grouped_items.each do |group, items| %>
-                <div class="info-order">
-                  <p>
-                    Modèle : <%= items.first.brand %> <%= items.first.model %><br>
-                    Taille : <%= items.first.size %><br>
-                    Quantité : <%= items.size %><br>
-                    Prix unitaire : <%= items.first.price %>€
-                  </p>
-                </div>
-              <% end %>
-            <div class="total">
-              <p style="margin-bottom: -10px;">
-                Total: <%= o.total_price %>€
-              </p>
-            </div>
-          </div>
-      </div>
-    <% end %>
+      <% end %>
   <% end %>
   </section>
 </div>
