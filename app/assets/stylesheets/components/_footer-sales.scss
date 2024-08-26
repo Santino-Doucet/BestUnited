@@ -6,15 +6,16 @@
 
 .footer-container-sales {
   background-color: white;
-  padding: 8px 0;
   display: flex;
-  justify-content: space-between;
   position: fixed;
+  padding-bottom: 16px;
   bottom: 0;
   left: 0;
   z-index: 9;
   width: 100vw;
-  height: 7vh; /* Ajusté pour laisser plus d'espace pour le texte */
+  height: 9vh;
+  justify-content: space-around;
+  align-items: center; /* Ajusté pour laisser plus d'espace pour le texte */
 }
 
 .footer-icons {
@@ -37,7 +38,7 @@
 .footer-icon-item svg {
   width: 30px; /* Ajustez la taille de l'icône ici */
   height: 30px;
-  color: #545454;
+  color: #CB680B;
   transition: color 0.3s, transform 0.3s;
 }
 
@@ -45,7 +46,8 @@
   display: block;
   margin-top: 5px;
   font-size: 11px;
-  color: black;
+  font-weight: 600;
+  color: #CB680B;
 }
 
 .active-icon-wrapper {

@@ -6,14 +6,14 @@
 
 .footer-container-client {
   background-color: white;
-  padding: 5px 0;
   display: flex;
   position: fixed;
+  padding-bottom: 16px;
   bottom: 0;
   left: 0;
   z-index: 9;
   width: 100vw;
-  height: 7vh;
+  height: 9vh;
   justify-content: space-around;
   align-items: center;
 }
@@ -38,7 +38,7 @@
 .footer-icon-item-client svg {
   width: 30px;
   height: 30px;
-  color: #545454;
+  color: #cb692f;
   transition: color 0.3s, transform 0.3s;
 }
 
@@ -46,5 +46,6 @@
   display: block;
   margin-top: 5px;
   font-size: 11px;
-  color: black;
+  color: #cb692f;
+  font-weight: 600;
 }
