@@ -59,7 +59,7 @@
     <div class="order-card" data-controller="order-details" data-action="click->order-details#toggleDetails">
           <div class="pouff">
             <p>Expire dans 3 jours</p>
-            <%= button_to "Commande récupérée ?", deliver_order_order_path(o), data: {turbo_method: :patch}, method: :patch, class: "btn-orders" %>
+            <%= button_to "Récupérée ?", deliver_order_order_path(o), data: {turbo_method: :patch}, method: :patch, class: "btn-orders" %>
           </div>
           <div class="order-card-content">
             <div class="order-info">
