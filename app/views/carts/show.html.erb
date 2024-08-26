@@ -16,7 +16,7 @@
               <%= cl_image_tag item.photo.key, crop: :fill, transformation: [
                       { effect: "make_transparent", color: "white", tolerance: 100 },
                       { effect: "trim", color: "white", tolerance: 0 }
-                    ], alt: "shoe", class: "product-image-item" %>
+                    ], alt: "shoe", class: "product-image-item-carts-show" %>
             <% else %>
               <img src="", class: 'product-image-item'>
             <% end %>
