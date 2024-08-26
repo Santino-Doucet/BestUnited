@@ -35,3 +35,96 @@
 //   justify-content: center;
 //   border-radius: 0 20px 20px 0; /* Rounded corners for the button */
 // }
+
+.search-bar-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 12px;
+  background-color: #FFF;
+  border-radius: 10px;
+  border: 1px solid rgb(144, 142, 142);
+  overflow: hidden;
+  // width: 100%;
+  // margin-top: 100px;
+  // width: calc(100% - 24px); /* Réduit la largeur pour compenser les marges */
+  // box-sizing: border-box;
+  // height: 40px;
+}
+
+.mt-100 {
+  margin-top: 100px;
+}
+
+.search-bar-items input {
+  width: 45% ;
+  padding: 8px 10px;
+  // width: auto; /* Ajuste la largeur automatiquement */
+  padding: 6px 10px; /* Réduit le padding intérieur pour rendre le champ plus fin */
+  border: none;
+  border-right: 1px solid #CCC;
+  outline: none !important;
+  // box-sizing: border-box; /* Assure que le padding est inclus dans la largeur totale */
+  // height: 100%; /* Assure que le champ de recherche occupe toute la hauteur de la barre */
+  // font-size: 14px; /* Ajuste la taille de la police si nécessaire */
+  // margin-left: 8px;
+}
+
+.search-bar-items input.search-model {
+  border-color: #CCC !important;
+  border-radius: 0 !important;
+  width: 100%;
+}
+
+.input.search-model input:focus {
+  outline: none !important;
+}
+
+.search-bar-items .mapboxgl-ctrl-geocoder--input {
+  width: 100px !important;
+  height: 40px;
+}
+
+.search-bar-items .mapboxgl-ctrl-geocoder--button{
+  display: none !important;
+}
+
+.search-bar-items .mapboxgl-ctrl-geocoder--icon.mapboxgl-ctrl-geocoder--icon-search{
+  display: none !important;
+}
+
+.search-bar-items .mapboxgl-ctrl-geocoder--icon.mapboxgl-ctrl-geocoder--icon-loading {
+  display: none !important;
+}
+
+.search-bar-items .search-model {
+  border-radius: 20px 0 0 20px;
+  width: 160px;
+  height: 40px;
+}
+
+.search-bar-items .search-location {
+  border-radius: 0;
+}
+
+.simple_form {
+  .search-query input:focus {
+  outline: none !important;
+  }
+}
+
+.suggestions-wrapper .suggestions{
+  list-style-type: none;
+}
+
+.search-bar-items button {
+  background-color: #FFF;
+  border: none;
+  padding: 6px;
+  color: #CB680B;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 20px 20px 0;
+}
