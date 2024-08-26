@@ -17,6 +17,7 @@ export default class extends Controller {
     this.geocoder.on("clear", () => this.#clearInputValue())
     document.querySelector(".search_query").classList.remove("mb-3")
     document.querySelector(".search_address").classList.remove("mb-3")
+    document.querySelector(".mapboxgl-ctrl-geocoder--input").setAttribute('data-reset-search-target', 'address')
   }
 
   disconnect() {
