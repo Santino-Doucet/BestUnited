@@ -18,7 +18,7 @@
 .header-items {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Distribute items evenly */
+  justify-content: space-between;
   padding: 10px 0;
   gap: 10px;
 }
@@ -37,8 +37,8 @@
 }
 
 .search-input {
-  flex-grow: 1; /* Allow the search bar to take up remaining space */
-  max-width: 100%; /* Make sure it doesn't exceed the container */
+  flex-grow: 1;
+  max-width: 100%;
   padding: 7px;
   font-size: 16px;
   border: 2px solid #ddd;
@@ -48,7 +48,7 @@
 .options {
   display: flex;
   align-items: center;
-  gap: 10px; /* Space between the QR code and slider */
+  gap: 10px;
 }
 
 .options i {
@@ -79,13 +79,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #f9f9f9;
+  background-color: white;
   padding: 10px;
   border-radius: 8px;
   text-align: left;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   height: 100%;
-  position: relative; /* Ensure the heart icon stays in the corner */
+  position: relative;
 }
 
 .product-card a {
@@ -102,10 +102,14 @@
   cursor: pointer;
 }
 
-.product-image-items {
+.product-image-items, .product-image-placeholder {
   width: 100%;
-  border-radius: 8px;
   margin-bottom: 10px;
+  height: 150px;
+}
+
+.product-image-placeholder {
+  display: block;
 }
 
 .product-name {

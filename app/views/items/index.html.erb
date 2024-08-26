@@ -18,20 +18,22 @@
 
     <div class="products-grid">
       <% @items.each do |item| %>
-        <div class="product-card">
-          <%= link_to item do %>
-            <i class="fa-regular fa-heart save-icon"></i>
-            <% if !item.photo.key.nil?%>
-              <%= cl_image_tag item.photo.key, crop: :fill, alt: "shoe", class: "product-image-items" %>
-            <% end %>
-            <p class="product-name"><%= item.brand %> <%= item.model %></p>
-          <% end %>
-          <div class="price-and-button">
-            <p class="product-price"><%= item.price %>€</p>
-            <%= button_to "Ajouter", item_order_items_path(item), class:"ajouter" %>
-          </div>
-        </div>
+    <div class="product-card">
+      <%= link_to item do %>
+        <i class="fa-regular fa-heart save-icon"></i>
+        <% if !item.photo.key.nil? %>
+          <%= cl_image_tag item.photo.key, crop: :fill, alt: "shoe", class: "product-image-items" %>
+        <% else %>
+          <div class="product-image-placeholder"></div>
+        <% end %>
+        <p class="product-name"><%= item.brand %> <%= item.model %></p>
       <% end %>
+      <div class="price-and-button">
+        <p class="product-price"><%= item.price %>€</p>
+        <%= button_to "Ajouter", item_order_items_path(item), class:"ajouter" %>
+      </div>
+    </div>
+  <% end %>
     </div>
   </div>
 </div>
