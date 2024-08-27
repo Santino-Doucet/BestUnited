@@ -12,6 +12,16 @@
   padding-bottom: 12vh;
 }
 
+#name-merchant{
+  margin-left: 12px; /* Déplace l'élément de 12px vers la droite */
+  padding-bottom: 4px; /* Ajoute un espace entre le texte et la bordure */
+  color: #545454; /* Définit la couleur du texte */
+  font-size: 18px; /* Définit la taille de la police */
+  /* Définit la largeur de l'élément à 50% du conteneur parent */
+  text-align: left; /* Aligne le texte à gauche */
+  margin-bottom: 4px;
+}
+
 .part-1 {
   display: flex;
   justify-content: flex-start;
@@ -22,8 +32,10 @@
 .part-1 h1 {
   color: black;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
   margin-left: 12px;
+  padding-top: 12px;
+  padding-bottom: 8px;
 }
 
 .part-1 h2 {
