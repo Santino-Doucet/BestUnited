@@ -12,6 +12,7 @@ export default class extends Controller {
   connect() {
     this.searchTarget.value = ""
     this.setInputValueFromUrl()
+
   }
 
   async setInputValueFromUrl() {
@@ -21,14 +22,21 @@ export default class extends Controller {
     const searchQuery = params.get('search[query]');
     const searchAddress = params.get('search[address]');
 
+
+
+
+
     // Set the value of the input field if parameter is present
     if (searchQuery) {
       this.searchTarget.value = searchQuery;
     }
 
     if (searchAddress) {
-      await this.sleep(1000)
+      await this.sleep(500)
+      let inputMask = document.querySelector("#search_address")
+      console.log(inputMask, "MASK");
       this.addressTarget.value = searchAddress;
+      inputMask.value = searchAddress;
     }
   }
 
