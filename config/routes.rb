@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   post 'my_stock/items', to: 'my_stocks#create_item'
 
 
+
   get 'my_stock/items/:id', to: 'my_stocks#show_item', as: 'show_item_in_stock'
 
   get 'my_stock/items/:id/edit', to: 'my_stocks#edit_item', as: 'edit_item_in_stock'
