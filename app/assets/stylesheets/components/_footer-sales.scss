@@ -1,5 +1,5 @@
 .footer {
-  padding: 8px 0;
+  padding: 10px 0;
   background-color: #EFEFEF;
   border-top: 1px solid #DDD;
 }
@@ -15,7 +15,7 @@
   width: 100vw;
   height: 9vh;
   justify-content: space-around;
-  align-items: center;/* Ajusté pour laisser plus d'espace pour le texte */
+  align-items: center;
 }
 
 .footer-icons {
@@ -40,6 +40,7 @@
   height: 30px;
   color: #CB680B;
   transition: color 0.3s, transform 0.3s;
+
 }
 
 .footer-icon-item span {
@@ -48,16 +49,4 @@
   font-size: 11px;
   font-weight: 600;
   color: #CB680B;
-}
-
-.active-icon-wrapper {
-  background-color: #CB680B;
-  padding: 10px;
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.footer-icon-item svg.active {
-  color: white;
-  transform: scale(2.1); /* Augmente légèrement la taille de l'icône active */
 }
