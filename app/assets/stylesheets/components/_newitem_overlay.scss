@@ -57,8 +57,45 @@
       padding: 16px;
     }
 
+    .little-input {
+      width: 59px;
+      padding: 10px;
+      border: 1px solid #cb680b;
+      border-radius: 5px;
+      margin-bottom: 26px;
+      height: 40px;
+      display: flex;
+    }
+    .product-image-items {
+      padding-right: 32px;
+      padding-left: 0px;
+    }
+
+    .info-again {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      position: relative;
+      bottom: 8px;
+    }
+
+    .complementary-infos {
+      position: relative;
+      bottom: 18px;
+    }
+
+    .big-input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #cb680b;
+      border-radius: 5px;
+      margin-bottom: 16px;
+      height: 40px;
+    }
+
     .item-main-infos {
       padding-top: 16px;
+      position: relative;
+      right: 35px;
     }
 
     .cross {
@@ -76,12 +113,31 @@
       grid-template-columns: 1fr 1fr;
     }
 
-    .quantity-selector {
-      display: inline-flex;
+    .quantity-selector-new {
       align-items: center;
       border-radius: 30px; /* Rounded corners */
       padding: 5px;
+      position: relative;
+      top: -65px;
+
+      .quantity-value {
+        margin-left: -20px;
+        position: relative;
+        top: -75px;
+        }
+        .big-input {
+          width: 50px;
+          }
+      }
+
+  .add-stock-btn {
+  width: 145px;
+  text-align: center;
+  position: relative;
+  left: 185px;
   }
+
+
 
   .quantity-btn {
       background-color: #cb680b; /* Button color */
