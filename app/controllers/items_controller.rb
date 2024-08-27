@@ -41,6 +41,15 @@ class ItemsController < ApplicationController
       @cart = current_user.carts.where(active: true).first
       @cart = Cart.create(user: current_user) unless @cart.present?
     end
+    lat1 = @item.company.latitude
+    lng1 = @item.company.longitude
+    lat2 = Geocoder.search(params[:address]).first.latitude
+    lng2 = Geocoder.search(params[:address]).first.longitude
+    if valid_coordinates?(lat1, lng1) && valid_coordinates?(lat2, lng2)
+      @distance = (Geocoder::Calculations.distance_between([lat1, lng1], [lat2, lng2])*1000).round
+    else
+      @distance = nil
+    end
   end
 
   def create_from_scan
@@ -82,5 +91,10 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:reference, :brand, :model, :color, :price, :size)
+  end
+
+  def valid_coordinates?(lat, lng)
+    lat.is_a?(Numeric) && lng.is_a?(Numeric) &&
+    lat.between?(-90, 90) && lng.between?(-180, 180)
   end
 end

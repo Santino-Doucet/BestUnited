@@ -18,7 +18,7 @@
     <div class="products-grid">
       <% @items.each do |item| %>
     <div class="product-card">
-      <%= link_to item do %>
+      <%= link_to item_path(item, address: params[:search][:address]) do %>
         <i class="fa-regular fa-heart save-icon"></i>
         <% if !item.photo.key.nil? %>
           <%= cl_image_tag item.photo.key, crop: :fill, alt: "shoe", class: "product-image-items" %>
