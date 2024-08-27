@@ -8,6 +8,9 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.with_attached_photo.in_stock
+    @cart = current_user.carts.where(active: true).first
+
+    @cart = Cart.create(user: current_user) unless @cart.present?
     if params[:search][:address].present? && params[:search][:query].present?
       temp_items = @items.search_by_brand_model_reference_and_color(params[:search][:query]).with_attached_photo
       comp_items = []
@@ -30,6 +33,9 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @cart = current_user.carts.where(active: true).first
+
+    @cart = Cart.create(user: current_user) unless @cart.present?
   end
 
   def create_from_scan
