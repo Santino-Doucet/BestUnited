@@ -33,10 +33,12 @@ class MyStocksController < ApplicationController
       price: 10,
       company: current_user.companies.first,
       size: 40,
-      released_on: data['releaseDate']
+      released_on: Date.new(data['year'].to_i)
     )
-    file = URI.open(data['media']['imageUrl'])
-    item.photo.attach(io: file, filename: 'shoe.png' , content_type: 'image/png')
+    unless data['media']['imageUrl'].nil?
+      file = URI.open(data['media']['imageUrl'])
+      item.photo.attach(io: file, filename: 'shoe.png' , content_type: 'image/png')
+    end
     item.save!
   end
 
