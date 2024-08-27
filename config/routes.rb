@@ -2,10 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#index"
   resources :items, only: [:index, :show] do
-
-    resources :order_items, only: [:destroy]
-    
-    resources :order_items, only: [:create]
+    resources :order_items, only: [:create, :destroy]
     collection do
       post 'create_from_scan'
     end
@@ -43,7 +40,6 @@ Rails.application.routes.draw do
   end
 
 
-  resources :order_items, only: [:destroy]
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

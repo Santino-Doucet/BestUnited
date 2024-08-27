@@ -19,9 +19,3 @@ application.register("cart-details", CartDetailsController);
 
 import SizeSelectorController from "./size_selector_controller"
 application.register("size-selector", SizeSelectorController)
-
-import ExitPopupController from "./exit_popup_controller";
-application.register("exit-popup", ExitPopupController);
-
-import FlashController from "./flash_controller";
-application.register("flash", FlashController);
