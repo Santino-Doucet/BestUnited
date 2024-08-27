@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   get 'my_stock/items/:id/edit', to: 'my_stocks#edit_item', as: 'edit_item_in_stock'
   patch 'my_stock/items/:id', to:'my_stocks#update_item'
 
-  delete 'items/:id', to: 'my_stocks#destroy_item'
+  delete 'items/:id', to: 'my_stocks#destroy_item', as: 'destroy_item_in_stock'
 
   resources :orders, only: [:index, :show]
   resources :orders do

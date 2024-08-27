@@ -17,15 +17,15 @@
 }
 
 .product-details {
-  margin-bottom: 12px;
+  margin-top: 15px;
 }
 
-.product-header {
+.product-header-items-show {
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 18px;
   position: relative;
-  margin-top: 20px;
+  // margin-top: 20px;
 }
 
 .back-button {
@@ -93,30 +93,6 @@
 
 .thumbnail.active {
   border-color: #cb680b;
-}
-
-.size-selector {
-  display: flex;
-  justify-content: space-evenly;
-  padding: 10px 0;
-}
-
-.size-option {
-  background-color: #e5c5aa;
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  text-align: center;
-  line-height: 40px;
-  font-size: 16px;
-  color: #000;
-  cursor: pointer;
-}
-
-.size-option.active {
-  background-color: #cb680b;
-  color: #fff;
 }
 
 .product-name {
@@ -190,7 +166,7 @@
   color: #fff;
   padding: 15px;
   border: none;
-  border-radius: 20px;
+  border-radius: 10px;
   cursor: pointer;
   font-size: 16px;
   width: auto;
@@ -201,5 +177,80 @@
 .button-container {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+}
+
+.size-selector-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 20px;
+  position: relative;
+  background: #f6b980;
+  height: 40px;
+  border-radius: 999px;
+}
+
+
+.size-options {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.size-option {
+  font-size: 14px;
+  color: #000;
+  cursor: pointer;
+  // transition: background-color 0.3s, color 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  border-radius: 999px;
+}
+
+.size-option.active {
+  background-color: #ffffff;
+  border: 5px solid #f6b980;
+  outline: 5px solid #E8DFD2;
+  font-weight: 600;
+  height: 40px;
+  transform: translateY(-5px);
+  box-sizing: content-box;
+
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border-radius: 999px;
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  background-color: transparent;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.slider::-moz-range-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
 }
