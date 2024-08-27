@@ -68,7 +68,7 @@ user = User.create!(
 puts "Create company 1"
 company = Company.create!(
   siren: '987654321',
-  name: 'Best United Store',
+  name: "L'atelier des sneakers",
   address: '4 rue des capucins Lyon',
   user: commercant
 )
@@ -76,7 +76,7 @@ company = Company.create!(
 puts "Create company 2"
 company2 = Company.create!(
   siren: '123456789',
-  name: 'JLO Shop',
+  name: "Chez Sneaky",
   address: '2 Place Lucien Artaud, Bandol',
   user: commercant2
 )
