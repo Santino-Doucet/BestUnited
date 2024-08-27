@@ -47,10 +47,10 @@
 .order-card {
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 15px;
-  padding: 8px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
   margin-bottom: 1px;
   position: relative;
   margin-bottom: 4px;
@@ -96,7 +96,7 @@
 }
 
 .order-product-name {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
 }
 
@@ -112,7 +112,7 @@
   color: #fff;
   border: none;
   border-radius: 8px;
-  padding: 8px 10px;
+  padding: 8px 8px;
   cursor: pointer;
   font-size: 12px;
   width: 100%;
@@ -161,32 +161,33 @@
 
 
 .btn-order-processed{
-  border: 1px solid black;
+  border: 1px solid white;
   border-radius: 10px;
   color:white;
   margin-bottom: 12px;
 }
 
 .btn-orders {
-  background-color: #CB692F;
+  background-color: #F2B18B;
   color: #fff;
   border-radius: 10px;
-  padding: 12px 12px;
+  padding: 8px 10px;
   cursor: pointer;
   font-size: 14px;
   font-weight: 500px;
   border: none;
 }
 
-#btn-detail{
-  background-color: #545454;
+
+.order-view-details-button{
   color: #fff;
   border-radius: 10px;
-  padding: 10px 15px;
+  padding: 8px 12px;
   cursor: pointer;
   font-size: 14px;
   font-weight: 500px;
   border: none;
+  background-color: #CB692F;
 }
 
 .pouff{
@@ -195,3 +196,5 @@
   align-items: center;
   justify-content: space-between;
 }
+
+
