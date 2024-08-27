@@ -1,4 +1,4 @@
-<div class="cart-page-container" style="background-image ">
+<div class="cart-page-container">
   <header class="cart-header">
     <%= render 'shared/arrow_back' %>
     <div class="cart-title-container">
@@ -12,13 +12,13 @@
       <div class="cart-items">
         <div class="cart-item-card">
           <div class="cart-item">
-            <% if !item.photo.key.nil?%>
+            <% if !item.photo.key.nil? %>
               <%= cl_image_tag item.photo.key, crop: :fill, transformation: [
                       { effect: "make_transparent", color: "white", tolerance: 100 },
                       { effect: "trim", color: "white", tolerance: 0 }
                     ], alt: "shoe", class: "product-image-item-carts-show" %>
             <% else %>
-              <img src="", class: 'product-image-item'>
+              <img src="" class="product-image-item">
             <% end %>
             <div class="cart-item-details">
               <div class="cart-item-title"><%= item.brand %> <%= item.model %></div>
@@ -31,7 +31,6 @@
             </div>
           </div>
         </div>
-        <%  %>
       <% end %>
     <% end %>
 
@@ -40,7 +39,7 @@
     <span><%= @total_price %> €</span>
   </div>
   <%= form_with(model: @cart, method: :patch) do |f| %>
-    <%= button_tag(type: "submit", name: "", class:"cart-checkout-button") do%>
+    <%= button_tag(type: "submit", name: "", class:"cart-checkout-button") do %>
       Valider
     <% end %>
   <% end %>
