@@ -56,7 +56,7 @@
 
 .filter-button {
   border-radius: 12px;
-  border: 1px solid rgb(0, 0, 0);
+  border-color: transparent;
   background-color: #cb692f;
   font-weight: bold;
   color: white;
@@ -64,7 +64,6 @@
   font-size: 14px;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
   margin-right: 4px;
   width: 70px;
 }
@@ -72,7 +71,7 @@
 .inventory-list {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
   padding-top: 16px;
   padding-left: 4px;
   padding-right: 8px;
@@ -83,13 +82,13 @@
   justify-content: space-between;
   align-items: center;
   padding: 8px;
-  -webkit-box-shadow: 1px 1px 4px 1px #615f5f;
-  box-shadow: 1px 1px 4px 1px #454444;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
   border-radius: 8px;
   background-color: white;
   position: relative;
   padding-top: 0px;
   padding-bottom: 0px;
+  height: 70px;
 }
 
 .product-info {
