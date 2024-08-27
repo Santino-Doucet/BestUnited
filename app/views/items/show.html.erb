@@ -8,7 +8,7 @@
 
       <div class="product-image-container">
         <% if !@item.photo.key.nil? %>
-          <%= cl_image_tag @item.photo.key, crop: :fill, transformation: [
+          <%= cl_image_tag @item.photo.key, format: "png", crop: :fill, transformation: [
                   { effect: "make_transparent", color: "white", tolerance: 100 },
                   { effect: "trim", color: "white", tolerance: 0 }
                 ], alt: "shoe", class: "product-image-item" %>
@@ -50,7 +50,11 @@
             <div class="detail-value"><%= @item.price.round(2) %>€</div>
 
             <div class="detail-label">Date de sortie</div>
-            <div class="detail-value"><%= @item.released_on.year %></div>
+            <% if !@item.released_on.nil? %>
+              <div class="detail-value"><%= @item.released_on.year %></div>
+            <% else %>
+              <div class="detail-value">Non précisé</div>
+            <% end %>
           </div>
           <div data-controller="read-more">
             <p class="product-description" data-read-more-target="description" style="display: none;">

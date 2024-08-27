@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: "pages#index"
   resources :items, only: [:index, :show] do
     resources :order_items, only: [:create]
+    collection do
+      post 'create_from_scan'
+    end
   end
 
   resources :carts, only: [:index, :show]
