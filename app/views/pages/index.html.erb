@@ -102,7 +102,9 @@
         <p>Mini-tendances</p>
       </div>
     </div>
-  <%= render "shared/button_cart" %>
+    <% unless current_user.nil? %>
+      <%= render "shared/button_cart" %>
+    <% end %>
   </main>
   <%= render 'footer' %>
 </div>
