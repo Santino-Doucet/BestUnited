@@ -14,7 +14,7 @@ Company.destroy_all
 
 ##########################################################
 
-url = URI("https://v1-sneakers.p.rapidapi.com/v1/sneakers?limit=30")
+url = URI("https://v1-sneakers.p.rapidapi.com/v1/sneakers?limit=60")
 
 http = Net::HTTP.new(url.host, url.port)
 http.use_ssl = true
@@ -83,28 +83,32 @@ company2 = Company.create!(
 
 companies = [company, company2]
 
-puts "Create stock"
+puts 'Create stock'
 shoes.each do |shoe|
-  item = Item.create!(
-    reference: shoe["styleId"],
-    brand: shoe["brand"],
-    model: shoe["name"],
-    color: shoe["colorway"],
-    price: shoe["retailPrice"],
-    company: companies.sample,
-    size: Faker::Number.between(from: 32, to: 46),
-    released_on: Date.new(shoe["year"].to_i)
-  )
-
-  next if shoe["media"]["imageUrl"].nil?
-
-  url = shoe["media"]["imageUrl"].gsub(" ","")
-  begin
-    file = URI.open(url)
-    item.photo.attach(io: file, filename: "shoe.png", content_type: "image/png")
-  rescue OpenURI::HTTPError => e
-    puts "Could not fetch image from URL: #{url}. Error: #{e.message}"
-    next
+  next if shoe['media']['imageUrl'].nil?
+  rand(1..5).times do
+    url = shoe['media']['imageUrl'].gsub(' ', '')
+    begin
+      company = companies.sample
+      size = Faker::Number.between(from: 38, to: 45)
+      rand(1..3).times do
+        item = Item.create!(
+          reference: shoe['styleId'],
+          brand: shoe['brand'],
+          model: shoe['name'],
+          color: shoe['colorway'],
+          price: shoe['retailPrice'],
+          company: company,
+          size: size,
+          released_on: Date.new(shoe['year'].to_i)
+        )
+        file = URI.open(url)
+        item.photo.attach(io: file, filename: 'shoe.png', content_type: 'image/png')
+      end
+    rescue OpenURI::HTTPError => e
+      puts "Could not fetch image from URL: #{url}. Error: #{e.message}"
+      next
+    end
   end
 end
 
