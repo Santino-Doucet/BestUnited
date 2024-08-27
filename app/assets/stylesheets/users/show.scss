@@ -3,7 +3,7 @@
   max-width: 100%;
   width: 100vh;
   padding: 20px;
-  background-image: url('assets/dash.png');
+  background-image: url('assets/background_light.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -13,12 +13,11 @@
 }
 
 #name-merchant{
-  margin-left: 12px; /* Déplace l'élément de 12px vers la droite */
-  padding-bottom: 4px; /* Ajoute un espace entre le texte et la bordure */
-  color: #545454; /* Définit la couleur du texte */
-  font-size: 18px; /* Définit la taille de la police */
-  /* Définit la largeur de l'élément à 50% du conteneur parent */
-  text-align: left; /* Aligne le texte à gauche */
+  margin-left: 12px;
+  padding-bottom: 4px;
+  color: #545454;
+  font-size: 18px;
+  text-align: left;
   margin-bottom: 4px;
 }
 
@@ -83,6 +82,7 @@
   font-weight: 500;
   font-size: 14px;
   margin-bottom: 4px;
+  padding-top: 2px;
 
 }
 
