@@ -1,5 +1,5 @@
 class MyStocksController < ApplicationController
-  
+
   def show
     @items = current_user.companies.first.items.in_stock
     @unique_items = remove_duplicates(@items)
