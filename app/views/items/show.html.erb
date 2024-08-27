@@ -32,6 +32,19 @@
     <input type="range" min="38" max="45" value="42" class="slider" data-action="size-selector#updateSize">
   </div>
 </div>
+    <div class="product-info-items">
+      <div class="product-details">
+        <h3>Boutique</h3>
+        <div class="details-grid">
+          <div class="detail-label">Nom de la boutique</div>
+          <div class="detail-value"><%= @item.company.name %></div>
+          <div class="detail-label">Adresse</div>
+          <div class="detail-value"><%= @item.company.address %></div>
+          <div class="detail-label">Distance</div>
+          <div class="detail-value"><%= @distance %> mètres</div>
+        </div>
+      </div>
+    </div>
 
       <div class="product-info-items">
         <div class="product-details">
