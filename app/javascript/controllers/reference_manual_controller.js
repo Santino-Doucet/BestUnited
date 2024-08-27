@@ -2,14 +2,15 @@ import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="reference-manual"
 export default class extends Controller {
-  targets = ["input"]
+  static targets = ["input"]
   connect() {
   }
 
   fetchSneaker(){
+    console.log(this.inputTarget.value);
     const apiKey1 = "0fa27d5fa7mshd6714f60ee0eafbp15449bjsn4cb7ff7b7916";
     const apiKey2 = "v1-sneakers.p.rapidapi.com";
-    const url = 'https://v1-sneakers.p.rapidapi.com/v1/sneakers?styleId=IG6303&limit=10';
+    const url = `https://v1-sneakers.p.rapidapi.com/v1/sneakers?styleId=${this.inputTarget.value}&limit=10`;
     const options = {
     method: 'GET',
     headers: {
@@ -25,6 +26,7 @@ export default class extends Controller {
         return response.json();
       })
       .then(data => {
+        console.log(data)
         fetch('/my_stock/items', {  // Updated to match the route
           method: 'POST',
           headers: {
