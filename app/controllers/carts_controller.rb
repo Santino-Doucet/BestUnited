@@ -2,7 +2,7 @@ class CartsController < ApplicationController
 
   def index
     @carts = Cart.where(user: current_user)
-    @pending_carts = Cart.where(user_id: current_user.id).select { |cart| cart.orders.exists?(status: 'pending') }
+    @pending_carts = Cart.where(user_id: current_user.id).select { |cart| cart.orders.exists?(status: 'En attente') }
 
     @validated_carts = Cart.joins(:orders).where(user_id: current_user.id).group('carts.id').having(
       'COUNT(orders.id) = COUNT(CASE WHEN orders.status = \'Validée\' THEN 1 END)'
