@@ -1,4 +1,8 @@
+require 'open-uri'
+
+
 class MyStocksController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:create_item]
 
   def show
     @items = current_user.companies.first.items.in_stock
@@ -18,8 +22,22 @@ class MyStocksController < ApplicationController
   def create_item
     @user = current_user
     @company = Company.find_by(user_id: @user.id)
-    @item = @company.items.new(item_params)
-    @item.save
+    # Assuming you are expecting 'data' in params sent from the frontend
+    data = params[:data]
+
+    item = Item.new(
+      reference: data['styleId'],
+      brand: data['brand'],
+      model: data['name'],
+      color: data['colorway'],
+      price: 10,
+      company: current_user.companies.first,
+      size: 40,
+      released_on: data['releaseDate']
+    )
+    file = URI.open(data['media']['imageUrl'])
+    item.photo.attach(io: file, filename: 'shoe.png' , content_type: 'image/png')
+    item.save!
   end
 
   def edit_item
