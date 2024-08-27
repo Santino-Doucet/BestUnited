@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.with_attached_photo.in_stock
+    @user = current_user
     unless @user.nil?
       @cart = current_user.carts.where(active: true).first
 
@@ -35,6 +36,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @user = current_user
     unless @user.nil?
       @cart = current_user.carts.where(active: true).first
       @cart = Cart.create(user: current_user) unless @cart.present?
