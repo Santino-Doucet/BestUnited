@@ -8,24 +8,27 @@
   </header>
 
   <% @orders.each do |order| %>
-    <% order.items.each do |item| %>
+  <%= order.company.name %>
+  <% grouped_items = order.items.group_by { |item| item.model } %>
+    <% grouped_items.each do |i, items| %>
+    <% item = items.first %>
       <div class="cart-items">
         <div class="cart-item-card">
           <div class="cart-item">
-            <% if !item.photo.key.nil?%>
+            <% if !item.photo.key.nil? %>
               <%= cl_image_tag item.photo.key, crop: :fill, transformation: [
                       { effect: "make_transparent", color: "white", tolerance: 100 },
                       { effect: "trim", color: "white", tolerance: 0 }
                     ], alt: "shoe", class: "product-image-item-carts-show" %>
             <% else %>
-              <img src="", class: 'product-image-item'>
+              <img src="", class= 'product-image-item'>
             <% end %>
             <div class="cart-item-details">
               <div class="cart-item-title"><%= item.brand %> <%= item.model %></div>
               <div class="cart-item-price"><%= item.price %>€</div>
               <div class="cart-item-quantity">
-                <button class="cart-quantity-button">-</button>
-                <span>1</span>
+                <%= button_to "-", item_order_item_path(order, item), class:"cart-quantity-button", method: :delete %>
+                <span><%= items.count %></span>
                 <%= button_to "+", item_order_items_path(item), class:"cart-quantity-button" %>
               </div>
             </div>

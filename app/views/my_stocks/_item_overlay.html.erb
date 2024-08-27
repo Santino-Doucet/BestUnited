@@ -31,9 +31,9 @@
       <p>couleur(s) : <%= item.color %></p>
       <p>référence : <%= item.reference %></p>
       <div class="quantity-selector">
-      <%= button_to "+", duplicate_item_path(item), method: :post, class: "quantity-btn minus" %>
-          <span class="quantity-value">Quantité : <%= item.same_in_stock.count %></span>
       <%= button_to "-", destroy_item_in_stock_path(item), method: :delete, class: "quantity-btn minus" %>
+          <span class="quantity-value">Quantité : <%= item.same_in_stock.count %></span>
+      <%= button_to "+", duplicate_item_path(item), method: :post, class: "quantity-btn minus" %>
     </div>
       </div>
   </div>

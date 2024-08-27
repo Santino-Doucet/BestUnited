@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   has_many :order_items
   has_many :orders, through: :order_items
 
-  scope :not_in_stock, -> { joins(:orders).where(orders: { status: ["Validée", "Refusée", "Effectuée"] }) }
+  scope :not_in_stock, -> { joins(:orders).where(orders: { status: ["En attente", "Validée", "Refusée", "Effectuée"] }) }
   scope :in_stock, -> { where.not(id: not_in_stock) }
 
   include PgSearch::Model
@@ -27,6 +27,24 @@ class Item < ApplicationRecord
       price:,
       size:
     )
+  end
+
+  def self.remove_duplicates(items)
+    unique_items = {}
+
+    items.each do |item|
+      key = [item.reference, item.brand, item.model, item.color, item.price, item.size]
+
+      if unique_items[key]
+        unique_items[key][:count] += 1
+      else
+        unique_items[key] = { item: item, count: 1 }
+      end
+    end
+
+    sorted_unique_items = unique_items.values.sort_by { |entry| -entry[:count] }
+
+    sorted_unique_items.map { |entry| entry[:item] }
   end
 
   private
