@@ -40,8 +40,11 @@
           <div class="detail-value"><%= @item.company.name %></div>
           <div class="detail-label">Adresse</div>
           <div class="detail-value"><%= @item.company.address %></div>
-          <div class="detail-label">Distance</div>
-          <div class="detail-value"><%= @distance %> mètres</div>
+          <% if @distance == nil %>
+          <% else %>
+            <div class="detail-label">Distance</div>
+            <div class="detail-value"><%= @distance %> mètres</div>
+          <% end %>
         </div>
       </div>
     </div>
