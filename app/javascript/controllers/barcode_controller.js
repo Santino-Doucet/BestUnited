@@ -3,7 +3,38 @@ import Quagga from "quagga";
 
 // Connects to data-controller="barcode"
 export default class extends Controller {
+  static targets = ["brand", "brandInput","model", "modelInput","reference",
+                    "referenceInput", "barcode", "barcodeInput", "overlay"];
   connect() {
+
+    const barcode = "0793393701806"
+    fetch(`/items/create_from_scan?barcode=${barcode}`, {
+      method: "post",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        console.log('brand', data.items[0].brand);
+        const item = data.items[0];
+        this.brandInputTarget.value = item.brand;
+        this.brandTarget.innerHTML = `<p>${item.brand}</p>`;
+
+        const model = item["title"]
+        let words = model.split(" ");
+        let firstThreeWords = words.slice(0, 3).join(" ");
+        console.log('model', firstThreeWords);
+        this.modelInputTarget.value = firstThreeWords;
+        this.modelTarget.innerHTML = `<p>${firstThreeWords}</p>`;
+
+        // console.log('reference', data.items[0]);
+        // this.referenceInputTarget.value = item.reference;
+        // this.referenceTarget.innerHTML = `<p>${item.reference}</p>`;
+
+        console.log('barcode', data.items[0].ean);
+        this.barcodeInputTarget.value = item.ean;
+        this.barcodeTarget.innerHTML = `<p>${item.ean}</p>`;
+
+      });
       this.startWebcam();
   }
 
@@ -74,7 +105,18 @@ export default class extends Controller {
         console.log("c'est lui", barcode);
         fetch(`/items/create_from_scan?barcode=${barcode}`, {
           method: "post",
-        });
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            console.log('brand', data.items[0].brand);
+            const item = data.items[0];
+            this.brandInputTarget.value = item.brand;
+            this.brandTarget.innerText = item.brand;
+            this.modelInputTarget.value = item.model;
+            this.modelTarget.innerHTML = item.model
+
+          });
       }
 
       oldBarcode = data.codeResult.code;

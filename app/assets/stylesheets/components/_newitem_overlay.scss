@@ -57,6 +57,10 @@
       padding: 16px;
     }
 
+    .add-stock-btn {
+      z-index: 100000;
+    }
+
     .little-input {
       width: 59px;
       padding: 10px;
@@ -70,6 +74,7 @@
       padding-right: 32px;
       padding-left: 0px;
     }
+
 
     .info-again {
       display: grid;

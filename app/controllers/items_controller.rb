@@ -53,11 +53,14 @@ class ItemsController < ApplicationController
   end
 
   def create_from_scan
-    response = RestClient.get("https://api.upcitemdb.com/prod/trial/lookup?upc=#{params[:barcode]}",
-    {})
+    response = RestClient.get("https://api.upcitemdb.com/prod/trial/lookup?upc=#{params[:barcode]}",{})
     response_body = JSON.parse(response.body)
+    render json: response_body
+  end
 
-    if response_body["items"][0]["title"]
+  def create
+
+        if response_body["items"][0]["title"]
       model_array = response_body["items"][0]["title"].split
       model_array.delete_at(0)
       model_array.delete_at(0)
@@ -81,6 +84,7 @@ class ItemsController < ApplicationController
       item.photo.attach(io: file, filename: "shoe.jpg" , content_type: "image/jpg")
       item.save!
     end
+
   end
 
   private
