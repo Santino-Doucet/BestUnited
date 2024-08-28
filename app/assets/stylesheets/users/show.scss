@@ -3,22 +3,37 @@
   max-width: 100%;
   width: 100vh;
   padding: 20px;
-  background-image: url('assets/background_light.png');
+  background-image: url('assets/dash.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   min-height: 100vh;
   z-index: 1;
   padding-bottom: 12vh;
+  padding-bottom: 60px;
 }
+
+.config{
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding-bottom: 8px;
+}
+
 
 #name-merchant{
   margin-left: 12px;
-  padding-bottom: 4px;
   color: #545454;
   font-size: 18px;
   text-align: left;
-  margin-bottom: 4px;
+}
+
+.date-display {
+  margin-left: 12px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 400;
+  color: #878585;
 }
 
 .part-1 {
@@ -51,14 +66,14 @@
   color: #CB680C;
   margin: 0;
   padding-bottom: 4px;
-  margin: 12px 12px;
+  margin: 1px 12px;
 }
 
 .kpi {
   display: flex;
   justify-content: space-evenly;
   gap: 30px;
-  margin: 12px 12px;
+  margin: 1px 12px;
 }
 
 .kpi div {
@@ -71,8 +86,11 @@
   justify-content: space-evenly;
   height:70px;
   width: 170px;
-  margin-top: 10px;
-  box-shadow: 8px 8px 0px 0px #fef4df;
+  margin-top: 8px;
+  -webkit-box-shadow: 4px 4px 0px 2px #ffffff;
+  box-shadow: 4px 4px 0px 4px #ffffff;
+
+
 
 }
 
@@ -90,6 +108,8 @@
   font-size: 20px;
   color: white;
   margin: 0px;
+  font-weight: 700;
+  letter-spacing: 1px;
 
 }
 
@@ -213,4 +233,9 @@
   height: 60px; /* Hauteur fixe pour l'image */
   display: block;
   margin: auto;
+}
+
+
+#chart{
+  margin-left: -20px;
 }

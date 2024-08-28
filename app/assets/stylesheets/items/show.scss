@@ -4,7 +4,7 @@
   z-index: 2;
   background: url('assets/background_item.png') no-repeat center center;
   background-size: cover;
-  width: 100vw !important;
+  width: 100% !important;
   height: 100vh !important;
   overflow-y: scroll;
   padding-bottom: 6vh;
@@ -104,6 +104,7 @@
 
 .product-info-items {
   padding: 10px 20px;
+  width: 100%;
 }
 
 .product-details h3 {
@@ -179,6 +180,85 @@
   justify-content: center;
 }
 
+// size slidebar
+
+// .size-selector-container {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   margin: 0 20px;
+//   position: relative;
+//   background: #f6b980;
+//   height: 40px;
+//   border-radius: 999px;
+// }
+
+
+// .size-options {
+//   display: flex;
+//   justify-content: space-between;
+//   width: 100%;
+//   height: 100%;
+// }
+
+// .size-option {
+//   font-size: 14px;
+//   color: #000;
+//   cursor: pointer;
+//   display: inline-flex;
+//   align-items: center;
+//   justify-content: center;
+//   width: 40px;
+//   border-radius: 999px;
+// }
+
+// .size-option.active {
+//   background-color: #ffffff;
+//   border: 5px solid #f6b980;
+//   outline: 5px solid #E8DFD2;
+//   font-weight: 600;
+//   height: 40px;
+//   transform: translateY(-5px);
+//   box-sizing: content-box;
+
+// }
+
+// .slider {
+//   -webkit-appearance: none;
+//   appearance: none;
+//   width: 100%;
+//   height: 100%;
+//   outline: none;
+//   border-radius: 999px;
+//   cursor: pointer;
+//   position: absolute;
+//   top: 0px;
+//   background-color: transparent;
+// }
+
+// .slider::-webkit-slider-thumb {
+//   -webkit-appearance: none;
+//   appearance: none;
+//   width: 20px;
+//   height: 20px;
+//   background: transparent;
+//   border-radius: 50%;
+//   cursor: pointer;
+//   transition: background 0.3s;
+// }
+
+// .slider::-moz-range-thumb {
+//   appearance: none;
+//   width: 20px;
+//   height: 20px;
+//   background: transparent;
+//   border-radius: 50%;
+//   cursor: pointer;
+//   transition: background 0.3s;
+// }
+
+// chatgpt (need to check on the phone)
+
 .size-selector-container {
   display: flex;
   flex-direction: column;
@@ -188,26 +268,29 @@
   background: #f6b980;
   height: 40px;
   border-radius: 999px;
+  padding: 0 20px; /* Add some padding on sides for proper alignment */
 }
-
 
 .size-options {
   display: flex;
   justify-content: space-between;
   width: 100%;
   height: 100%;
+  position: relative; /* Add relative positioning for better control */
+  z-index: 1; /* Ensure it is above the slider */
 }
 
 .size-option {
   font-size: 14px;
   color: #000;
   cursor: pointer;
-  // transition: background-color 0.3s, color 0.3s;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 40px;
   border-radius: 999px;
+  z-index: 1; /* Ensure it is above the slider */
+  position: relative; /* Needed to overlap thumb */
 }
 
 .size-option.active {
@@ -218,39 +301,48 @@
   height: 40px;
   transform: translateY(-5px);
   box-sizing: content-box;
-
 }
 
 .slider {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 100%;
+  height: 40px; /* Match the height of the container */
   outline: none;
   border-radius: 999px;
   cursor: pointer;
   position: absolute;
-  top: 0px;
+  top: 0; /* Align with the top of the container */
   background-color: transparent;
 }
 
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 20px;
-  height: 20px;
-  background: transparent;
-  border-radius: 50%;
+  width: 40px; /* Match the width of the size option */
+  height: 40px; /* Match the height of the size option */
+  background: transparent; /* Make thumb transparent */
+  border: none; /* Remove any border */
   cursor: pointer;
-  transition: background 0.3s;
+  position: relative; /* Position relative to slider track */
+  z-index: 2; /* Make sure thumb is above the slider but below the options */
 }
 
 .slider::-moz-range-thumb {
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  background: transparent;
-  border-radius: 50%;
+  width: 40px; /* Match the width of the size option */
+  height: 40px; /* Match the height of the size option */
+  background: transparent; /* Make thumb transparent */
+  border: none; /* Remove any border */
   cursor: pointer;
-  transition: background 0.3s;
+  position: relative; /* Position relative to slider track */
+  z-index: 2; /* Make sure thumb is above the slider but below the options */
+}
+
+.size-option.unavailable {
+  color: gray; /* Or any style to indicate unavailability */
+  cursor: not-allowed;
+}
+
+.size-option.disabled {
+  pointer-events: none; /* Prevent clicks */
 }

@@ -5,6 +5,7 @@ class Item < ApplicationRecord
   validates :brand, :model, :color, :price, :size, presence: true
   validates :price, comparison: { greater_than_or_equal_to: 1 }
   validate :barcode_or_reference_present
+
   has_many :order_items
   has_many :orders, through: :order_items
 
@@ -13,27 +14,39 @@ class Item < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_by_brand_model_reference_and_color,
-    against: [ :brand, :model, :reference, :color ],
-    using: {
-      tsearch: { prefix: true }
-    }
+                  against: [:brand, :model, :reference, :color],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 
   def same_in_stock
     company.items.where(
-      reference:,
-      brand:,
-      model:,
-      color:,
-      price:,
-      size:
+      reference: reference,
+      brand: brand,
+      model: model,
+      color: color,
+      price: price,
+      size: size
     )
   end
+
+  def same_in_stock_size
+    company.items.where(
+      reference: reference,
+      brand: brand,
+      model: model,
+      color: color,
+      price: price
+    )
+  end
+
+
 
   def self.remove_duplicates(items)
     unique_items = {}
 
     items.each do |item|
-      key = [item.reference, item.brand, item.model, item.color, item.price, item.size]
+      key = [item.reference, item.brand, item.model, item.color, item.price]
 
       if unique_items[key]
         unique_items[key][:count] += 1

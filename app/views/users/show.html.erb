@@ -1,22 +1,27 @@
 <div class="my_dashboard container">
   <div class="dashboard">
     <div class="part-1">
-      <h1>Tableau de bord
-      </h1>
-      <div id="name-merchant"> Bonjour Santino 👋
+      <div class="config">
+        <div id="name-merchant">
+          Bonjour <%= @user.first_name %> 👋
+        </div>
+        <div class="date-display">
+          <%= I18n.l(Date.today, format: "%A %d %B %Y") %>
+        </div>
       </div>
+      <h1>Tableau de bord</h1>
       <h2>Total revenus</h2>
-            <p class="total-revenue">29,402€</p>
+            <p class="total-revenue">5 402,67€</p>
     </div>
 
     <div class="kpi">
         <div class="average-basket">
             <h2>Panier moyen</h2>
-            <p>99,95€</p>
+            <p>129,95€</p>
         </div>
         <div class="total-orders">
             <h2>Total commandes</h2>
-            <p>435</p>
+            <p>135</p>
         </div>
     </div>
 
@@ -46,7 +51,7 @@
     <div class="stock">
         <h1>Stock</h1>
         <h2>Valeur totale de l'actif</h2>
-        <p>45,402€</p>
+        <p>15 402€</p>
     </div>
 
     <div class="pie_chart">

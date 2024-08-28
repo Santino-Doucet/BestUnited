@@ -7,7 +7,7 @@ export default class extends Controller {
     console.log("chart");
 
     var options = {
-      colors: ["#fef4df", "#F2BE8A"],
+      colors: ["#CB692F", "#F2BE8A"],
       series: [{
         name: 'Inflation',
         data: [250, 400, 600, 900, 850, 1060, 950]

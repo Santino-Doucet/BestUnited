@@ -1,15 +1,20 @@
 .orders-page-container {
-    background: url('assets/carts.png') no-repeat center center;
+    background: url('assets/page-order.png') no-repeat center center;
     width: 390px;
     max-width: 100%;
+    width: 100vh;
     height: 844px;
     padding: 20px;
+    padding-bottom: 60px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    font-family: "Poppins", sans-serif;
+    min-height: 100vh;
+    z-index: 1;
   }
 
 .orders-header {
@@ -51,43 +56,41 @@
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
-  margin-bottom: 1px;
+  margin-bottom: 20px;
   position: relative;
-  margin-bottom: 4px;
 }
 
 .order-card-content {
   display: flex;
-  align-items: center; /* Center align items vertically */
-  justify-content: space-between; /* Space between info and actions */
-  width: 100%;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .order-actions {
   display: flex;
-  align-items: center; /* Center align button vertically */
-  gap: 10px; /* Space between button and other actions */
+  align-items: center;
+  gap: 10px;
 }
 
 .order-info {
   display: flex;
-  align-items: center; /* Center align items vertically */
-  gap: 10px; /* Space between image and details */
-  flex: 1; /* Allow info section to take up available space */
+  align-items: center;
+  gap: 10px;
+  flex: 1;
 }
 
 .order-hidden-details {
-  display: none; /* Initially hidden */
+  display: none;
   padding: 10px;
   border-top: 1px solid #ddd;
-  width: 100%; /* Span the full width of the card */
-  margin-top: 10px; /* Space above the hidden details */
+  width: 100%;
+  margin-top: 10px;
   margin-bottom: 0%;
 }
 
 .order-actions {
   display: flex;
-  justify-content: flex-end; /* Align action buttons to the end */
+  justify-content: flex-end;
 }
 
 .order-buttons-wrapper {
@@ -168,13 +171,13 @@
 }
 
 .btn-orders {
-  background-color: #F2B18B;
+  background-color: #F6B875;
   color: #fff;
   border-radius: 10px;
   padding: 8px 10px;
   cursor: pointer;
   font-size: 14px;
-  font-weight: 500px;
+  font-weight: 800px;
   border: none;
 }
 
@@ -182,7 +185,7 @@
 .order-view-details-button{
   color: #fff;
   border-radius: 10px;
-  padding: 8px 12px;
+  padding: 8px 10px;
   cursor: pointer;
   font-size: 14px;
   font-weight: 500px;
