@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     collection do
       post 'create_from_scan'
     end
-
+    member do
+      get :find_item
+    end
   end
 
   resources :carts, only: [:index, :show]

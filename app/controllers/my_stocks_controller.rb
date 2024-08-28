@@ -2,7 +2,7 @@ require 'open-uri'
 
 
 class MyStocksController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:create_item]
+  skip_before_action :verify_authenticity_token, only: [:create_item, :duplicate_item]
 
   def show
     @items = current_user.companies.first.items.in_stock
