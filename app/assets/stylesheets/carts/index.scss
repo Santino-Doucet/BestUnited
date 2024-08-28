@@ -32,7 +32,7 @@ margin-bottom: 24px;
 
 .carts-section-title {
 font-size: 16px;
-font-weight: 400;
+font-weight: 500;
 margin-bottom: 10px;
 color: #CB680C;
 }
@@ -76,6 +76,12 @@ align-items: center; /* Center align items vertically */
 gap: 10px; /* Space between image and details */
 flex: 1; /* Allow info section to take up available space */
 }
+
+.carts-details p {
+  margin: 0;
+  padding: 0;
+}
+
 
 .carts-hidden-details {
 display: none; /* Initially hidden */
@@ -127,7 +133,7 @@ background-color: #757575;
 background-color: #CB680C;
 color: #fff;
 border-radius: 10px;
-padding: 10px 15px;
+padding: 6px 6px;
 cursor: pointer;
 font-size: 14px;
 border-color: transparent;
