@@ -1,9 +1,10 @@
+<div class="overlay-back"></div>
 <div data-controller="barcode">
 <div class="add_item container">
   <h3>Scanner le code barre</h3>
 
     <div class="contain" >
-      <div id="scan-image">
+      <div id="scan-image" data-controller="overlay">
         <video class="video" id="barcode-scanner" autoplay></video>
       </div>
       <input type="text" id="barcode_input" hidden />
