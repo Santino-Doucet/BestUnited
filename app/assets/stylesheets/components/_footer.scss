@@ -8,7 +8,6 @@
   background-color: white;
   display: flex;
   position: fixed;
-  padding-bottom: 4px;
   bottom: 0;
   left: 0;
   z-index: 9;
@@ -48,4 +47,26 @@
   font-size: 11px;
   color: #cb692f;
   font-weight: 600;
+}
+
+.footer-icon-item-client.active {
+  background-color: #cb692f;
+  color: white;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.footer-icon-item-client.active svg,
+.footer-icon-item-client.active span {
+  color: white;
+}
+
+.footer-icon-item-client svg {
+  color: #cb692f;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer-icon-item-client span {
+  color: #cb692f;
+  transition: color 0.3s;
 }
