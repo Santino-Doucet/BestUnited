@@ -40,7 +40,7 @@
                 <% end %>
                 <div class="cart-item-details">
                   <div class="cart-item-title"><%= item.brand %> <%= item.model %></div>
-                  <div class="cart-item-price">Taille : <%= item.size %>€</div>
+                  <div class="cart-item-price">Taille : <%= item.size %></div>
                   <div class="cart-item-price"><%= item.price %>€</div>
                   <div class="cart-item-quantity">
                     <%= button_to "-", item_order_item_path(order, item), class:"cart-quantity-button", method: :delete %>
