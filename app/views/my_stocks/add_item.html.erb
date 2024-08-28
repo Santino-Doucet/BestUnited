@@ -1,22 +1,27 @@
-<div class="add_item container">
-  <h3>Scanner le code barre</h3>
+<div data-controller="barcode">
+  <div class="overlay-back"></div>
+  <div class="add_item container">
+    <h3>Scanner le code barre</h3>
 
-    <div class="contain" data-controller="barcode">
+    <div class="contain" >
       <div id="scan-image">
         <video class="video" id="barcode-scanner" autoplay></video>
       </div>
       <input type="text" id="barcode_input" hidden />
     </div>
 
-        <div class="separator">ou</div>
+    <div class="separator">ou</div>
 
-        <div class="manual-input">
-            <h3>Saisir manuellement</h3>
-        </div>
+    <div class="manual-input">
+        <h3>Saisir manuellement</h3>
+    </div>
 
-        <div class="search-bar-container" data-controller="reference-manual">
-            <input type="text" placeholder="Saisissez la référence ici" data-reference-manual-target="input">
-            <button class="validate-scan" data-action="click->reference-manual#fetchSneaker">Valider</button>
-        </div>
+    <div class="search-bar-container" data-controller="reference-manual">
+      <input type="text" placeholder="Saisissez la référence ici" data-reference-manual-target="input">
+      <button class="validate-scan" data-action="click->reference-manual#fetchSneaker">Valider</button>
+    </div>
+  </div>
+  <%= render("my_stocks/new_item_overlay") %>
+
+  <%= render("users/footer_sales") %>
 </div>
-<%= render("users/footer_sales") %>

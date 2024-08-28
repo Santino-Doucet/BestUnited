@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#index"
-  resources :items, only: [:index, :show] do
+  resources :items, only: [:index, :show, :create] do
     resources :order_items, only: [:create, :destroy]
     collection do
       post 'create_from_scan'

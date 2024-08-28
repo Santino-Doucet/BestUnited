@@ -1,37 +1,58 @@
-<div class="overlay container">
-  <div class="cross container">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-    </svg>
-  </div>
-  <div class="title container">
-    <h4>Details du produit</h4>
-  </div>
-  <div class="infos">
-    <div class="overlay-image container">
-      <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/c675b935-075d-4eac-a633-da43a448188b/free-rn-by-you-custom-womens-road-running-shoes-1XV9GM.png" alt="shoe" class="product-image-items">
+<div class="overlay-container" data-barcode-target="overlay">
+  <%= form_with model: Item.new, class: "overlay container" do |f| %>
+    <div class="cross container">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+      </svg>
     </div>
-    <div class="item-main-infos">
-      <p>
-        <strong>Nike</strong><br>
-      </p>
-      <p>
-      model: Air max air 2025<br>
-      </p>
-      <div class="info-again">
-        <div class="size">Taille<br><input type="text" value="42" class="little-input"></div>
-        <div class="price">Prix<br><input type="text" value="100€" class="little-input"></div>
+    <div class="title container">
+      <h4>Details du produit</h4>
+    </div>
+    <div class="infos">
+      <div class="overlay-image container">
+        <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/c675b935-075d-4eac-a633-da43a448188b/free-rn-by-you-custom-womens-road-running-shoes-1XV9GM.png" alt="shoe" class="product-image-items">
+      </div>
+      <div class="item-main-infos">
+        <%= f.hidden_field :brand, data: { barcode_target: "brandInput" } %>
+        <div id="staticContent" data-barcode-target="brand"></div>
+        <%= f.hidden_field :model, data: { barcode_target: "modelInput" } %>
+        <div id="staticContent" data-barcode-target="model"></div>
+        <div class="info-again">
+          <div class="size">
+            Taille
+            <br>
+            <%= f.text_field :size, value: 40, class: "little-input" %>
+          </div>
+          <div class="price">
+            Prix (€)
+            <br>
+            <%= f.text_field :price, value: 40, class: "little-input" %>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="complementary-infos container">
-    <div class="reference"><p>référence : REF12345</p>
-    <p>n° code barre : 483943947394</p></div>
-    <div class="color"><p>couleur(s)<input type="text" value="Rouge" class="big-input"></p></div>
-  <div class="carts-view-details-button add-stock-btn">Ajouter au stock</div>
-    <div class="quantity-selector-new">
-      <div class="quantity-value">Quantité : <br><input type="text" value="5" class="big-input"></div>
+    <div class="complementary-infos container">
+      <div class="reference">
+        <%= f.hidden_field :reference, data: { barcode_target: "referenceInput" }, id: "hiddenReference" %>
+        <div id="staticContent" data-barcode-target="reference"></div>
+      </div>
+          <div class="barcode">
+        <%= f.hidden_field :barcode,  data: { barcode_target: "barcodeInput" }, id: "hiddenbarcode" %>
+        <div id="staticContent" data-barcode-target="barcode"></div>
+      </div>
+    <div class="color">
+        Couleur(s)
+        <br>
+        <%= f.text_field :color, value: "rouge", class: "big-input" %>
     </div>
-  </div>
-  </div>
+    <div class="quantity-selector-new">
+      <div class="quantity-value">
+        Quantité :
+        <br>
+        <input name="quantity" type="text" value="5" class="big-input">
+      </div>
+    </div>
+    </div>
+    <%= f.submit "ajouter au stock", class:"carts-view-details-button add-stock-btn" %>
+  <% end %>
 </div>

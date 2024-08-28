@@ -84,32 +84,17 @@ class ItemsController < ApplicationController
   end
 
   def create_from_scan
-    response = RestClient.get("https://api.upcitemdb.com/prod/trial/lookup?upc=#{params[:barcode]}",
-    {})
+    response = RestClient.get("https://api.upcitemdb.com/prod/trial/lookup?upc=#{params[:barcode]}",{})
     response_body = JSON.parse(response.body)
+    render json: response_body
+  end
 
-    if response_body["items"][0]["title"]
-      model_array = response_body["items"][0]["title"].split
-      model_array.delete_at(0)
-      model_array.delete_at(0)
-      model_array.delete_at(0)
-      model_array.pop
-      model_array.pop
-      model_array.pop
-      model = model_array.join(" ")
-
-      item = Item.new(
-        reference: response_body["items"][0]["model"],
-        brand: response_body["items"][0]["brand"],
-        model: model,
-        color: "Inconnue",
-        price: 10,
-        company: current_user.companies.first,
-        size: 40,
-        barcode: params[:barcode]
-      )
-      file = URI.open(response_body["items"][0]["images"][0])
-      item.photo.attach(io: file, filename: "shoe.jpg" , content_type: "image/jpg")
+  def create
+    params[:quantity].to_i.times do
+      item = Item.new(item_params)
+      item.company = current_user.companies.first
+      # file = URI.open(response_body["items"][0]["images"][0])
+      # item.photo.attach(io: file, filename: "shoe.jpg" , content_type: "image/jpg")
       item.save!
     end
   end
@@ -121,7 +106,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:reference, :brand, :model, :color, :price, :size)
+    params.require(:item).permit(:reference, :brand, :model, :color, :price, :size, :barcode)
   end
 
   def valid_coordinates?(lat, lng)

@@ -4,7 +4,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   connect() {
     console.log("Hello from our first Stimulus controller");
-
   }
 
   prevent(event) {
@@ -18,7 +17,6 @@ export default class extends Controller {
     let backDom = document.querySelector(".overlay-back")
     backDom.classList.add("active")
 
-    
 
     overlayDom.classList.add("show");
   }
