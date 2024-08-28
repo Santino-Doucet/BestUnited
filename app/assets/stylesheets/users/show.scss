@@ -12,13 +12,26 @@
   padding-bottom: 12vh;
 }
 
+.config{
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding-bottom: 8px;
+}
+
 #name-merchant{
   margin-left: 12px;
-  padding-bottom: 4px;
   color: #545454;
   font-size: 18px;
   text-align: left;
-  margin-bottom: 4px;
+}
+
+.date-display {
+  margin-left: 12px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 400;
+  color: #878585;
 }
 
 .part-1 {
@@ -51,14 +64,14 @@
   color: #CB680C;
   margin: 0;
   padding-bottom: 4px;
-  margin: 12px 12px;
+  margin: 1px 12px;
 }
 
 .kpi {
   display: flex;
   justify-content: space-evenly;
   gap: 30px;
-  margin: 12px 12px;
+  margin: 1px 12px;
 }
 
 .kpi div {

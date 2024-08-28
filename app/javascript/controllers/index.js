@@ -19,3 +19,7 @@ application.register("cart-details", CartDetailsController);
 
 import SizeSelectorController from "./size_selector_controller"
 application.register("size-selector", SizeSelectorController)
+
+import FooterController from "./footer_controller";
+application.register("footer", FooterController);
+
