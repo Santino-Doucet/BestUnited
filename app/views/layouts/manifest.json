@@ -1,0 +1,13 @@
+{
+  "short_name": "BestUnited",
+  "name": "Best United",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/assets/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
