@@ -47,7 +47,6 @@ export default class extends Controller {
           show: true,
           position: 'right',
           offsetY: 0,
-          offsetX: -8,
           height: 230,
           fontSize: '28px', // Taille de la police pour la légende
           itemMargin: {

@@ -38,13 +38,13 @@ fr:
       short: "%d %b"
       long: "%A %d %B %Y"
     day_names:
-      - dimanche
-      - lundi
-      - mardi
-      - mercredi
-      - jeudi
-      - vendredi
-      - samedi
+      - Dimanche
+      - Lundi
+      - Mardi
+      - Mercredi
+      - Jeudi
+      - Vendredi
+      - Samedi
     abbr_day_names:
       - dim
       - lun
