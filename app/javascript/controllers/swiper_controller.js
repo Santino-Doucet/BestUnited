@@ -8,9 +8,9 @@ export default class extends Controller {
         delay: 2500, // Delay between transitions (in ms)
         disableOnInteraction: false, // Continue autoplay after user interactions
       },
-      pagination: {
-        el: '.swiper-pagination',
-      },
+      // pagination: {
+      //   el: '.swiper-pagination',
+      // },
       scrollbar: {
         el: '.swiper-scrollbar',
       },
