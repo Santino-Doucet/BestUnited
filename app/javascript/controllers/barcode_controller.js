@@ -32,7 +32,7 @@ export default class extends Controller {
 
         console.log('barcode', data.items[0].ean);
         this.barcodeInputTarget.value = item.ean;
-        this.barcodeTarget.innerHTML = `<p>${item.ean}</p>`;
+        this.barcodeTarget.innerHTML = `<p> n° code-barre: ${item.ean}</p>`;
 
       });
       this.startWebcam();

@@ -119,11 +119,10 @@
     }
 
     .quantity-selector-new {
-      align-items: center;
-      border-radius: 30px; /* Rounded corners */
+      border-radius: 30px;
       padding: 5px;
       position: relative;
-      top: -65px;
+      top: -6px;
 
       .quantity-value {
         margin-left: -20px;
@@ -136,10 +135,11 @@
       }
 
   .add-stock-btn {
-  width: 145px;
-  text-align: center;
-  position: relative;
-  left: 185px;
+    bottom: 110px;
+    margin-right: 0px;
+    right: 183px;
+    left: 201px;
+    position: relative;
   }
 
 

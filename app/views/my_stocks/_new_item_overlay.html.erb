@@ -24,7 +24,7 @@
             <%= f.text_field :size, value: 40, class: "little-input" %>
           </div>
           <div class="price">
-            Prix
+            Prix (€)
             <br>
             <%= f.text_field :price, value: 40, class: "little-input" %>
           </div>
@@ -36,7 +36,6 @@
         <%= f.hidden_field :reference, data: { barcode_target: "referenceInput" }, id: "hiddenReference" %>
         <div id="staticContent" data-barcode-target="reference"></div>
       </div>
-    </div>
           <div class="barcode">
         <%= f.hidden_field :barcode,  data: { barcode_target: "barcodeInput" }, id: "hiddenbarcode" %>
         <div id="staticContent" data-barcode-target="barcode"></div>
@@ -46,13 +45,14 @@
         <br>
         <%= f.text_field :color, value: "rouge", class: "big-input" %>
     </div>
-    <%= f.submit "ajouter au stock", class:"carts-view-details-button add-stock-btn" %>
     <div class="quantity-selector-new">
       <div class="quantity-value">
         Quantité :
         <br>
-        <input type="text" value="5" class="big-input">
+        <input name="quantity" type="text" value="5" class="big-input">
       </div>
     </div>
+    </div>
+    <%= f.submit "ajouter au stock", class:"carts-view-details-button add-stock-btn" %>
   <% end %>
 </div>
