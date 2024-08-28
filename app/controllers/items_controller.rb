@@ -8,31 +8,44 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.with_attached_photo.in_stock
+
     @user = current_user
+
+    # Initialize an empty array to collect matching items
+    matching_items = []
+
     unless @user.nil?
       @cart = current_user.carts.where(active: true).first
 
       @cart = Cart.create(user: current_user) unless @cart.present?
     end
+
     if params[:search][:address].present? && params[:search][:query].present?
-      temp_items = @items.search_by_brand_model_reference_and_color(params[:search][:query]).with_attached_photo
-      comp_items = []
-      Company.near(params[:search][:address], 10).each do |company|
-        company.items.each do |item|
-          comp_items << item
-        end
-      end
-      @items = temp_items & comp_items
+      # Perform search with both address and query
+      search_query = params[:search][:query]
+      address = params[:search][:address]
+
+      # Find items matching the search query
+      temp_items = @items.search_by_brand_model_reference_and_color(search_query).with_attached_photo
+
+      # Find companies near the provided address and get their items
+      comp_items = Company.near(address, 10).includes(:items).flat_map(&:items)
+
+      # Intersect the two arrays to find common items
+      matching_items = temp_items & comp_items
     elsif params[:search][:query].present?
-      @items = @items.search_by_brand_model_reference_and_color(params[:search][:query]).with_attached_photo
+      search_query = params[:search][:query]
+      matching_items = @items.search_by_brand_model_reference_and_color(search_query).with_attached_photo
     elsif params[:search][:address].present?
-      @items = []
-      Company.near(params[:search][:address], 10).each do |company|
-        company.items.in_stock.each do |item|
-          @items << item
-        end
-      end
+      # Filter items based on companies near the provided address
+      address = params[:search][:address]
+      matching_items = Company.near(address, 10).includes(:items).flat_map(&:items)
+    else
+      # No search parameters provided; use all items in stock
+      matching_items = @items
     end
+    # Remove duplicates from the final items list
+    @items = Item.remove_duplicates(matching_items)
   end
 
   def show
