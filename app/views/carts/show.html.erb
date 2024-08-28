@@ -20,7 +20,7 @@
   <% end %>
 
   <% @orders.each do |order| %>
-    <% grouped_items = order.items.group_by { |item| item.model } %>
+    <% grouped_items = order.items.group_by { |item| item.model && item.size } %>
     <% if grouped_items.any? %>
       <div class="company-section">
         <div class="company-name"><%= order.company.name %></div>
@@ -40,6 +40,7 @@
                 <% end %>
                 <div class="cart-item-details">
                   <div class="cart-item-title"><%= item.brand %> <%= item.model %></div>
+                  <div class="cart-item-price">Taille : <%= item.size %>€</div>
                   <div class="cart-item-price"><%= item.price %>€</div>
                   <div class="cart-item-quantity">
                     <%= button_to "-", item_order_item_path(order, item), class:"cart-quantity-button", method: :delete %>
@@ -55,14 +56,16 @@
     <% end %>
   <% end %>
 
-  <div class="cart-total">
-    <span>Total</span>
-    <span><%= @total_price %> €</span>
-  </div>
+  <% if @nb_items_orders > 0 %> <!-- Only show this section if there are items in the cart -->
+    <div class="cart-total">
+      <span>Total</span>
+      <span><%= @total_price %> €</span>
+    </div>
 
-  <%= form_with(model: @cart, method: :patch) do |f| %>
-    <%= button_tag(type: "submit", name: "", class:"cart-checkout-button") do %>
-      Valider
+    <%= form_with(model: @cart, method: :patch) do |f| %>
+      <%= button_tag(type: "submit", name: "", class:"cart-checkout-button") do %>
+        Valider
+      <% end %>
     <% end %>
   <% end %>
 </div>
