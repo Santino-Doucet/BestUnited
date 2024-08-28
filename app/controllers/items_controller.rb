@@ -43,10 +43,14 @@ class ItemsController < ApplicationController
     end
     lat1 = @item.company.latitude
     lng1 = @item.company.longitude
-    lat2 = Geocoder.search(params[:address]).first.latitude
-    lng2 = Geocoder.search(params[:address]).first.longitude
-    if valid_coordinates?(lat1, lng1) && valid_coordinates?(lat2, lng2)
-      @distance = (Geocoder::Calculations.distance_between([lat1, lng1], [lat2, lng2])*1000).round
+    if params[:address] != ""
+      lat2 = Geocoder.search(params[:address]).first.latitude
+      lng2 = Geocoder.search(params[:address]).first.longitude
+      if valid_coordinates?(lat1, lng1) && valid_coordinates?(lat2, lng2)
+        @distance = (Geocoder::Calculations.distance_between([lat1, lng1], [lat2, lng2])*1000).round
+      else
+        @distance = nil
+      end
     else
       @distance = nil
     end
