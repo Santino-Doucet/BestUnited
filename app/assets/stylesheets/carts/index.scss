@@ -10,7 +10,6 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding-bottom: 7vh;
 }
 
 .carts-header {
@@ -55,6 +54,10 @@ flex-direction: column;
 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
 margin-bottom: 24px;
 position: relative;
+}
+
+.carts-card:last-child {
+  margin-bottom: 7vh; /* Adds extra padding to the bottom of the last card */
 }
 
 .carts-card-content {
