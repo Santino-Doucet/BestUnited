@@ -84,6 +84,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    overflow: hidden;
   }
 }
 
@@ -93,4 +94,7 @@
   position:absolute;
   margin-left:40px;
   margin-top:40px;
+  object-fit: cover;
+  border-radius: 16px;
+  z-index: -1;
 }
