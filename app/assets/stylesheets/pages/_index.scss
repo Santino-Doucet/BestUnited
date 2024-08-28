@@ -36,7 +36,7 @@
   right: 0; /* Make top-bar full width */
   padding: 4px; /* Add padding on both sides */
   box-sizing: border-box;
-  margin: 8px; /* Ensure padding is included in the width */
+  margin: 12px 0 12px 8px;
 }
 
 .pro-space {
@@ -45,6 +45,7 @@
   font-weight: 500;
   color: black;
   border: 1.5px solid #CB680B;
+  margin-left: 4px;
   border-radius: 6px;
   width: 80px;
   height: 35px;
@@ -92,6 +93,10 @@
   width: calc(100% - 80px); /* Adjust width to match category tabs */
   max-width: 600px; /* Set a maximum width */
   box-sizing: border-box; /* Include padding and border in width */
+}
+
+.mt-100 {
+  margin-top: 100px;
 }
 
 .search-bar input {
@@ -200,7 +205,7 @@
 .tab-page-index {
   background-color: transparent;
   border: none;
-  padding: 10px;
+  padding: 8px;
   font-size: 14px;
   color: black;
   cursor: pointer;
@@ -211,7 +216,6 @@
   background-color: #CB680B;
   color: white;
   border-radius: 8px;
-  padding: 8px 15px;
   font-family: "Poppins", sans-serif;
 }
 
@@ -223,7 +227,7 @@
 .card-section-page-index {
   display: flex;
   justify-content: space-around;
-  padding: 10px 0;
+  padding: 16px 0;
   display: none;
 }
 
@@ -289,6 +293,7 @@
 @media (max-width: 390px) {
   .swiper {
     height: 200px;
+    color:white;
   }
 }
 
@@ -302,4 +307,12 @@
   .swiper {
     height: 200px;
   }
+}
+
+.fa-solid{
+  margin-right: 14px;
+}
+
+.size-6-client{
+  height:20px;
 }
