@@ -50,3 +50,28 @@
   font-weight: 600;
   color: #CB680B;
 }
+
+
+
+
+.footer-icon-item.active {
+  background-color: #cb692f;
+  color: white;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.footer-icon-item.active svg,
+.footer-icon-item.active span {
+  color: white;
+}
+
+.footer-icon-item svg {
+  color: #cb692f;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer-icon-item span {
+  color: #cb692f;
+  transition: color 0.3s;
+}
