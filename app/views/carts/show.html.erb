@@ -9,7 +9,7 @@
 
   <% @orders.each do |order| %>
   <%= order.company.name %>
-  <% grouped_items = order.items.group_by { |item| item.model } %>
+  <% grouped_items = order.items.group_by { |item| item.model && item.size } %>
     <% grouped_items.each do |i, items| %>
     <% item = items.first %>
       <div class="cart-items">
@@ -27,6 +27,7 @@
             <% end %>
             <div class="cart-item-details">
               <div class="cart-item-title"><%= item.brand %> <%= item.model %></div>
+              <div class="cart-item-price">Taille : <%= item.size %></div>
               <div class="cart-item-price"><%= item.price %>€</div>
               <div class="cart-item-quantity">
 

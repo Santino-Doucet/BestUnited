@@ -34,7 +34,6 @@ export default class extends Controller {
     if (searchAddress) {
       await this.sleep(500)
       let inputMask = document.querySelector("#search_address")
-      console.log(inputMask, "MASK");
       this.addressTarget.value = searchAddress;
       inputMask.value = searchAddress;
     }
