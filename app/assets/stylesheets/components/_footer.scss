@@ -70,3 +70,13 @@
   color: #cb692f;
   transition: color 0.3s;
 }
+
+/* Add space on the left side of the first item ("Accueil") */
+.footer-icon-item-client:first-child.active {
+  margin-left: 10px; /* Adjust this value to control the space */
+}
+
+/* Add space on the right side of the last item ("Compte") */
+.footer-icon-item-client:last-child.active {
+  margin-right: 10px; /* Adjust this value to control the space */
+}
