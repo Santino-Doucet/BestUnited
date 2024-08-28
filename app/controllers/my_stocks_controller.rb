@@ -59,7 +59,7 @@ class MyStocksController < ApplicationController
     if items.empty?
       flash[:alert] = "Il n'y en a plus"
     else
-      flash[:notice] = "Item supprimé"
+      flash[:notice] = "Produit supprimé"
     end
   end
 
