@@ -139,18 +139,28 @@
   height: 50px;
   border-radius: 50%;
   border: 2px solid white;
-  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.4);
-  background-color: #CB692F;
-  color: white;
+  background-color: #CB692F; /* Ensure the background color is visible */
+  color: white; /* Ensure icon color is visible */
   font-size: 24px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Slight adjustment for better visibility */
   transition: background-color 0.3s ease;
+  z-index: 1000; /* Ensure button is above other elements */
 }
 
 .size-6-client {
-  height: 35px;
+  height: 30px; /* Adjusted height to better fit within button */
+  width: 30px;  /* Added width to match height */
+  stroke: white; /* Ensure the SVG stroke color is visible */
+  stroke-width: 2; /* Ensure the stroke width is consistent and visible */
 }
+
+// try this code if the cart icon is still not working
+// @media (max-width: 576px) {
+//   #round-button-client {
+//     display: block; /* Ensure it's not hidden */
+//   }
+// }
