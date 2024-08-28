@@ -17,21 +17,22 @@
         <% end %>
       </div>
 
-      <div data-controller="size-selector">
-  <div class="size-selector-container">
-    <div class="size-options">
-      <span data-size-selector-target="size" id="38" class="size-option">38</span>
-      <span data-size-selector-target="size" id="39" class="size-option">39</span>
-      <span data-size-selector-target="size" id="40" class="size-option">40</span>
-      <span data-size-selector-target="size" id="41" class="size-option">41</span>
-      <span data-size-selector-target="size" id="42" class="size-option active">42</span>
-      <span data-size-selector-target="size" id="43" class="size-option">43</span>
-      <span data-size-selector-target="size" id="44" class="size-option">44</span>
-      <span data-size-selector-target="size" id="45" class="size-option">45</span>
+    <div data-controller="size-selector">
+      <div class="size-selector-container">
+        <div class="size-options">
+          <span data-size-selector-target="size" id="38" class="size-option">38</span>
+          <span data-size-selector-target="size" id="39" class="size-option">39</span>
+          <span data-size-selector-target="size" id="40" class="size-option">40</span>
+          <span data-size-selector-target="size" id="41" class="size-option">41</span>
+          <span data-size-selector-target="size" id="42" class="size-option active">42</span>
+          <span data-size-selector-target="size" id="43" class="size-option">43</span>
+          <span data-size-selector-target="size" id="44" class="size-option">44</span>
+          <span data-size-selector-target="size" id="45" class="size-option">45</span>
+        </div>
+        <input type="range" min="38" max="45" value="42" class="slider" data-action="size-selector#updateSize">
+      </div>
     </div>
-    <input type="range" min="38" max="45" value="42" class="slider" data-action="size-selector#updateSize">
-  </div>
-</div>
+
     <div class="product-info-items">
       <div class="product-details">
         <h3>Boutique</h3>
