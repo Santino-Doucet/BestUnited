@@ -18,7 +18,6 @@ export default class extends Controller {
     backDom.classList.add("active")
 
 
-
     overlayDom.classList.add("show");
   }
 

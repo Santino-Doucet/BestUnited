@@ -6,39 +6,14 @@ export default class extends Controller {
   static targets = ["brand", "brandInput","model", "modelInput","reference",
                     "referenceInput", "barcode", "barcodeInput", "overlay"];
   connect() {
+    console.log("Hello from our barcode controller");
 
-    const barcode = "0793393701806"
-    fetch(`/items/create_from_scan?barcode=${barcode}`, {
-      method: "post",
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        console.log('brand', data.items[0].brand);
-        const item = data.items[0];
-        this.brandInputTarget.value = item.brand;
-        this.brandTarget.innerHTML = `<p>${item.brand}</p>`;
-
-        const model = item["title"]
-        let words = model.split(" ");
-        let firstThreeWords = words.slice(0, 3).join(" ");
-        console.log('model', firstThreeWords);
-        this.modelInputTarget.value = firstThreeWords;
-        this.modelTarget.innerHTML = `<p>${firstThreeWords}</p>`;
-
-        // console.log('reference', data.items[0]);
-        // this.referenceInputTarget.value = item.reference;
-        // this.referenceTarget.innerHTML = `<p>${item.reference}</p>`;
-
-        console.log('barcode', data.items[0].ean);
-        this.barcodeInputTarget.value = item.ean;
-        this.barcodeTarget.innerHTML = `<p> n° code-barre: ${item.ean}</p>`;
-
-      });
       this.startWebcam();
   }
 
   async startWebcam() {
+    console.log("Starting webcam");
+
     try {
       // Specify constraints more clearly for mobile compatibility
       const constraints = {
@@ -50,6 +25,9 @@ export default class extends Controller {
       const stream = await navigator.mediaDevices.getUserMedia(constraints);
       document.querySelector("#barcode-scanner").srcObject = stream;
 
+      console.log("Webcam started");
+
+
       this.startQuagga(); // Initialize Quagga after getting the video stream
     } catch (error) {
       console.error("Error accessing webcam:", error);
@@ -57,6 +35,18 @@ export default class extends Controller {
   }
 
   startQuagga() {
+    console.log("Starting Quagga");
+    console.log(this.overlayTarget);
+    const overlay = this.overlayTarget;
+    const brand = this.brandTarget;
+    const brandInput = this.brandInputTarget;
+    const model = this.modelTarget;
+    const modelInput = this.modelInputTarget;
+    const reference = this.referenceTarget;
+    const referenceInput = this.referenceInputTarget;
+    const barcodeInput = this.barcode
+
+
     Quagga.init(
       {
         inputStream: {
@@ -94,32 +84,49 @@ export default class extends Controller {
     let oldBarcode;
 
     Quagga.onDetected(function (data) {
-      const barcode = data.codeResult.code;
+      let barcode = data.codeResult.code;
+      console.log("Barcode detected:", barcode);
+
+      barcode = '0793393701806'
+
       if (oldBarcode == barcode) {
         count += 1;
       } else {
         count = 0;
       }
 
-      if (count == 20) {
+      if (count == 1) {
         console.log("c'est lui", barcode);
         fetch(`/items/create_from_scan?barcode=${barcode}`, {
           method: "post",
         })
           .then((response) => response.json())
           .then((data) => {
-            console.log(data);
-            console.log('brand', data.items[0].brand);
+            overlay.classList.add("show");
+
             const item = data.items[0];
-            this.brandInputTarget.value = item.brand;
-            this.brandTarget.innerText = item.brand;
-            this.modelInputTarget.value = item.model;
-            this.modelTarget.innerHTML = item.model
+            brandInput.value = item.brand;
+            brand.innerHTML = `<p>${item.brand}</p>`;
+
+            const title = item["title"]
+            let words = title.split(" ");
+            let firstThreeWords = words.slice(0, 3).join(" ");
+            modelInput.value = firstThreeWords;
+            model.innerHTML = `<p>${firstThreeWords}</p>`;
+
+            // console.log('reference', data.items[0]);
+            // this.referenceInputTarget.value = item.reference;
+            // this.referenceTarget.innerHTML = `<p>${item.reference}</p>`;
+
+            barcodeInput.value = item.ean;
+            barcode.innerHTML = `<p> n° code-barre: ${item.ean}</p>`;
 
           });
       }
 
       oldBarcode = data.codeResult.code;
+
     });
+
   }
 }

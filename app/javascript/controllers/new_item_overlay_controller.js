@@ -7,9 +7,12 @@ export default class extends Controller {
   }
 
   deploy (event) {
-    let overlayDom = document.querySelector
+    
+    let overlayDom = document.querySelector(`.overlay-container`);
 
 
+    let backDom = document.querySelector(".overlay-back")
+    backDom.classList.add("active")
 
     overlayDom.classList.add("show");
   }
