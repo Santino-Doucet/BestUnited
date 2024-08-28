@@ -32,7 +32,7 @@ class CartsController < ApplicationController
     @cart.orders.each do |order|
       order.update(ordered_on: Date.today, status: 'En attente')
     end
-    redirect_to root_path, notice: "Votre commande est en cours de traitment!"
+    redirect_to root_path, notice: "Votre commande est en cours de traitement!"
   end
 
   private
