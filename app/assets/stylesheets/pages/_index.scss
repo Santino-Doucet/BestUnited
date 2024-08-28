@@ -85,18 +85,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 12px;
+  margin: 12px auto; /* Center it */
   background-color: #FFF;
   border-radius: 10px;
   border: 1px solid rgb(144, 142, 142);
   overflow: hidden;
-  margin-left: 16px;
-  margin-right: 16px;
-  // width: 100%;
-  // margin-top: 100px;
-  // width: calc(100% - 24px); /* Réduit la largeur pour compenser les marges */
-  // box-sizing: border-box;
-  // height: 40px;
+  width: calc(100% - 80px); /* Adjust width to match category tabs */
+  max-width: 600px; /* Set a maximum width */
+  box-sizing: border-box; /* Include padding and border in width */
 }
 
 .mt-100 {
@@ -104,17 +100,16 @@
 }
 
 .search-bar input {
-  width: 45% ;
+  flex: 1; /* Allow input to grow */
   padding: 8px 10px;
-  // width: auto; /* Ajuste la largeur automatiquement */
-  padding: 6px 10px; /* Réduit le padding intérieur pour rendre le champ plus fin */
   border: none;
   border-right: 1px solid #CCC;
   outline: none !important;
-  // box-sizing: border-box; /* Assure que le padding est inclus dans la largeur totale */
-  // height: 100%; /* Assure que le champ de recherche occupe toute la hauteur de la barre */
-  // font-size: 14px; /* Ajuste la taille de la police si nécessaire */
-  // margin-left: 8px;
+  font-size: 14px; /* Adjust font size */
+}
+
+.mt-100 {
+  margin-top: 100px;
 }
 
 .search-bar input.search-model {
@@ -128,7 +123,7 @@
 }
 
 .mapboxgl-ctrl-geocoder--input {
-  width: 160px !important;
+  width: 131px !important;
   height: 40px;
 }
 
@@ -197,13 +192,14 @@
 .category-tabs {
   display: flex;
   justify-content: space-around;
-  margin: 6px 0;
+  margin: 10px auto; /* Center it */
   background-color: white;
-  padding: 8px 0;
+  padding: 5px 0;
   border-radius: 10px;
-  margin: 4px 72px 5px 72px;
-  -webkit-box-shadow: 0px 1px 2px 2px #CB680B;
   box-shadow: 0px 1px 2px 2px #CB680B;
+  width: calc(100% - 80px); /* Match the width with the search bar */
+  max-width: 600px; /* Set a maximum width */
+  box-sizing: border-box; /* Include padding and border in width */
 }
 
 .tab-page-index {
