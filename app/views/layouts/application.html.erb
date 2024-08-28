@@ -24,14 +24,21 @@
 
   <body>
     <% if notice %>
-      <div class="flash-message-container">
-        <%= notice %>
-        <picture>
-          <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f38a/512.webp" type="image/webp">
-          <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f38a/512.gif" alt="🎊" width="32" height="32">
-        </picture>
-      </div>
+  <div class="flash-message-container">
+    <%= notice %>
+    <% if notice == "La quantité en stock n'est pas suffisante" %>
+      <picture>
+        <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f61e/512.webp" type="image/webp">
+        <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f61e/512.gif" alt="😞" width="32" height="32">
+      </picture>
+    <% else %>
+      <picture>
+        <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f38a/512.webp" type="image/webp">
+        <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f38a/512.gif" alt="🎊" width="32" height="32">
+      </picture>
     <% end %>
+  </div>
+<% end %>
     <%= yield %>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
