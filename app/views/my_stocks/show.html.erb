@@ -8,7 +8,7 @@
           Filtrer
         </button>
       </div>
-      <p><strong><%= @items.count %></strong> produits en stock</p>
+      <p class="item-en-stock-count"><strong><%= @items.count %></strong> produits en stock</p>
       <ul class="inventory-list" data-controller="overlay">
       <% @unique_items.each do |item| %>
         <li class="inventory-item" data-action="click->overlay#deploy_overlay" data-id="<%= item.id %>">
