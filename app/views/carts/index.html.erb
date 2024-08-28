@@ -3,142 +3,152 @@
     <h1 class="carts-title">Toutes mes commandes</h1>
   </header>
 
-<section class="carts-section">
-  <h2 class="carts-section-title">En attente de confirmation</h2>
-  <% if @pending_carts.empty?  %>
-    <p class="no-carts-message">Pas de commandes en attente pour le moment...</p>
-  <% else %>
-  <% @pending_carts.each do |cart| %>
-    <div class="carts-card" data-controller="cart-details" data-action="click->cart-details#toggleDetails">
-      <div class="carts-card-content">
-        <div class="carts-info">
-          <div class="carts-details">
-            <div class="carts-product-name"></div>
-            <div class="carts-date">
-              <p>Commande du <%= cart.validated_on %> <br>
-              <%= cart.items.count %> article commandé</p>
+  <section class="carts-section">
+    <h2 class="carts-section-title">En attente de confirmation</h2>
+    <% if @pending_carts.empty? %>
+      <p class="no-carts-message">Pas de commandes en attente pour le moment...</p>
+    <% else %>
+      <% @pending_carts.each do |cart| %>
+        <div class="carts-card" data-controller="cart-details" data-action="click->cart-details#toggleDetails">
+          <div class="carts-card-content">
+            <div class="carts-info">
+              <div class="carts-details">
+                <div class="carts-product-name"></div>
+                <div class="carts-date">
+                  <p>Commande du <%= cart.validated_on %> <br>
+                    <%= cart.items.count %> <%= cart.items.count == 1 ? 'article commandé' : 'articles commandés' %></p>
+                </div>
+              </div>
+            </div>
+            <div class="carts-actions">
+              <button class="carts-view-details-button">Voir détails</button>
             </div>
           </div>
-        </div>
-        <div class="carts-actions">
-          <button class="carts-view-details-button">Voir le détail</button>
-        </div>
-      </div>
-      <div class="carts-hidden-details" data-cart-details-target="details" style="display: none;">
-        <% total_price = 0 %>
-        <% cart.orders.each do |o| %>
-          <div class="info-order">
-            <p><%= o.company.name %></p>
-            <% grouped_items = o.items.group_by { |item| [item.brand, item.model, item.size, item.price] } %>
-            <% grouped_items.each do |group, items| %>
-              <% total_price += items.first.price * items.size %>
-              <p>
-                Modèle: <%= group[0] %> <%= group[1] %><br>
-                Taille : <%= group[2] %><br>
-                Prix : <%= group[3] %>€<br>
-                Quantité : <%= items.size %>
-              </p>
+          <div class="carts-hidden-details" data-cart-details-target="details" style="display: none;">
+            <% total_price = 0 %>
+            <% cart.orders.each do |o| %>
+              <% if o.items.any? %> <!-- Add check to ensure order has items -->
+                <div class="info-order">
+                  <p><%= o.company.name %></p>
+                  <% grouped_items = o.items.group_by { |item| [item.brand, item.model, item.size, item.price] } %>
+                  <% grouped_items.each do |group, items| %>
+                    <% total_price += items.first.price * items.size %>
+                    <p>
+                      Modèle: <%= group[0] %> <%= group[1] %><br>
+                      Taille : <%= group[2] %><br>
+                      Prix : <%= group[3] %>€<br>
+                      Quantité : <%= items.size %>
+                    </p>
+                  <% end %>
+                </div>
+              <% end %> <!-- End of if condition -->
             <% end %>
+            <p>Total de la commande : <%= total_price %>€</p>
           </div>
-        <% end %>
-        <p>Total de la commande : <%= total_price %>€</p>
-      </div>
-    </div>
-  <% end %>
-  <% end %>
-</section>
+        </div>
+      <% end %>
+    <% end %>
+  </section>
 
-<section class="carts-section">
-  <h2 class="carts-section-title">En cours</h2>
-  <% if @validated_carts.empty? %>
-    <p class="no-carts-message">Pas de commandes en attente pour le moment...</p>
-  <% else %>
-  <% @validated_carts.each do |cart| %>
-    <div class="carts-card" data-controller="cart-details" data-action="click->cart-details#toggleDetails">
-    <p>Expire dans 3 jours <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-    </svg>
-      <div class="carts-card-content">
-        <div class="carts-info">
-          <div class="carts-details">
-            <div class="carts-product-name"></div>
-            <div class="carts-date">
-              <p>Commande du <%= cart.validated_on %> <br>
-              <%= cart.items.count %> article commandé</p>
-            </div>
-          </div>
-        </div>
-        <div class="carts-actions">
-          <button class="carts-view-details-button">Voir le détail</button>
-        </div>
-      </div>
-      <div class="carts-hidden-details" data-cart-details-target="details" style="display: none;">
-        <% total_price = 0 %>
-        <% cart.orders.each do |o| %>
-          <div class="info-order">
-            <p><%= o.company.name %></p>
-            <% grouped_items = o.items.group_by { |item| [item.brand, item.model, item.size, item.price] } %>
-            <% grouped_items.each do |group, items| %>
-              <% total_price += items.first.price * items.size %>
-              <p>
-                Modèle: <%= group[0] %> <%= group[1] %><br>
-                Taille : <%= group[2] %><br>
-                Prix : <%= group[3] %>€<br>
-                Quantité : <%= items.size %>
-              </p>
-            <% end %>
-          </div>
-        <% end %>
-        <p>Total de la commande : <%= total_price %>€</p>
-      </div>
-    </div>
-  <% end %>
-<% end %>
-</section>
+  <!-- Repeat similar changes for the "En cours" and "Commandes précédentes" sections -->
 
-<section class="carts-section">
-  <h2 class="carts-section-title">Commandes précédentes</h2>
-  <% if @old_carts.empty? %>
-    <p class="no-carts-message">Vous n'avez pas encore d'anciennes commandes...</p>
-  <% else %>
-  <% @old_carts.each do |cart| %>
-    <div class="carts-card" data-controller="cart-details" data-action="click->cart-details#toggleDetails">
-      <div class="carts-card-content">
-        <div class="carts-info">
-          <div class="carts-details">
-            <div class="carts-product-name"></div>
-            <div class="carts-date">
-              <p>Commande du <%= cart.validated_on %> <br>
-              <%= cart.items.count %> article commandé</p>
+  <!-- "En cours" Section -->
+  <section class="carts-section">
+    <h2 class="carts-section-title">En cours</h2>
+    <% if @validated_carts.empty? %>
+      <p class="no-carts-message">Pas de commandes en attente pour le moment...</p>
+    <% else %>
+      <% @validated_carts.each do |cart| %>
+        <div class="carts-card" data-controller="cart-details" data-action="click->cart-details#toggleDetails">
+          <p>Expire dans 3 jours <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+          <div class="carts-card-content">
+            <div class="carts-info">
+              <div class="carts-details">
+                <div class="carts-product-name"></div>
+                <div class="carts-date">
+                  <p>Commande du <%= cart.validated_on %> <br>
+                    <%= cart.items.count %> <%= cart.items.count == 1 ? 'article commandé' : 'articles commandés' %></p>
+                </div>
+              </div>
+            </div>
+            <div class="carts-actions">
+              <button class="carts-view-details-button">Voir détails</button>
             </div>
           </div>
-        </div>
-        <div class="carts-actions">
-          <button class="carts-view-details-button">Voir le détail</button>
-        </div>
-      </div>
-      <div class="carts-hidden-details" data-cart-details-target="details" style="display: none;">
-        <% total_price = 0 %>
-        <% cart.orders.each do |o| %>
-          <div class="info-order">
-            <p><%= o.company.name %></p>
-            <% grouped_items = o.items.group_by { |item| [item.brand, item.model, item.size, item.price] } %>
-            <% grouped_items.each do |group, items| %>
-              <% total_price += items.first.price * items.size %>
-              <p>
-                Modèle: <%= group[0] %> <%= group[1] %><br>
-                Taille : <%= group[2] %><br>
-                Prix : <%= group[3] %>€<br>
-                Quantité : <%= items.size %>
-              </p>
+          <div class="carts-hidden-details" data-cart-details-target="details" style="display: none;">
+            <% total_price = 0 %>
+            <% cart.orders.each do |o| %>
+              <% if o.items.any? %> <!-- Add check to ensure order has items -->
+                <div class="info-order">
+                  <p><%= o.company.name %></p>
+                  <% grouped_items = o.items.group_by { |item| [item.brand, item.model, item.size, item.price] } %>
+                  <% grouped_items.each do |group, items| %>
+                    <% total_price += items.first.price * items.size %>
+                    <p>
+                      Modèle: <%= group[0] %> <%= group[1] %><br>
+                      Taille : <%= group[2] %><br>
+                      Prix : <%= group[3] %>€<br>
+                      Quantité : <%= items.size %>
+                    </p>
+                  <% end %>
+                </div>
+              <% end %> <!-- End of if condition -->
             <% end %>
+            <p>Total de la commande : <%= total_price %>€</p>
           </div>
-        <% end %>
-        <p>Total de la commande : <%= total_price %>€</p>
-      </div>
-    </div>
-  <% end %>
-<% end %>
-</section>
+        </div>
+      <% end %>
+    <% end %>
+  </section>
+
+  <!-- "Commandes précédentes" Section -->
+  <section class="carts-section">
+    <h2 class="carts-section-title">Commandes précédentes</h2>
+    <% if @old_carts.empty? %>
+      <p class="no-carts-message">Vous n'avez pas encore d'anciennes commandes...</p>
+    <% else %>
+      <% @old_carts.each do |cart| %>
+        <div class="carts-card" data-controller="cart-details" data-action="click->cart-details#toggleDetails">
+          <div class="carts-card-content">
+            <div class="carts-info">
+              <div class="carts-details">
+                <div class="carts-product-name"></div>
+                <div class="carts-date">
+                  <p>Commande du <%= cart.validated_on %> <br>
+                    <%= cart.items.count %> <%= cart.items.count == 1 ? 'article commandé' : 'articles commandés' %></p>
+                </div>
+              </div>
+            </div>
+            <div class="carts-actions">
+              <button class="carts-view-details-button">Voir détails</button>
+            </div>
+          </div>
+          <div class="carts-hidden-details" data-cart-details-target="details" style="display: none;">
+            <% total_price = 0 %>
+            <% cart.orders.each do |o| %>
+              <% if o.items.any? %> <!-- Add check to ensure order has items -->
+                <div class="info-order">
+                  <p><%= o.company.name %></p>
+                  <% grouped_items = o.items.group_by { |item| [item.brand, item.model, item.size, item.price] } %>
+                  <% grouped_items.each do |group, items| %>
+                    <% total_price += items.first.price * items.size %>
+                    <p>
+                      Modèle: <%= group[0] %> <%= group[1] %><br>
+                      Taille : <%= group[2] %><br>
+                      Prix : <%= group[3] %>€<br>
+                      Quantité : <%= items.size %>
+                    </p>
+                  <% end %>
+                </div>
+              <% end %> <!-- End of if condition -->
+            <% end %>
+            <p>Total de la commande : <%= total_price %>€</p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </section>
 </div>
 <%= render 'pages/footer' %>

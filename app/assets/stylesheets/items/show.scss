@@ -336,3 +336,12 @@
   position: relative; /* Position relative to slider track */
   z-index: 2; /* Make sure thumb is above the slider but below the options */
 }
+
+.size-option.unavailable {
+  color: gray; /* Or any style to indicate unavailability */
+  cursor: not-allowed;
+}
+
+.size-option.disabled {
+  pointer-events: none; /* Prevent clicks */
+}

@@ -4,7 +4,7 @@ require 'open-uri'
 
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show]
-  skip_before_action :verify_authenticity_token, only: [:create_from_scan]
+  skip_before_action :verify_authenticity_token, only: [:create_from_scan, :show]
 
   def index
     @items = Item.with_attached_photo.in_stock
@@ -50,6 +50,13 @@ class ItemsController < ApplicationController
 
   def show
     @user = current_user
+    @sizes = []
+    items = @item.same_in_stock_size.all
+    items.each do |item|
+      @sizes << item.size.to_i unless @sizes.include?(item.size.to_i)
+    end
+    puts params[:size]
+    @sizes = @sizes.sort
     unless @user.nil?
       @cart = current_user.carts.where(active: true).first
       @cart = Cart.create(user: current_user) unless @cart.present?
@@ -67,6 +74,13 @@ class ItemsController < ApplicationController
     else
       @distance = nil
     end
+  end
+
+  def find_item
+    @item = Item.find(params[:id])
+    @size = params[:size]
+    item = @item.same_in_stock_size.find_by(size: @size)
+    render json: {item_id: item.id }
   end
 
   def create_from_scan

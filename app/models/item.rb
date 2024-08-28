@@ -12,17 +12,6 @@ class Item < ApplicationRecord
   scope :not_in_stock, -> { joins(:orders).where(orders: { status: ["En attente", "Validée", "Refusée", "Effectuée"] }) }
   scope :in_stock, -> { where.not(id: not_in_stock) }
 
-  # Define the scope to find items with the same company, model, brand, price, and color
-  scope :similar_items, ->(item) {
-    where(
-      company_id: item.company_id,
-      model: item.model,
-      brand: item.brand,
-      price: item.price,
-      color: item.color
-    ).where.not(id: item.id) # Exclude the current item if needed
-  }
-
   include PgSearch::Model
   pg_search_scope :search_by_brand_model_reference_and_color,
                   against: [:brand, :model, :reference, :color],
@@ -40,6 +29,18 @@ class Item < ApplicationRecord
       size: size
     )
   end
+
+  def same_in_stock_size
+    company.items.where(
+      reference: reference,
+      brand: brand,
+      model: model,
+      color: color,
+      price: price
+    )
+  end
+
+
 
   def self.remove_duplicates(items)
     unique_items = {}

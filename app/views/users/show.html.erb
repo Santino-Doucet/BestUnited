@@ -3,7 +3,7 @@
     <div class="part-1">
       <div class="config">
         <div id="name-merchant">
-          Bonjour Santino 👋
+          Bonjour <%= @user.first_name %> 👋
         </div>
         <div class="date-display">
           <%= I18n.l(Date.today, format: "%A %d %B %Y") %>
