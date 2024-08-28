@@ -5,14 +5,19 @@
         <i class="fa-solid fa-arrow-left back-button"></i>
       <% end %>
       <%= render "pages/search_bar" %>
-      <div class="options">
-        <i class="fa-solid fa-sliders"></i>
-      </div>
     </div>
 
     <div class="result-info">
-      <p class="results-count"><strong><%= @items.size %></strong> articles trouvés</p>
-      <p class="sort-option">Trié par: recommander</p>
+      <p class="results-count">
+        <strong><%= @items.size %></strong>
+        <% if @items.size == 0 %>
+          article trouvé
+        <% elsif @items.size == 1 %>
+          article trouvé
+        <% else %>
+          articles trouvés
+        <% end %>
+      </p>
     </div>
 
     <div class="products-grid">
