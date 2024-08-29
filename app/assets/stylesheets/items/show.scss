@@ -2,7 +2,7 @@
   overflow: hidden;
   position: relative;
   z-index: 2;
-  background: url('assets/background_item.png') no-repeat center center;
+  background: url('assets/bg-carts.png') no-repeat center center;
   background-size: cover;
   width: 100% !important;
   height: 100vh !important;
@@ -53,7 +53,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 0;
+  padding-top: 12px;
   position: relative;
 }
 
@@ -103,13 +103,18 @@
 
 .product-info-items {
   padding: 20px;
+  padding-top: 4px;
   padding-bottom: 1px;
   margin: auto;
   width: 100%;
 }
 
+#boutique{
+  padding-top: 8px;
+}
+
 .product-details h3 {
-  margin-bottom: 10px;
+  margin-bottom: 4px;
   font-size: 18px;
   font-weight: bold;
 }
@@ -117,8 +122,8 @@
 .details-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 10px;
+  gap: 4px;
+  padding-bottom: 4px;
 }
 
 .detail-label {
@@ -172,8 +177,7 @@
   cursor: pointer;
   font-size: 16px;
   width: auto;
-  margin-top: 20px;
-  margin-bottom: 50px;
+  margin-bottom: 80px;
 }
 
 .button-container {
@@ -308,6 +312,7 @@
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
+  top: -16px;
   height: 40px; /* Match the height of the container */
   outline: none;
   border-radius: 999px;
@@ -320,6 +325,7 @@
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
+  top: -16px;
   width: 40px; /* Match the width of the size option */
   height: 40px; /* Match the height of the size option */
   background: transparent; /* Make thumb transparent */
@@ -331,7 +337,8 @@
 
 .slider::-moz-range-thumb {
   width: 40px; /* Match the width of the size option */
-  height: 40px; /* Match the height of the size option */
+  height: 40px;
+  top: -16x;/* Match the height of the size option */
   background: transparent; /* Make thumb transparent */
   border: none; /* Remove any border */
   cursor: pointer;
