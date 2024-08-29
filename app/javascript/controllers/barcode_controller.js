@@ -4,7 +4,7 @@ import Quagga from "quagga";
 // Connects to data-controller="barcode"
 export default class extends Controller {
   static targets = ["brand", "brandInput","model", "modelInput","reference",
-                    "referenceInput", "barcode", "barcodeInput", "image", "imageInput", "overlay"];
+                    "referenceInput", "barcode", "barcodeInput", "photo", "photoInput", "overlay"];
   connect() {
     console.log("Hello from our barcode controller");
 
@@ -44,9 +44,10 @@ export default class extends Controller {
     const modelInput = this.modelInputTarget;
     const reference = this.referenceTarget;
     const referenceInput = this.referenceInputTarget;
-    const barcodeInput = this.barcodeTarget;
-    const image = this.imageTarget;
-    const imageInput = this.imageInputTarget;
+    const barcode = this.barcodeTarget;
+    const barcodeInput = this.barcodeInputTarget;
+    const photo = this.photoTarget;
+    const photoInput = this.photoInputTarget;
 
 
     Quagga.init(
@@ -86,19 +87,19 @@ export default class extends Controller {
     let oldBarcode;
 
     Quagga.onDetected(function (data) {
-      let barcode = data.codeResult.code;
-      console.log("Barcode detected:", barcode);
+      let barcodet = data.codeResult.code;
+      console.log("Barcode detected:", barcodet);
 
 
-      if (oldBarcode == barcode) {
+      if (oldBarcode == barcodet) {
         count += 1;
       } else {
         count = 0;
       }
 
-      if (count == 1) {
-        console.log("c'est lui", barcode);
-        fetch(`/items/create_from_scan?barcode=${barcode}`, {
+      if (count == 5) {
+        console.log("c'est lui", barcodet);
+        fetch(`/items/create_from_scan?barcode=${barcodet}`, {
           method: "post",
         })
           .then((response) => response.json())
@@ -119,10 +120,11 @@ export default class extends Controller {
             // this.referenceInputTarget.value = item.reference;
             // this.referenceTarget.innerHTML = `<p>${item.reference}</p>`;
             barcodeInput.value = item.ean;
-            barcodeInput.innerHTML = `<p> N° code-barre: ${item.ean} </p>`;
+            barcode.innerHTML = `<p> N° code-barre: ${item.ean} </p>`;
 
-            // imageInput.value = item.image;
-            // imageInput.innerHTML = `<%= cl_image_tag ${item.image}, crop: :fill, alt: "shoe", class: "product-image-items"%>`;
+            console.log(item)
+            photoInput.value = item.images[0];
+            photo.innerHTML = `<img src="${item.images[0]}", alt="shoe", class="product-image-items">`;
 
           });
       }

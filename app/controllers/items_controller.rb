@@ -91,10 +91,9 @@ class ItemsController < ApplicationController
 
   def create
     params[:quantity].to_i.times do
-      item = Item.new(item_params)
-      item.company = current_user.companies.first
-      # file = URI.open(response_body["items"][0]["images"][0])
-      # item.photo.attach(io: file, filename: "shoe.jpg" , content_type: "image/jpg")
+      item = Item.new(barcode: item_params[:barcode], brand: item_params[:brand], model: item_params[:model], color: item_params[:color], price: item_params[:price], size: item_params[:size], company: current_user.companies.first)
+      file = URI.open(item_params[:photo])
+      item.photo.attach(io: file, filename: 'shoe.png' , content_type: 'image/png')
       item.save!
     end
   end
@@ -106,7 +105,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:reference, :brand, :model, :color, :price, :size, :barcode)
+    params.require(:item).permit(:reference, :brand, :model, :color, :price, :size, :barcode, :photo)
   end
 
   def valid_coordinates?(lat, lng)
