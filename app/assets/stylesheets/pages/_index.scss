@@ -46,7 +46,7 @@
   color: black;
   border: 1.5px solid #CB680B;
   margin-left: 4px;
-  border-radius: 6px;
+  border-radius: 8px;
   width: 80px;
   height: 35px;
   line-height: 32px;
@@ -87,7 +87,7 @@
   align-items: center;
   margin: 12px auto; /* Center it */
   background-color: #FFF;
-  border-radius: 10px;
+  border-radius: 8px;
   border: 1px solid rgb(144, 142, 142);
   overflow: hidden;
   width: calc(100% - 80px); /* Adjust width to match category tabs */
@@ -171,7 +171,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0 20px 20px 0;
+  border-radius: 0 8px 8px 0;
 }
 
 .tagline {
