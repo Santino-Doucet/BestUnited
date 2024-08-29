@@ -46,6 +46,7 @@ export default class extends Controller {
       legend: {
           show: true,
           position: 'right',
+          offsetX: 16,
           offsetY: 0,
           height: 230,
           fontSize: '28px', // Taille de la police pour la légende

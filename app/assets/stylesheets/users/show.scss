@@ -113,8 +113,12 @@ padding-bottom: 8px;
 
 }
 
+#chart{
+  margin-bottom: 40px;
+}
+
 .chart {
-  padding-bottom: 20px;
+  padding-bottom:16px;
   margin-top: 20px;
   border-radius: 8px;
   display: flex;
@@ -226,6 +230,10 @@ padding-bottom: 8px;
 
 .apexcharts-legend.apexcharts-align-center.apx-legend-position-bottom {
   display: none;
+}
+
+.apexcharts-legend.apexcharts-align-center.apx-legend-position-right {
+  right: 20px !important;
 }
 
 #scan-image{
