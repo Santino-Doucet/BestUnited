@@ -4,7 +4,7 @@ import Quagga from "quagga";
 // Connects to data-controller="barcode"
 export default class extends Controller {
   static targets = ["brand", "brandInput","model", "modelInput","reference",
-                    "referenceInput", "barcode", "barcodeInput", "overlay"];
+                    "referenceInput", "barcode", "barcodeInput", "image", "imageInput", "overlay"];
   connect() {
     console.log("Hello from our barcode controller");
 
@@ -44,7 +44,9 @@ export default class extends Controller {
     const modelInput = this.modelInputTarget;
     const reference = this.referenceTarget;
     const referenceInput = this.referenceInputTarget;
-    const barcodeInput = this.barcode
+    const barcodeInput = this.barcodeTarget;
+    const image = this.imageTarget;
+    const imageInput = this.imageInputTarget;
 
 
     Quagga.init(
@@ -87,7 +89,6 @@ export default class extends Controller {
       let barcode = data.codeResult.code;
       console.log("Barcode detected:", barcode);
 
-      barcode = '0793393701806'
 
       if (oldBarcode == barcode) {
         count += 1;
@@ -106,9 +107,9 @@ export default class extends Controller {
 
             const item = data.items[0];
             brandInput.value = item.brand;
-            brand.innerHTML = `<p>${item.brand}</p>`;
+            brand.innerHTML = `<p> ${item.brand} </p>`;
 
-            const title = item["title"]
+            const title = item["title"];
             let words = title.split(" ");
             let firstThreeWords = words.slice(0, 3).join(" ");
             modelInput.value = firstThreeWords;
@@ -117,9 +118,11 @@ export default class extends Controller {
             // console.log('reference', data.items[0]);
             // this.referenceInputTarget.value = item.reference;
             // this.referenceTarget.innerHTML = `<p>${item.reference}</p>`;
-
             barcodeInput.value = item.ean;
-            barcode.innerHTML = `<p> n° code-barre: ${item.ean}</p>`;
+            barcodeInput.innerHTML = `<p> N° code-barre: ${item.ean} </p>`;
+
+            // imageInput.value = item.image;
+            // imageInput.innerHTML = `<%= cl_image_tag ${item.image}, crop: :fill, alt: "shoe", class: "product-image-items"%>`;
 
           });
       }
