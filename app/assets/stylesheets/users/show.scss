@@ -247,3 +247,9 @@ padding-bottom: 8px;
 #chart{
   margin-left: -20px;
 }
+
+.apexcharts-legend-series {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
