@@ -331,9 +331,12 @@
   background: transparent; /* Make thumb transparent */
   border: none; /* Remove any border */
   cursor: pointer;
+  box-shadow: none;
   position: relative; /* Position relative to slider track */
   z-index: 2; /* Make sure thumb is above the slider but below the options */
 }
+
+
 
 .slider::-moz-range-thumb {
   width: 40px; /* Match the width of the size option */
@@ -344,6 +347,8 @@
   cursor: pointer;
   position: relative; /* Position relative to slider track */
   z-index: 2; /* Make sure thumb is above the slider but below the options */
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .size-option.unavailable {
