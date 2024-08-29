@@ -137,3 +137,30 @@ input.mapboxgl-ctrl-geocoder--input {
   justify-content: center;
   border-radius: 0 20px 20px 0;
 }
+
+
+.suggestions-wrapper {
+  position: absolute;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px 15px 0 0;
+  ul {
+    padding: 15px !important;
+    background-color: white;
+    border-radius: 8px;
+    li:first-child {
+      border-top: none;
+    }
+    li {
+      margin: 5px 0;
+      border-top: 1px solid #CCC;
+    }
+  }
+  .mapboxgl-ctrl-geocoder--powered-by {
+    a {
+      display: none;
+    }
+  }
+}
