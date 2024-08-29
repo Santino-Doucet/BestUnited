@@ -118,9 +118,12 @@
   border-color: #CCC !important;
   border-radius: 0 !important;
   width: 100%;
-  color: #545454;
+  color: #545454 !important;
   font-size: 16px;
-  opacity: 0.65;
+}
+
+.search-model::placeholder {
+  color: #A2A2A2 !important;
 }
 
 .input.search-model input:focus {
@@ -326,4 +329,8 @@ input.mapboxgl-ctrl-geocoder--input {
 
 .fa-solid{
   margin-right: 14px;
+}
+
+.fa-solid.fa-magnifying-glass{
+  margin-right: 0px;
 }
