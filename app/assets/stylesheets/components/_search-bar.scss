@@ -77,8 +77,12 @@
   width: 100%;
   font-size: 16px;
   color:#545454 !important;
-  opacity: 0.65;
 }
+
+.search-model::placeholder {
+  color: #A2A2A2 !important;
+}
+
 
 .input.search-model input:focus {
   outline: none !important;
