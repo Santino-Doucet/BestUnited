@@ -149,17 +149,14 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Slight adjustment for better visibility */
   transition: background-color 0.3s ease;
   z-index: 1000; /* Ensure button is above other elements */
-  svg {
-    color: white;
-    stroke: white;
-  }
 }
 
 .size-6-client {
-  height: 30px; /* Adjusted height to better fit within button */
-  width: 30px;  /* Added width to match height */
-  stroke: white; /* Ensure the SVG stroke color is visible */
+  height: 25px; /* Adjusted height to better fit within button */
+  width: 25px;  /* Added width to match height */
   stroke-width: 2; /* Ensure the stroke width is consistent and visible */
+  color: white;
+  stroke: white; /* Ensure the SVG stroke color is visible */
 }
 
 // try this code if the cart icon is still not working
