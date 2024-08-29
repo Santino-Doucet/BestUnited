@@ -9,7 +9,7 @@ export default class extends Controller {
     var options = {
       series: [44, 55, 13], // Les valeurs des segments (réduites à 3)
       chart: {
-          width: 380,
+          width: 420,
           type: 'donut',
       },
       colors: ['#f2be8a', '#d76531', '#000000'], // Les couleurs personnalisées pour 3 segments
@@ -29,7 +29,7 @@ export default class extends Controller {
               },
               legend: {
                   show: true, // Assurez-vous que la légende est activée sur les petits écrans
-                  fontSize: '12px', // Taille de la police pour les petits écrans
+                  fontSize: '16px', // Taille de la police pour les petits écrans
                   itemMargin: {
                       horizontal: 10, // Espacement horizontal entre les éléments
                       vertical: 5 // Espacement vertical entre les éléments
@@ -46,10 +46,10 @@ export default class extends Controller {
       legend: {
           show: true,
           position: 'right',
-          offsetX: 16,
+          offsetX: 24,
           offsetY: 0,
           height: 230,
-          fontSize: '28px', // Taille de la police pour la légende
+          fontSize: '16px', // Taille de la police pour la légende
           itemMargin: {
               horizontal: 10, // Espacement horizontal entre les éléments
               vertical: 16 // Espacement vertical entre les éléments
