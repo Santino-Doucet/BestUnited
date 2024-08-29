@@ -4,7 +4,7 @@ import Quagga from "quagga";
 // Connects to data-controller="barcode"
 export default class extends Controller {
   static targets = ["brand", "brandInput","model", "modelInput","reference",
-                    "referenceInput", "barcode", "barcodeInput", "overlay"];
+                    "referenceInput", "barcode", "barcodeInput", "photo", "photoInput", "overlay"];
   connect() {
     console.log("Hello from our barcode controller");
 
@@ -44,7 +44,10 @@ export default class extends Controller {
     const modelInput = this.modelInputTarget;
     const reference = this.referenceTarget;
     const referenceInput = this.referenceInputTarget;
-    const barcodeInput = this.barcode
+    const barcode = this.barcodeTarget;
+    const barcodeInput = this.barcodeInputTarget;
+    const photo = this.photoTarget;
+    const photoInput = this.photoInputTarget;
 
 
     Quagga.init(
@@ -84,20 +87,19 @@ export default class extends Controller {
     let oldBarcode;
 
     Quagga.onDetected(function (data) {
-      let barcode = data.codeResult.code;
-      console.log("Barcode detected:", barcode);
+      let barcodet = data.codeResult.code;
+      console.log("Barcode detected:", barcodet);
 
-      barcode = '0793393701806'
 
-      if (oldBarcode == barcode) {
+      if (oldBarcode == barcodet) {
         count += 1;
       } else {
         count = 0;
       }
 
-      if (count == 1) {
-        console.log("c'est lui", barcode);
-        fetch(`/items/create_from_scan?barcode=${barcode}`, {
+      if (count == 5) {
+        console.log("c'est lui", barcodet);
+        fetch(`/items/create_from_scan?barcode=${barcodet}`, {
           method: "post",
         })
           .then((response) => response.json())
@@ -106,9 +108,9 @@ export default class extends Controller {
 
             const item = data.items[0];
             brandInput.value = item.brand;
-            brand.innerHTML = `<p>${item.brand}</p>`;
+            brand.innerHTML = `<p> ${item.brand} </p>`;
 
-            const title = item["title"]
+            const title = item["title"];
             let words = title.split(" ");
             let firstThreeWords = words.slice(0, 3).join(" ");
             modelInput.value = firstThreeWords;
@@ -117,9 +119,12 @@ export default class extends Controller {
             // console.log('reference', data.items[0]);
             // this.referenceInputTarget.value = item.reference;
             // this.referenceTarget.innerHTML = `<p>${item.reference}</p>`;
-
             barcodeInput.value = item.ean;
-            barcode.innerHTML = `<p> n° code-barre: ${item.ean}</p>`;
+            barcode.innerHTML = `<p> N° code-barre: ${item.ean} </p>`;
+
+            console.log(item)
+            photoInput.value = item.images[0];
+            photo.innerHTML = `<img src="${item.images[0]}", alt="shoe", class="product-image-items">`;
 
           });
       }

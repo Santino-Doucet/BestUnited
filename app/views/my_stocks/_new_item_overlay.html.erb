@@ -6,11 +6,12 @@
       </svg>
     </div>
     <div class="title container">
-      <h4>Details du produit</h4>
+      <h4>Détails du produit</h4>
     </div>
     <div class="infos">
       <div class="overlay-image container">
-        <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/c675b935-075d-4eac-a633-da43a448188b/free-rn-by-you-custom-womens-road-running-shoes-1XV9GM.png" alt="shoe" class="product-image-items">
+        <%= f.hidden_field :photo, data: { barcode_target: "photoInput" } %>
+        <div id="staticContent" data-barcode-target="photo"></div>
       </div>
       <div class="item-main-infos">
         <%= f.hidden_field :brand, data: { barcode_target: "brandInput" } %>
@@ -43,7 +44,7 @@
     <div class="color">
         Couleur(s)
         <br>
-        <%= f.text_field :color, value: "rouge", class: "big-input" %>
+        <%= f.text_field :color, value: "Noir", class: "big-input" %>
     </div>
     <div class="quantity-selector-new">
       <div class="quantity-value">
@@ -53,6 +54,6 @@
       </div>
     </div>
     </div>
-    <%= f.submit "ajouter au stock", class:"carts-view-details-button add-stock-btn" %>
+    <%= f.submit "Ajouter au stock", class:"carts-view-details-button add-stock-btn" %>
   <% end %>
 </div>
