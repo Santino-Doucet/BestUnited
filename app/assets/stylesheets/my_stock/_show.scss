@@ -221,33 +221,29 @@
 font-size: 60px;
 }
 
-#round-button {
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  border: 2px solid rgb(255, 255, 255);
-  box-shadow:8px 8px 16px rgba(0, 0, 0, 0.4);
-  background-color: #cb692f;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
-}
+// #round-button {
+//   position: fixed;
+//   bottom: 80px;
+//   right: 20px;
+//   width: 70px;
+//   height: 70px;
+//   border-radius: 50%;
+//   border: 2px solid rgb(255, 255, 255);
+//   box-shadow:8px 8px 16px rgba(0, 0, 0, 0.4);
+//   background-color: #cb692f;
+//   color: white;
+//   font-size: 24px;
+//   cursor: pointer;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+//   transition: background-color 0.3s ease;
+// }
 
-.round-button:hover {
-  background-color:#f6b875;
-}
-
-.round-button:focus {
-  outline: none;
-}
+// .round-button:focus {
+//   outline: none;
+// }
 
 img.stock-item {
   width: 75px;
