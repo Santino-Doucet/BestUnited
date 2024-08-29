@@ -211,6 +211,7 @@ input.mapboxgl-ctrl-geocoder--input {
 
 .tab-page-index {
   background-color: transparent;
+  outline: none;
   border: none;
   padding: 8px;
   font-size: 14px;
@@ -224,6 +225,8 @@ input.mapboxgl-ctrl-geocoder--input {
   color: white;
   border-radius: 8px;
   font-family: "Poppins", sans-serif;
+  border: none !important;
+  outline: none;
 }
 
 .card-section-page-index .card-page-index img {
@@ -239,14 +242,16 @@ input.mapboxgl-ctrl-geocoder--input {
 }
 
 .card-section-page-index.active {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   padding-top: 28px;
   margin: 8px;
   margin-bottom: 7vh;
+  gap: 1rem;
 }
 
 .card-page-index {
-  width: 45%;
+  width: 100%;
   text-align: center;
 }
 
