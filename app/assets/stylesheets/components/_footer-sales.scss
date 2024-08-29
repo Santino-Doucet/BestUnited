@@ -35,6 +35,10 @@
   align-items: center;
 }
 
+.footer-icon-item a:hover {
+  text-decoration: none;
+}
+
 .footer-icon-item svg {
   width: 30px; /* Ajustez la taille de l'icône ici */
   height: 30px;
