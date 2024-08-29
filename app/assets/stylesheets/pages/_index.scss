@@ -90,7 +90,7 @@
   border-radius: 10px;
   border: 1px solid rgb(144, 142, 142);
   overflow: hidden;
-  width: calc(100% - 80px); /* Adjust width to match category tabs */
+  width: calc(100% - 34px); /* Adjust width to match category tabs */
   max-width: 600px; /* Set a maximum width */
   box-sizing: border-box; /* Include padding and border in width */
 }
@@ -195,10 +195,10 @@
   justify-content: space-around;
   margin: 10px auto; /* Center it */
   background-color: white;
-  padding: 5px 0;
+  padding: 8px 0;
   border-radius: 10px;
-  box-shadow: 0px 1px 2px 2px #CB680B;
-  width: calc(100% - 80px); /* Match the width with the search bar */
+  box-shadow: 0px 1px 0px 2px #CB680B;
+  width: calc(100% - 34px); /* Match the width with the search bar */
   max-width: 600px; /* Set a maximum width */
   box-sizing: border-box; /* Include padding and border in width */
 }
@@ -206,7 +206,7 @@
 .tab-page-index {
   background-color: transparent;
   border: none;
-  padding: 8px;
+  padding: 4px 24px;
   font-size: 14px;
   color: black;
   cursor: pointer;
