@@ -130,6 +130,10 @@
   height: 40px;
 }
 
+input.mapboxgl-ctrl-geocoder--input {
+  color:#545454 !important;
+}
+
 .search-bar .mapboxgl-ctrl-geocoder--button{
   display: none !important;
 }
