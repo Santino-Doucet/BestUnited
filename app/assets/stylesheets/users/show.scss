@@ -24,8 +24,9 @@ padding-bottom: 8px;
 #name-merchant{
   margin-left: 12px;
   color: #545454;
-  font-size: 18px;
+  font-size: 20px;
   text-align: left;
+  font-weight: bold;
 }
 
 .date-display {
@@ -64,9 +65,16 @@ padding-bottom: 8px;
 .part-1 p.total-revenue {
   font-size: 36px;
   color: #CB680C;
-  margin: 0;
   padding-bottom: 4px;
   margin: 1px 12px;
+    margin-top: 1px;
+    margin-right: 12px;
+    margin-bottom: 1px;
+    margin-left: 12px;
+    margin-top: 1px;
+  margin-top: 1px;
+  margin-top: -13px;
+  margin-bottom: 10px;
 }
 
 .kpi {
