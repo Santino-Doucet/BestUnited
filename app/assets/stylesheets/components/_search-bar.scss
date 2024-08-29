@@ -68,12 +68,15 @@
   // height: 100%; /* Assure que le champ de recherche occupe toute la hauteur de la barre */
   // font-size: 14px; /* Ajuste la taille de la police si nécessaire */
   // margin-left: 8px;
+  color:#545454 !important;
 }
 
 .search-bar-items input.search-model {
   border-color: #CCC !important;
   border-radius: 0 !important;
   width: 100%;
+  font-size: 16px;
+  color:#545454 !important;
 }
 
 .input.search-model input:focus {
@@ -83,6 +86,8 @@
 .search-bar-items .mapboxgl-ctrl-geocoder--input {
   width: 160px !important;
   height: 40px;
+  font-size: 16px;
+  color:#545454 !important;
 }
 
 .search-bar-items .mapboxgl-ctrl-geocoder--button{
