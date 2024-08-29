@@ -57,10 +57,6 @@
       padding: 16px;
     }
 
-    .add-stock-btn {
-      z-index: 100000;
-    }
-
     .little-input {
       width: 59px;
       padding: 10px;
@@ -140,9 +136,12 @@
     right: 183px;
     left: 201px;
     position: relative;
+    z-index: 100000;
+    width: 132px;
+    height: 46px;
+    font-size: 16px;
+
   }
-
-
 
   .quantity-btn {
       background-color: #cb680b; /* Button color */
