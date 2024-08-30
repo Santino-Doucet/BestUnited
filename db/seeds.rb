@@ -34,7 +34,7 @@ commercant = User.create!(
   password: 'password',
   age: 20,
   gender: 'Homme',
-  address: '22 rue des capucins Lyon',
+  address: '2 Place Lucien Artaud, Bandol',
   phone_number: '0601020304',
   first_name: 'Santino',
   last_name: 'Doucet'
@@ -46,7 +46,7 @@ commercant2 = User.create!(
   password: 'password',
   age: 27,
   gender: 'Femme',
-  address: '2 Place Lucien Artaud, Bandol',
+  address: '22 rue des capucins, Lyon',
   phone_number: '0601020310',
   first_name: 'Ji-Fang',
   last_name: 'Lo'
@@ -70,7 +70,7 @@ company = Company.create!(
   siren: '987654321',
   name: "L'atelier des sneakers",
   address: '4 rue des capucins Lyon',
-  user: commercant
+  user: commercant2
 )
 
 puts "Create company 2"
@@ -78,7 +78,7 @@ company2 = Company.create!(
   siren: '123456789',
   name: "Chez Sneaky",
   address: '2 Place Lucien Artaud, Bandol',
-  user: commercant2
+  user: commercant
 )
 
 companies = [company, company2]
